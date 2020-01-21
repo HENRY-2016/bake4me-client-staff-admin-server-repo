@@ -1,0 +1,275 @@
+
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>kan kan | Mapai Record Taken</title>
+
+<script src="static/js/names.js"></script>
+<script src="static/js/main.js"></script>
+<script>
+function Init_Adesilex_P7_div () {Show_Adesilex_P7_Id (); check_sadolin_staffs_status ("sadolin-adesilexp7-staffs");}
+function Init_Planiseal_288_A_Grey_div () {Show_Planiseal_288_A_Grey_Id (); check_sadolin_staffs_status ("sadolin-planiseal-288-grey-staffs");}
+function Init_Planiseal_288_B_div () {Show_Planiseal_288_B_Id (); check_sadolin_staffs_status ("sadolin-planiseal-b-staffs");}
+function Init_Plastimul_DPM_div () {Show_Plastimul_DPM_Id (); check_sadolin_staffs_status ("sadolin-plastimul-dpm-staffs");}
+function Init_Keracolor_div () {Show_Keracolor_Id (); check_sadolin_staffs_status ("sadolin-keracolor-staffs");view_keracolor_names_status ("keracolor-names");}
+
+</script>
+<link rel="stylesheet" href="static/css/main.css">
+
+</head>
+<body class="main_body" onload="Hide_All_Mapei_Divs ()">
+	<center>
+		<img src="static/imgs/mapei/log.png" class="type-img" ><br>
+		<label class="out-let-name" >Mapei :: Select A Type</label><br>
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<button onclick="Init_Adesilex_P7_div  ()" class="clour_types_btn entries_page_fonts"> Adesilex P7</button><br>
+<!-- start sadolin undercoat types -->
+			<div id="Adesilex-P7-Id">
+				<!-- <form class="sadolin_form" action="http://127.0.0.1:3000/adesilexP7_record_taken" method="POST" > -->
+				<form action="http://172.105.158.108:3000/adesilexP7_record_taken"  method="POST" class="sadolin_form"> 
+					<img src="static/imgs/mapei/adesilexp7.png"  class="type-img-entries" ><br><br>
+            		<label class="agency-form-labels" >Name ::</label><br>
+						<select id="sadolin-adesilexp7-staffs" class="sadolin_form_input"  type="text"  autocomplete="off" name="uname" required="required">
+							<option value="..Name.." >Approved by...</option>
+						</select>
+						<br>
+
+					<label class="agency-form-labels" >Item Name ::</label><br>
+						<select id="thinner-names" required class="sadolin_form_input"  placeholder="Paint name" name="item_name">
+							<option > Name</option>
+							<option>Adesilex P7</option>
+						</select>
+						<br>
+					
+					<label class="agency-form-labels" >Quantity :: </label><br>
+						<input required autocomplete="off" class="sadolin_form_input" type="text" placeholder="Enter quantities" name="qty"><br>
+
+					<label class="agency-form-labels" >Date :: </label><br>
+						<input required class="sadolin_form_input" type="date" name="date"><br>
+
+					<label class="agency-form-labels">unit ::</label><br>
+						<select required class="sadolin_form_input" name="unit">
+						<option value="Select unit" >Select unit</option>
+						<option value="25 kgs">25 kgs</option>
+						</select>
+						<br>
+					<label class="agency-form-labels" >User Id :: </label><br>
+						<input required class="sadolin_form_input" type="password" name="user_id"><br><br>
+					<div id="inner-clear-submite-div">
+						<button type="reset" class="clear-btn entries_page_fonts">Clear</button>
+						<button type="submit" class="submite-btn entries_page_fonts" >Submite</button>
+					</div><br>
+				</form>
+        		<button onclick="Close_Adesilex_P7_Id()" class="clour_types_btn_close entries_page_fonts">Close</button>
+			</div><br>
+
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+
+<button onclick="Init_Planiseal_288_A_Grey_div  ()" class="clour_types_btn entries_page_fonts"> Planiseal 288/A Grey</button><br>
+	<div id="Planiseal-288-A-Grey-Id">
+		<!-- <form class="sadolin_form" action="http://127.0.0.1:3000/planiseal_grey_record_taken" method="POST" > -->
+		<form action="http://172.105.158.108:3000/planiseal_grey_record_taken"  method="POST" class="sadolin_form"> 
+			<img src="static/imgs/mapei/planiseal.png"  class="type-img-entries" ><br><br>
+			<label class="agency-form-labels" >Name ::</label><br>
+				<select id="sadolin-planiseal-288-grey-staffs" class="sadolin_form_input"  type="text"  autocomplete="off" name="uname" required="required">
+					<option value="..Name.." >Approved by...</option>
+				</select>
+				<br>
+
+			<label class="agency-form-labels" >Item Name ::</label><br>
+				<select id="thinner-names" required class="sadolin_form_input"  placeholder="Paint name" name="item_name">
+					<option > Name</option>
+					<option>Planiseal grey</option>
+				</select>
+				<br>
+			
+			<label class="agency-form-labels" >Quantity :: </label><br>
+				<input required autocomplete="off" class="sadolin_form_input" type="text" placeholder="Enter quantities" name="qty"><br>
+
+			<label class="agency-form-labels" >Date :: </label><br>
+				<input required class="sadolin_form_input" type="date" name="date"><br>
+
+			<label class="agency-form-labels">unit ::</label><br>
+				<select required class="sadolin_form_input" name="unit">
+				<option value="Select unit" >Select unit</option>
+				<option value="25 kgs">25 kgs</option>
+				</select>
+				<br>
+			<label class="agency-form-labels" >User Id :: </label><br>
+				<input required class="sadolin_form_input" type="password" name="user_id"><br><br>
+			<div id="inner-clear-submite-div">
+				<button type="reset" class="clear-btn entries_page_fonts">Clear</button>
+				<button type="submit" class="submite-btn entries_page_fonts" >Submite</button>
+			</div><br>
+		</form>
+		<button onclick="Close_Planiseal_288_A_Grey_Id()" class="clour_types_btn_close entries_page_fonts">Close</button>
+	</div><br>
+
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+
+<button onclick="Init_Planiseal_288_B_div  ()" class="clour_types_btn entries_page_fonts"> Planiseal 288/B</button><br>
+	<div id="Planiseal-288-B-Id">
+		<!-- <form class="sadolin_form" action="http://127.0.0.1:3000/planiseal_liquid_record_taken" method="POST" > -->
+		<form action="http://172.105.158.108:3000/planiseal_liquid_record_taken"  method="POST" class="sadolin_form"> 
+			<img src="static/imgs/mapei/planiseal_liquid.png"  class="type-img-entries" ><br><br>
+			<label class="agency-form-labels" >Name ::</label><br>
+				<select id="sadolin-planiseal-b-staffs" class="sadolin_form_input"  type="text"  autocomplete="off" name="uname" required="required">
+					<option value="..Name.." >Approved by...</option>
+				</select>
+				<br>
+
+			<label class="agency-form-labels" >Item Name ::</label><br>
+				<select id="thinner-names" required class="sadolin_form_input"  placeholder="Paint name" name="item_name">
+					<option > Name</option>
+					<option>Planiseal liquid</option>
+				</select>
+				<br>
+			
+			<label class="agency-form-labels" >Quantity :: </label><br>
+				<input required autocomplete="off" class="sadolin_form_input" type="text" placeholder="Enter quantities" name="qty"><br>
+
+			<label class="agency-form-labels" >Date :: </label><br>
+				<input required class="sadolin_form_input" type="date" name="date"><br>
+
+			<label class="agency-form-labels">unit ::</label><br>
+				<select required class="sadolin_form_input" name="unit">
+				<option value="Select unit" >Select unit</option>
+				<option value="5 ltrs">5 ltrs</option>
+				</select>
+				<br>
+			<label class="agency-form-labels" >User Id :: </label><br>
+				<input required class="sadolin_form_input" type="password" name="user_id"><br><br>
+			<div id="inner-clear-submite-div">
+				<button type="reset" class="clear-btn entries_page_fonts">Clear</button>
+				<button type="submit" class="submite-btn entries_page_fonts" >Submite</button>
+			</div><br>
+		</form>
+		<button onclick="Close_Planiseal_288_B_Id()" class="clour_types_btn_close entries_page_fonts">Close</button>
+	</div><br>
+
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+
+<button onclick="Init_Plastimul_DPM_div  ()" class="clour_types_btn entries_page_fonts"> Plastimul DPM </button><br>
+<!-- start sadolin undercoat types -->
+	<div id="Plastimul-DPM-Id">
+		<!-- <form class="sadolin_form" action="http://127.0.0.1:3000/plastimul_dpm_record_taken" method="POST" > -->
+		<form action="http://172.105.158.108:3000/plastimul_dpm_record_taken"  method="POST" class="sadolin_form"> 
+			<img src="static/imgs/mapei/DPM.png"  class="type-img-entries" ><br><br>
+			<label class="agency-form-labels" >Name ::</label><br>
+				<select id="sadolin-plastimul-dpm-staffs" class="sadolin_form_input"  type="text"  autocomplete="off" name="uname" required="required">
+					<option value="..Name.." >Approved by...</option>
+				</select>
+				<br>
+
+			<label class="agency-form-labels" >Item Name ::</label><br>
+				<select id="thinner-names" required class="sadolin_form_input"  placeholder="Paint name" name="item_name">
+					<option > Name</option>
+					<option> Plastimul DPM</option>
+				</select>
+				<br>
+			
+			<label class="agency-form-labels" >Quantity :: </label><br>
+				<input required autocomplete="off" class="sadolin_form_input" type="text" placeholder="Enter quantities" name="qty"><br>
+
+			<label class="agency-form-labels" >Date :: </label><br>
+				<input required class="sadolin_form_input" type="date" name="date"><br>
+
+			<label class="agency-form-labels">unit ::</label><br>
+				<select required class="sadolin_form_input" name="unit">
+				<option value="Select unit" >Select unit</option>
+				<option value="20 ltrs">20 ltrs</option>
+				</select>
+				<br>
+			<label class="agency-form-labels" >User Id :: </label><br>
+				<input required class="sadolin_form_input" type="password" name="user_id"><br><br>
+			<div id="inner-clear-submite-div">
+				<button type="reset" class="clear-btn entries_page_fonts">Clear</button>
+				<button type="submit" class="submite-btn entries_page_fonts" >Submite</button>
+			</div><br>
+		</form>
+		<button onclick="Close_Plastimul_DPM_Id()" class="clour_types_btn_close entries_page_fonts">Close</button>
+	</div><br>
+
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+
+<button onclick="Init_Keracolor_div  ()" class="clour_types_btn entries_page_fonts"> Keracolor </button><br>
+<!-- start sadolin undercoat types -->
+	<div id="Keracolor-Id">
+		<!-- <form class="sadolin_form" action="http://127.0.0.1:3000/keracolor_record_taken" method="POST" > -->
+		<form action="http://172.105.158.108:3000/keracolor_record_taken"  method="POST" class="sadolin_form"> 
+			<img src="static/imgs/mapei/keracolor.png"  class="type-img-entries" ><br><br>
+			<label class="agency-form-labels" >Name ::</label><br>
+				<select id="sadolin-keracolor-staffs" class="sadolin_form_input"  type="text"  autocomplete="off" name="uname" required="required">
+					<option value="..Name.." >Approved by...</option>
+				</select>
+				<br>
+
+				thinner<label class="agency-form-labels" >Item Name ::</label><br>
+				<select id="keracolor-names" required class="sadolin_form_input"  placeholder="Paint name" name="item_name">
+					<option > Name</option>
+				</select>
+				<br>
+			
+			<label class="agency-form-labels" >Quantity :: </label><br>
+				<input required autocomplete="off" class="sadolin_form_input" type="text" placeholder="Enter quantities" name="qty"><br>
+
+			<label class="agency-form-labels" >Date :: </label><br>
+				<input required class="sadolin_form_input" type="date" name="date"><br>
+
+			<label class="agency-form-labels">Unit ::</label><br>
+				<select required class="sadolin_form_input" name="unit">
+				<option value="Select unit" >Select unit</option>
+				<option value="15 kgs">15 kgs</option>
+				</select>
+				<br>
+			<label class="agency-form-labels" >User Id :: </label><br>
+				<input required class="sadolin_form_input" type="password" name="user_id"><br><br>
+			<div id="inner-clear-submite-div">
+				<button type="reset" class="clear-btn entries_page_fonts">Clear</button>
+				<button type="submit" class="submite-btn entries_page_fonts" >Submite</button>
+			</div><br>
+		</form>
+		<button onclick="Close_Keracolor_Id()" class="clour_types_btn_close entries_page_fonts">Close</button>
+	</div><br>
+
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+
+
+
+
+
+
+
+
+
+
+			<button class="home-btn" onclick="Load_home_page ()">Home</button>	
+
+	</center>
+</body>
+</html>

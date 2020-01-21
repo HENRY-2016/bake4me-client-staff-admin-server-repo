@@ -1,0 +1,719 @@
+
+
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>kan kan | Weather View</title>
+
+	<script src="static/js/main.js"></script>
+	<script src="static/js/weather_stock_received.js"></script>
+	<script src="static/js/weather_stock_flow.js"></script>
+	<script src="static/js/names.js"></script>
+
+<script>
+function do_hidding_of_divs () {hide_divs_and_Load_offline_data ();hide_stock_flow_divs_and_Load_offline_data ();}
+function init_weather_search_by_name_div () {show_weather_search_by_name_div (); view_weather_names_status ("weather-names-1");}
+function init_weather_search_by_size_div () {show_weather_search_by_size_div (); view_weather_names_status ("weather-names-2");}
+function init_date_name_date_grand_child_div () {show_date_name_date_grand_child_div (); view_weather_names_status ("weather-names-3");}
+function init_from_to_by_name_grand_child_div () {show_from_to_by_name_grand_child_div (); view_weather_names_status ("weather-names-4");}
+function init_last_week_by_name_grand_child_div () {show_last_week_by_name_grand_child_div (); view_weather_names_status ("weather-names-5");}
+function init_this_month_by_name_grand_child_div () {show_this_month_by_name_grand_child_div (); view_weather_names_status ("weather-names-6");}
+function init_last_month_by_name_grand_child_div () {show_last_month_by_name_grand_child_div (); view_weather_names_status ("weather-names-7");}
+
+
+function init_stock_flow_by_name_div () {show_stock_flow_by_name_div (); view_weather_names_status ("weather-names-8");}
+function init_stock_flow_by_size_div () {show_stock_flow_by_size_div (); view_weather_names_status ("weather-names-9");}
+function init_stock_flow_date_name_date_grand_child_div () {stock_flow_date_name_date_grand_child_div (); view_weather_names_status ("weather-names-10");}
+function init_stock_flow_from_to_by_name_grand_child_div () {stock_flow_from_to_by_name_grand_child_div (); view_weather_names_status ("weather-names-11");}
+function init_stock_flow_last_week_by_name_grand_child_div () {stock_flow_last_week_by_name_grand_child_div (); view_weather_names_status ("weather-names-12");}
+function init_stock_flow_this_month_by_name_grand_child_div () {stock_flow_this_month_by_name_grand_child_div (); view_weather_names_status ("weather-names-13");}
+function init_stock_flow_last_month_by_name_grand_child_div () {stock_flow_last_month_by_name_grand_child_div (); view_weather_names_status ("weather-names-14");}
+function init_stock_status_view_by_name_div () {show_stock_status_view_by_name_div (); view_weather_names_status ("weather-names-15");}
+
+
+</script>
+	<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="static/css/w3.css">
+
+</head>
+<body onload="do_hidding_of_divs ()" class="main_body">
+	<center>
+		<img src="static/imgs/sadolin/weather_guard.png" class="item-name-img" ><br>
+		<button class="color-types-btn entries_page_fonts"> Weather Guard Stock </button><br><br>
+		<button onclick="show_budget_gloss_root_div ()" class="clour_types_btn entries_page_fonts"> Recieved Stock </button><br><br>
+
+
+
+
+
+
+	<!--
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@
+	@		RECEIVED STOCK 
+	@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+	-->
+	
+		<div id="weather-root-div">
+			<button onclick="show_weather_view_all_div ()" class="  view-btns-children entries_page_fonts">View all</button> <br><br>
+			<div id="weather-view-all-div">
+				<button onclick=" fetch_received_stock_all_data () " class="agency-show-btn entries_page_fonts"  >Show</button>
+           <div id="received-stock-loader-all" class="loader"></div>
+				<div id="show-all-tbody-div">
+					<table class=" w3-bordered user-scrolling-table">
+						<tbody id="show-all-tbody"></tbody>
+					</table>
+				</div>
+				<button onclick="close_weather_view_all_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+			</div>
+
+		<!-- ===================================================== -->
+			<button  onclick="init_weather_search_by_name_div ()" class=" view-btns-children  entries_page_fonts">By Name </button> <br><br>
+				<div id="weather-search-by-name-div">
+				<form class="sadolin_form" id="stock-view-by-name-form">
+					<select id="weather-names-1" class="sadolin_view_form_input" name="paint_name" onchange="fetch_received_stock_name_data () " >
+						<option value="Paint name">Paint name</option>
+					</select>
+				</form>
+				<button class="agency-show-btn entries_page_fonts"></button>
+        	<div id="received-stock-loader-name" class="loader"></div>
+				<div id="stock-view-by-name-div">
+					<center>
+					<table class=" w3-bordered user-scrolling-table">
+						<tbody id="stock-view-by-name-tbody"></tbody>
+					</table>
+					</center>
+				</div>
+				<button onclick="close_weather_search_by_name_div ()"  class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+			</div>
+		<!-- ===================================================== -->
+			<button onclick="init_weather_search_by_size_div ()" class=" view-btns-children entries_page_fonts">By Size</button> <br><br>
+			<div id="weather-search-by-size-div">
+				<form class="  sadolin_from_to_form" id="stock-view-by-size-form">
+					<table>
+						<tr>
+							<td>
+								<label> Name </label><br>
+								<select id="weather-names-2" class="sadolin_view_form_input" name="paint_name">
+									<option value="Paint name">Paint name</option>
+								</select>
+							</td>
+							<td>
+								<label>Size </label> <br>
+								<select class="sadolin_view_form_input" name="size">
+								<option value="Select size" >Select size</option>
+								<option value="1 ltr">1 ltr</option>
+								<option value="4 ltrs">4 ltrs</option>
+								<option value="20 ltrs"> 20 ltrs</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</form>
+				
+				<button class="agency-show-btn entries_page_fonts"  onclick=" fetch_received_stock_size_data ()  ">Show</button>
+        	<div id="received-stock-loader-size" class="loader"></div>
+				<table class=" w3-bordered user-scrolling-table">
+					<tbody id="stock-view-by-size-tbody"></tbody>
+				</table>
+
+				<button onclick="close_weather_search_by_size_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+			</div>
+		<!-- ===================================================== -->
+			<button onclick="show_weather_search_by_date_div ()" class="  view-btns-children entries_page_fonts">By Date</button> <br><br>
+				<div id="weather-search-by-date-div">
+					<button onclick="show_date_today_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">Today</button>  
+						<div id="date-today-grand-child-div" >
+							<button onclick=" fetch_received_stock_date_today_data ()  " class="agency-show-btn entries_page_fonts"  >Show</button>
+                     <div id="received-stock-loader-date-today" class="loader"></div>
+								<div id="stock-view-by-date-today-div"> 
+									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="stock-view-by-date-today-tbody"></tbody>
+									</table>
+								</div>
+							<button onclick="close_date_today_grand_child_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+						</div><br><br>		
+
+					<button onclick="show_date_date_grand_child_div ()" class="view-btns-grand-child entries_page_fonts">Date</button>  
+						<div id="date-date-grand-child-div" >
+							<form class="sadolin_from_to_form" id="stock-date-date-form" >
+								<label>Date</label>
+								<input class="sadolin_view_form_input" type="date" name="date" onchange="fetch_received_stock_date_date_data ()" ><br>
+							</form>
+							<button class="agency-show-btn entries_page_fonts"  ></button>
+							<div id="received-stock-loader-date-date" class="loader"></div>
+							<div id="date-date-div" >
+								<table class=" w3-bordered user-scrolling-table">
+									<tbody id="date-date-tbody"></tbody>
+								</table>
+							</div>
+							<button onclick="close_date_date_grand_child_div ()" class="close-child-btn entries_page_fonts">Close</button>
+						</div><br><br>
+
+					<button onclick="init_date_name_date_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">Both</button>  
+						<div id="date-name-date-grand-child-div" >
+							<form class="sadolin_from_to_form" id="stock-date-name-form">
+								<table>
+									<tr>
+									<td>
+										<label> Name</label><br>
+										<select id="weather-names-3" class="sadolin_view_form_input" name="paint_name" >
+											<option value="Paint name">Paint name</option>
+										</select>
+									</td>
+
+									<td>
+										<label>Date</label>
+										<input class="sadolin_view_form_input" type="date" name="date" ><br>
+									</td>
+									</tr>
+								</table>
+							</form>
+							
+							<button onclick="fetch_received_stock_date_name_date_data ()   " class="agency-show-btn entries_page_fonts"  >Show</button>
+                     <div id="received-stock-loader-date-name-date" class="loader"></div>
+								<div id="date-date-name-div" >
+									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="date-date-name-tbody"></tbody>
+									</table>
+								</div>
+							<button onclick="close_date_name_date_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+						</div><br><br>
+				</div>
+		<!-- ===================================================== -->
+
+			<button onclick="show_weather_from_to_div ()" class="view-btns-children entries_page_fonts">From -- To</button> <br><br>
+				<div id="weather-from-to-div">
+					<button  onclick="show_from_to_all_grand_child_div ()" class="view-btns-grand-child entries_page_fonts">All</button>  
+					<div id="from-to-all-grand-child-div">
+						<form class="sadolin_from_to_form">
+							<table>
+								<tr>
+									<td>
+										<label> From </label>
+										<input class="sadolin_view_form_input" type="date" name="from">
+									</td>
+									<td>
+										<label> To </label>
+										<input class="sadolin_view_form_input" type="date" name="to">
+									</td>   
+								</tr>
+							</table>
+						</form>
+					<div id="from-to-div">
+						<button onclick="fetch_received_stock_from_to_all_data () " class="agency-show-btn entries_page_fonts"  >Show</button>
+                <div id="received-stock-loader-from-to-all" class="loader"></div>
+							<table class=" w3-bordered user-scrolling-table">
+								<tbody id="from-to-all-tbody"></tbody>
+							</table>
+						<button onclick="close_from_to_all_grand_child_div ()" class="close-child-btn entries_page_fonts" >Close</button>
+					</div>
+					</div><br><br><br>
+
+					<button onclick="init_from_to_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+						<div id="from-to-by-name-grand-child-div">
+							<form class="sadolin_from_to_form" id="from-to-name-form">
+								<table>
+									<tr>
+										<td>
+											<label> From </label>
+											<input class="sadolin_view_form_input" type="date" name="from">
+										</td>
+										<td>
+											<label> To </label>
+											<input class="sadolin_view_form_input" type="date" name="to">
+										</td>   
+									</tr>
+									<tr>
+										<td>
+											<label> Name </label><br>
+												<select id="weather-names-4" class="sadolin_view_form_input" name="paint_name">
+													<option value="Paint name">Paint name</option>
+												</select>
+										</td>
+								</table>
+							</form> 
+							<div id="from-to-name">
+								<button onclick="fetch_received_stock_from_to_name_data ()  " class="agency-show-btn entries_page_fonts"  >Show</button>
+                       <div id="received-stock-loader-from-to-name" class="loader"></div>
+									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="from-to-name-tbody"></tbody>
+									</table>
+								<button onclick="close_from_to_by_name_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+							</div>
+					</div><br><br>
+				   </div>
+
+		<!-- ===================================================== -->
+			<button onclick="show_weather_search_by_last_week_div  ()" class=" view-btns-children entries_page_fonts">Last Week</button> <br><br>
+				<div id="weather-search-by-last-week-div">
+					<button onclick="show_last_week_all_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button>
+						<div id="last-week-all-grand-child-div">
+							<button onclick="fetch_received_stock_last_week_all_data ()  " class="agency-show-btn entries_page_fonts" >Show</button><br><br>
+                    <div id="received-stock-loader-last-week-all" class="loader"></div>
+								<div id="last-week-all-grand-child" >
+									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="last-week-all-tbody"></tbody>
+									</table>
+								</div>
+							<button onclick="close_last_week_all_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+						</div><br><br>
+					<button onclick="init_last_week_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+						
+              <div id="last-week-by-name-grand-child-div" >	 
+             <form class="sadolin_form" id="stock-view-by-name-form">
+             <label>Name</label>
+					<select id="weather-names-5" class="sadolin_view_form_input" name="weather_stock_view_by_name_input" onchange=" fetch_received_stock_last_week_name_data ()" >
+						<option value="Paint name">Paint name</option>
+					</select>
+				</form>
+                <button class="agency-show-btn entries_page_fonts" ></button><br><br>
+                    <div id="received-stock-loader-last-week-name" class="loader"></div>
+								<table class=" w3-bordered user-scrolling-table">
+									<tbody id="last-week-name-tbody"></tbody>
+								</table>
+							<button onclick="close_last_week_by_name_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+						</div><br><br>
+			</div>
+
+		<!-- ===================================================== -->
+			<button onclick=" show_weather_search_by_this_month_div ()" class="view-btns-children entries_page_fonts">This Month</button> <br><br>
+				<div id="weather-search-by-this-month-div">
+					<button  onclick="show_this_month_all_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button>
+						<div id="this-month-all-grand-child-div">
+							<button onclick=" fetch_received_stock_this_month_all_data ()"   class="agency-show-btn entries_page_fonts"  >Show</button>
+                     <div id="received-stock-loader-this-month-all" class="loader"></div>
+								<table class=" w3-bordered user-scrolling-table">
+									<tbody id="this-month-all-tbody"></tbody>
+								</table>
+							<button onclick="close_this_month_all_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+						</div><br><br>
+					<button onclick="init_this_month_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+						<div id="this-month-by-name-grand-child-div">
+							<form class="sadolin_form" id="stock-view-by-name-form">
+								<label>Name</label>
+								<select id="weather-names-6" class="sadolin_view_form_input" name="weather_stock_view_by_name_input" onchange="fetch_received_stock_this_month_name_data () " >
+									<option value="Paint name">Paint name</option>
+								</select>
+							</form>
+							<button  class="agency-show-btn entries_page_fonts"  ></button>
+                     <div id="received-stock-loader-this-month-name" class="loader"></div>
+								<table class=" w3-bordered user-scrolling-table">
+									<tbody id="this-month-by-name-tbody"></tbody>
+								</table>
+							<button onclick="close_this_month_by_name_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+						</div><br><br>
+				</div>
+		<!-- ===================================================== -->
+		<button onclick="show_weather_search_by_last_month_div ()" class="view-btns-children  entries_page_fonts">Last Month</button> <br><br>
+			<div id="weather-search-by-last-month-div">
+				<button onclick="show_last_month_all_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button><br><br>
+					<div id="last-month-all-grand-child-div">
+						<button onclick="fetch_received_stock_last_month_all_data ()  " class="agency-show-btn entries_page_fonts"  >Show</button>
+                	<div id="received-stock-loader-last-month-all" class="loader"></div>
+							<table class=" w3-bordered user-scrolling-table">
+								<tbody id="last-month-all-tbody"></tbody>
+							</table>
+						<button onclick="close_last_month_all_grand_child_div ()" class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+					</div>
+
+				<button onclick="init_last_month_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+					<div id="last-month-by-name-grand-child-div">
+						<form class="sadolin_form" id="stock-view-by-name-form">
+							<label>Name</label>
+							<select id="weather-names-7" class="sadolin_view_form_input" name="paint_name" onchange="fetch_received_stock_last_month_name_data ()  " >
+								<option value="Paint name">Paint name</option>
+							</select>
+						</form>
+						<button class="agency-show-btn entries_page_fonts"  ></button>
+                		<div id="received-stock-loader-last-month-name" class="loader"></div>
+							<table class=" w3-bordered user-scrolling-table">
+								<tbody id="last-month-by-name-tbody"></tbody>
+							</table>
+						<button onclick="close_last_month_by_name_grand_child_div ()" class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+					</div><br><br>
+			</div>
+
+			<button onclick="close_stock_root_div ()" class="view-btns-children  entries_page_fonts">Close Stock</button> <br><br>
+		</div> <!-- weather-root-div -->
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<!--
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				@
+				@		STOCK FLOW
+				@
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		
+			-->
+
+	
+	
+	
+	
+	
+				<button onclick="show_stock_flow_root_div ()" class="clour_types_btn entries_page_fonts"> Stock  Flow</button><br><br>
+				<!-- ===================================================== -->
+				<div id="stock-flow-root-div">
+					<button onclick="show_stock_flow_view_all_div ()" class="  view-btns-children entries_page_fonts">View all</button> <br><br>
+					<div id="stock-flow-view-all-div">
+						<button onclick="fetch_stock_flow_all_data () " class="agency-show-btn entries_page_fonts"  >Show</button>
+                 <div id="stock-flow-loader-all" class="loader"></div>
+						<div id="stock-flow-show-all-tbody-div">
+							<table class=" w3-bordered user-scrolling-table">
+								<tbody id="stock-flow-all-tbody"></tbody>
+							</table>
+						</div>
+						<button onclick=" close_stock_flow_view_all_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+					</div>
+		
+				<!-- ===================================================== -->
+					<button  onclick=" init_stock_flow_by_name_div ()" class=" view-btns-children  entries_page_fonts">By Name </button> <br><br>
+						<div id="stock-flow-by-name-div">
+		
+						<form class="sadolin_form" id="stock-flow-view-by-name-form">
+							<select id="weather-names-8" class="sadolin_view_form_input" name="paint_name" onchange="fetch_stock_flow_name_data ()   " >
+								<option value="Paint name">Paint name</option>
+							</select>
+						</form>
+						<button class="agency-show-btn entries_page_fonts"></button>
+                 <div id="stock-flow-loader-name" class="loader"></div>
+						<div id="stock-flow-view-by-name-div">
+							<center>
+							<table class=" w3-bordered user-scrolling-table">
+								<tbody id="stock-flow-view-by-name-tbody"></tbody>
+							</table>
+							</center>
+						</div>
+						<button onclick="close_stock_flow_by_name_div ()"  class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+					</div>
+				<!-- ===================================================== -->
+					<button onclick="init_stock_flow_by_size_div ()" class=" view-btns-children entries_page_fonts">By Size</button> <br><br>
+					<div id="stock-flow-by-size-div">
+						<form class="  sadolin_from_to_form" id="stock-flow-view-by-size-form">
+							<table>
+								<tr>
+									<td>
+										<label> Name </label><br>
+										<select id="weather-names-9" class="sadolin_view_form_input" name="paint_name">
+											<option value="Paint name">Paint name</option>
+										</select>
+									</td>
+									<td>
+										<label>Size </label> <br>
+										<select class="sadolin_view_form_input" name="size">
+										<option value="Select size" >Select size</option>
+										<option value="1 ltr">1 ltr</option>
+										<option value="4 ltrs">4 ltrs</option>
+										<option value="20 ltrs"> 20 ltrs</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+						</form>
+						
+						<button class="agency-show-btn entries_page_fonts"  onclick="fetch_stock_flow_size_data ()  ">Show</button>
+               <div id="stock-flow-loader-size" class="loader"></div>
+						<table class=" w3-bordered user-scrolling-table">
+							<tbody id="stock-flow-view-by-size-tbody"></tbody>
+						</table>
+		
+						<button onclick="close_stock_flow_by_size_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+					</div>
+				<!-- ===================================================== -->
+					<button onclick="show_stock_flow_by_date_div ()" class="view-btns-children entries_page_fonts">By Date</button> <br><br>
+						<div id="stock-flow-by-date-div">
+							<button onclick="stock_flow_date_today_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">Today</button>  
+								<div id="stock-flow-date-today-grand-child-div" >
+									<button onclick="fetch_stock_flow_date_today_data () " class="agency-show-btn entries_page_fonts"  >Show</button>
+                         <div id="stock-flow-loader-date-today" class="loader"></div>
+										<div id="stock-view-by-date-today-div"> 
+											<table class=" w3-bordered user-scrolling-table">
+												<tbody id="stock-flow-view-by-date-today-tbody"></tbody>
+											</table>
+										</div>
+									<button onclick="close_stock_flow_date_today_grand_child_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+								</div><br><br>		
+		
+							<button onclick="stock_flow_date_date_grand_child_div ()" class="view-btns-grand-child entries_page_fonts">Date</button>  
+								<div id="stock-flow-date-date-grand-child-div" >
+									<form class="sadolin_from_to_form" id="stock-flow-date-date-form" >
+										<label>Date</label>
+										<input class="sadolin_view_form_input" type="date" name="date" onchange=" fetch_stock_flow_date_date_data () " ><br>
+									</form>
+									<button class="agency-show-btn entries_page_fonts"  ></button>
+                       <div id="stock-flow-loader-date-date" class="loader"></div>
+									<div id="date-date-div" >
+										<table class=" w3-bordered user-scrolling-table">
+											<tbody id="stock-flow-date-date-tbody"></tbody>
+										</table>
+									</div>
+									<button onclick="close_stock_flow_date_date_grand_child_div ()" class="close-child-btn entries_page_fonts">Close</button>
+								</div><br><br>
+		
+							<button onclick="init_stock_flow_date_name_date_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">Both</button>  
+								<div id="stock-flow-date-name-date-grand-child-div" >
+									<form class="sadolin_from_to_form" id="stock-flow-date-date-name-form">
+										<table>
+											<tr>
+											<td>
+												<label> Name</label><br>
+												<select id="weather-names-10" class="sadolin_view_form_input" name="paint_name" >
+													<option value="Paint name">Paint name</option>
+												</select>
+											</td>
+		
+											<td>
+												<label>Date</label>
+												<input class="sadolin_view_form_input" type="date" name="date" ><br>
+											</td>
+											</tr>
+										</table>
+									</form>
+									
+									<button onclick="fetch_stock_flow_date_name_date_data ()  " class="agency-show-btn entries_page_fonts"  >Show</button>
+                        <div id="stock-flow-loader-date-name-date" class="loader"></div>
+										<div id="stock-flow-date-date-name-div" >
+											<table class=" w3-bordered user-scrolling-table">
+												<tbody id="stock-flow-date-date-name-tbody"></tbody>
+											</table>
+										</div>
+									<button onclick="close_stock_flow_date_name_date_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+								</div><br><br>
+						</div>
+				<!-- ===================================================== -->
+		
+					<button onclick="show_stock_flow_from_to_div ()" class="view-btns-children entries_page_fonts">From -- To</button> <br><br>
+						<div id="stock-flow-from-to-div">
+							<button  onclick="stock_flow_from_to_all_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button>  
+							<div id="stock-flow-from-to-all-grand-child-div">
+								<form class="sadolin_from_to_form" id="stock_flow_from-to-form">
+									<table>
+										<tr>
+											<td>
+												<label> From </label>
+												<input class="sadolin_view_form_input" type="date" name="from">
+											</td>
+											<td>
+												<label> To </label>
+												<input class="sadolin_view_form_input" type="date" name="to">
+											</td>   
+										</tr>
+									</table>
+								</form>
+							<div id="stock-flow-from-to-div">
+								<button onclick=" fetch_stock_flow_from_to_all_data ()" class="agency-show-btn entries_page_fonts"  >Show</button>     
+                       <div id="stock-flow-loader-from-to-all" class="loader"></div>
+									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="stock-flow-from-to-all-tbody"></tbody>
+									</table>
+								<button onclick="close_stock_flow_from_to_all_grand_child_div ()" class="close-child-btn entries_page_fonts" >Close</button>
+							</div>
+							</div><br><br><br>
+		
+							<button onclick="init_stock_flow_from_to_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+								<div id="stock-flow-from-to-by-name-grand-child-div">
+									<form class="sadolin_from_to_form" id="stock-flow-from-to-name-form">
+										<table>
+											<tr>
+												<td>
+													<label> From </label>
+													<input class="sadolin_view_form_input" type="date" name="from">
+												</td>
+												<td>
+													<label> To </label>
+													<input class="sadolin_view_form_input" type="date" name="to">
+												</td>   
+											</tr>
+											<tr>
+												<td>
+													<label> Name </label><br>
+														<select id="weather-names-11" class="sadolin_view_form_input" name="paint_name" >
+															<option value="Paint name">Paint name</option>
+														</select>
+												</td>
+										</table>
+									</form> 
+									<div id="stock-flow-from-to-name">
+										<button onclick="fetch_stock_flow_from_to_name_data ()  " class="agency-show-btn entries_page_fonts"  >Show</button>
+                           <div id="stock-flow-loader-from-to-name" class="loader"></div>
+											<table class=" w3-bordered user-scrolling-table">
+												<tbody id="stock-flow-from-to-name-tbody"></tbody>
+											</table>
+										<button onclick="close_stock_flow_from_to_by_name_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+									</div>
+							</div><br><br>
+						</div>
+		
+				<!-- ===================================================== -->
+					<button onclick="show_stock_flow_last_week_div ()" class=" view-btns-children entries_page_fonts">Last Week</button> <br><br>
+						<div id="stock-flow-last-week-div">
+							<button onclick="stock_flow_last_week_all_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button>
+								<div id="stock-flow-last-week-all-child-div">
+									<button onclick=" fetch_stock_flow_last_week_all_data ()" class="agency-show-btn entries_page_fonts" >Show</button><br><br>
+                         <div id="stock-flow-loader-last-week-all" class="loader"></div>
+										<div id="stock-flow-last-week-all-div" >
+											<table class=" w3-bordered user-scrolling-table">
+												<tbody id="stock-flow-last-week-all-tbody"></tbody>
+											</table>
+										</div>
+									<button onclick="close_stock_flow_last_week_all_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+								</div><br><br>
+							<button onclick="init_stock_flow_last_week_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+								<div id="stock-flow-last-week-by-name-grand-child-div" >
+								<form class="sadolin_form" id="stock-flow-last-week-name-form">
+								<label>Name</label>
+										<select id="weather-names-12" class="sadolin_view_form_input" name="paint_name" onchange=" fetch_stock_flow_last_week_name_data ()" >
+											<option value="Paint name">Paint name</option>
+										</select>
+									</form>
+									<button  class="agency-show-btn entries_page_fonts" ></button><br><br>
+                         <div id="stock-flow-loader-last-week-name" class="loader"></div>
+										<table class=" w3-bordered user-scrolling-table">
+											<tbody id="stock-flow-last-week-name-tbody"></tbody>
+										</table>
+									<button onclick="close_stock_flow_last_week_by_name_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+								</div><br><br>
+					</div>
+		
+				<!-- ===================================================== -->
+					<button onclick="show_stock_flow_this_month_div ()" class="view-btns-children entries_page_fonts">This Month</button> <br><br>
+						<div id="stock-flow-this-month-div">
+							<button  onclick="stock_flow_this_month_all_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button>
+								<div id="stock-flow-this-month-all-grand-child-div">
+									<button onclick="fetch_stock_flow_this_month_all_data ()   " class="agency-show-btn entries_page_fonts"  >Show</button>
+                         <div id="stock-flow-loader-this-month-all" class="loader"></div>
+										<table class=" w3-bordered user-scrolling-table">
+											<tbody id="stock-flow-this-month-all-tbody"></tbody>
+										</table>
+									<button onclick="close_stock_flow_this_month_all_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+								</div><br><br>
+							<button onclick="init_stock_flow_this_month_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+								<div id="stock-flow-this-month-by-name-grand-child-div">
+								<form class="sadolin_form" id="stock-flow-this-month-name-form">
+									<label>Name</label>
+										<select id="weather-names-13" class="sadolin_view_form_input" name="paint_name" onchange="fetch_stock_flow_this_month_name_data ()  " >
+											<option value="Paint name">Paint name</option>
+										</select>
+									</form>
+									<button class="agency-show-btn entries_page_fonts"></button>
+                          <div id="stock-flow-loader-this-month-name" class="loader"></div>
+										<table class=" w3-bordered user-scrolling-table">
+											<tbody id="stock-flow-this-month-by-name-tbody"></tbody>
+										</table>
+									<button onclick="close_stock_flow_this_month_by_name_grand_child_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+								</div><br><br>
+						</div>
+				<!-- ===================================================== -->
+				<button onclick="show_stock_flow_last_month_div ()" class="view-btns-children  entries_page_fonts">Last Month</button> <br><br>
+					<div id="stock-flow-last-month-div">
+						<button onclick="stock_flow_last_month_all_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">All</button><br><br>
+							<div id="stock-flow-last-month-all-grand-child-div">
+								<button onclick="fetch_stock_flow_last_month_all_data () " class="agency-show-btn entries_page_fonts"  >Show</button>
+                        <div id="stock-flow-loader-last-month-all" class="loader"></div>
+									<div id="stock-flow-last-month-all-div">
+									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="stock-flow-last-month-all-tbody"></tbody>
+									</table>
+									</div>
+								<button onclick="close_stock_flow_last_month_all_grand_child_div ()" class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+							</div>
+		
+						<button onclick="init_stock_flow_last_month_by_name_grand_child_div ()" class="view-btns-grand-child   entries_page_fonts">By Name</button>
+							<div id="stock-flow-last-month-by-name-grand-child-div">
+                   		 <form class="sadolin_form" id="stock-flow-by-name-form">
+							<label>Name</label>
+							<select id="weather-names-14" class="sadolin_view_form_input" name="paint_name" onchange=" fetch_stock_flow_last_month_name_data () " >
+								<option value="Paint name">Paint name</option>
+							</select>
+							</form>
+								<button class="agency-show-btn entries_page_fonts"  ></button>
+                      	<div id="stock-flow-loader-last-month-name" class="loader"></div>									<table class=" w3-bordered user-scrolling-table">
+										<tbody id="stock-flow-last-month-by-name-tbody"></tbody>
+									</table>
+								<button onclick="close_stock_flow_last_month_by_name_grand_child_div ()" class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+							</div><br><br>
+					</div>
+		
+					<button onclick="close_stock_flow_root_div()" class="view-btns-children  entries_page_fonts">Close Stock</button> <br><br>
+				</div> <!-- stock-flow-root-div -->
+
+				
+
+
+
+
+
+			<!--
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				@
+				@		STOCK STATUS
+				@
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		
+			-->
+
+		
+		
+		<button onclick="show_stock_status_root_div ()" class="clour_types_btn entries_page_fonts"> Stock Status </button><br><br>
+			<div id="stock-status-root-div">
+				<button onclick="show_stock_status_view_all_div ()" class="view-btns-children entries_page_fonts">View all</button> <br><br>
+            		<div id="stock-status-view-all-div">
+						<button onclick=" fetch_stock_status_all_data ()" class="agency-show-btn entries_page_fonts">Show</button>
+                        <div id="stock-status-loader-all" class="loader"></div>
+						<div id="stock-status-view-all">
+							<center>
+							<table class=" w3-bordered stock-status-table">
+								<tbody id="stock-status-all-tbody"></tbody>
+							</table>
+							</center>
+						</div>
+						<button onclick="close_stock_status_view_all_div ()"  class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+					</div>
+        <!-- ================================= -->
+			<button onclick="init_stock_status_view_by_name_div ()" class="view-btns-children entries_page_fonts">By name</button> <br><br>
+            <div id="stock-status-view-by-name-div">
+				<form class="sadolin_form" id="stock-status-by-name-form">
+					<label>Name</label>
+					<select id="weather-names-15" class="sadolin_view_form_input" name="paint_name" onchange=" fetch_stock_status_name_data ()">
+						<option value="Paint name">Paint name</option>
+					</select>
+				</form>
+        
+				<button class="agency-show-btn entries_page_fonts"></button>
+				<div id="stock-status-loader-name" class="loader"></div>
+				<div id="stock-status-view-by-div">
+					<center>
+					<table class=" w3-bordered stock-status-table">
+						<tbody id="stock-status-name-tbody"></tbody>
+					</table>
+					</center>
+				</div>
+				<button onclick="close_stock_status_view_by_name_div ()"  class="close-child-btn  entries_page_fonts" >Close</button><br><br>
+			</div>
+				<button onclick="close_stock_status_root_div ()" class="view-btns-children  entries_page_fonts" >Close</button>
+			</div><!-- stock-status-root-div -->
+		<button class="home-btn" onclick="Load_home_page ()">Home</button>	
+		
+</center>
+</body>
+</html>
+
+		

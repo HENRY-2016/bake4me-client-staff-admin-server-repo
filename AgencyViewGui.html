@@ -1,0 +1,257 @@
+
+<html>
+    <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>kan kan | Agency</title>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/agency.js" ></script>
+    
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+
+    </head>
+    <body class="main_body" onload="hide_all_agency_divs_and_Load_Offline_Data ()">
+        <center>
+		<img src="static/imgs/mapei/agent.png" class="type-img">
+        <label class="out-let-name" >Freedom city</label><br><br>
+
+        <!-- =================================================================== -->
+        <button onclick="show_view_all_agency_div ()" class="view-btns entries_page_fonts">View all </button> <br><br>
+        <div id="view_all_div">
+            <button onclick="show_view_all_child_details_div ()" class="view-btns-children entries_page_fonts">Details</button>
+                <div id="view-all-child-details-div" ><br>
+                    <button  onclick="fetch_agency_all_details_data ()" class="agency-show-btn entries_page_fonts">Show</button> 
+                    <div id="agency-loader-all-details" class="loader"></div>
+                    <div id="show-all-tbody-div" >
+                        <table class=" w3-bordered agency-details-table" >
+                            <tbody id="show-all-tbody" ></tbody>
+                        </table>
+                    </div>
+                    <button onclick=" close_view_all_child_details_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                </div> <br><br>
+            <button onclick="show_show_all_child_summary_div ()" class="view-btns-children  entries_page_fonts">Summary</button> <br><br>
+                <div id="view-all-child-summary-div" ><br>
+                    <button  onclick="fetch_agency_all_summary_data ()" class="agency-show-btn entries_page_fonts">Show</button> 
+                        <div id="agency-loader-all-summary" class="loader"></div>
+                        <div id="show-all-summary-tbody-div">
+                            <table class=" w3-bordered agency-details-table">
+                                <tbody id="show-all-summary-tbody"></tbody>
+                            </table>
+                        </div>
+                    <button onclick=" close_view_all_child_summary_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                </div>
+            <button onclick=" close_view_all_div ()" class="view-btns-children entries_page_fonts">Close</button> <br><br>
+        </div>
+    <!-- =================================================================== -->
+        <button  onclick="show_view_by_date_agency_div ()" class="view-btns entries_page_fonts">Date </button> <br><br>
+        <div id="view_by_date_div">
+
+        <button onclick="show_date_child_details_div ()" class="view-btns-children  entries_page_fonts">Details</button> <br><br>
+            <div id="date-child-details-div" ><br>
+                <form class="sadolin_form" id="agency-view-by-date-form">
+                    <label>Date</label><br>
+                    <input type="date" class="sadolin_view_form_input" name="date" onchange="fetch_agency_date_details_data ()" >
+                </form>
+                <div id="date-view-div">
+                    <button  class="agency-show-btn entries_page_fonts"  ></button>
+                    <div id="agency-loader-date-details" class="loader"></div>
+                    <table class=" w3-bordered agency-details-table agency-table">
+                        <tbody id="agency-view-by-date-tbody"></tbody>
+                    </table>
+                </div>
+                <button onclick="  close_date_child_details_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+            </div>
+        <button onclick="show_date_child_summary_div ()" class=" view-btns-children entries_page_fonts">Summary</button>
+            <div id="date-child-summary-div" >
+                <div id="date-summary-tbody-div">
+                    <form class="sadolin_form" id="agency-summary-view-by-date-form">
+                        <label>Date</label><br>
+                        <input type="date" class="sadolin_view_form_input" name="summary_date" onchange="fetch_agency_date_summary_data ()" >
+                    </form>
+                    <button  class="agency-show-btn entries_page_fonts"  ></button>
+                    <div id="agency-loader-date-summary" class="loader"></div>
+                    <table class=" w3-bordered agency-details-table">
+                        <tbody id="date-summary-tbody"></tbody>
+                    </table>
+                </div>
+                <button  onclick="close_date_child_summary_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                </div><br><br>
+            <button onclick="close_view_by_date_div  ()" class="view-btns-children entries_page_fonts">Close</button> <br><br>
+        </div>
+    <!-- =================================================================== -->
+        <button  onclick="show_from_to_agency_div ()"   class="view-btns entries_page_fonts">From -- To</button> <br><br>
+        <div id="from_to_div">
+            <button onclick="show_from_to_child_details_div ()"  class="view-btns-children entries_page_fonts">Details</button> <br><br>
+                <div id="from-to-child-details-div" ><br>
+                    <table class="sadolin_from_to_form">
+                        <tr>
+                            <form  id="From_and_To_dates_form">
+                                <td>
+                                    <label> From </label>
+                                    <input class="sadolin_view_form_input" type="date" name="From_date">
+                                </td>
+                                <td>
+                                    <label> To </label>
+                                    <input class="sadolin_view_form_input"  type="date" name="To_date">
+                                </td>
+                            </form>
+                        </tr>
+                    </table>
+                    <button onclick="fetch_agency_from_to_details_data ()"  class="agency-show-btn entries_page_fonts">Show</button>
+                    <div id="agency-loader-from-to-details" class="loader"></div>
+                    <table class=" w3-bordered agency-details-table">
+                        <tbody id="from-and-to-date-search-tbody"></tbody>
+                    </table>
+                    <button onclick="close_from_to_child_details_div ()"   class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                </div>
+        <button  onclick="show_from_to_child_summary_div ()" class="view-btns-children entries_page_fonts">Summary</button> 
+            <div id="from-to-child-summary-div" ><br>
+                <div id="from-to-summary-tbody-div">
+                        <table class="sadolin_from_to_form">
+                        <tr>
+                            <form  id="From_To_dates_sumamary">
+                                <td>
+                                    <label> From </label>
+                                    <input class="sadolin_view_form_input" type="date" name="From_date">
+                                </td>
+                                <td>
+                                    <label> To </label>
+                                    <input class="sadolin_view_form_input"  type="date" name="To_date">
+                                </td>
+                            </form>
+                        </tr>
+                    </table>
+                    <button onclick="fetch_agency_from_to_summary_data ()"  class="agency-show-btn entries_page_fonts"  >Show</button>
+                     <div id="agency-loader-from-to-summary" class="loader"></div>
+                    <table class=" w3-bordered agency-details-table">
+                        <tbody id="from-to-summary-tbody"></tbody>
+                    </table>
+                </div>
+                <button onclick=" close_from_to_child_summary_div () "  class="close-child-btn entries_page_fonts" >Close</button>
+            </div><br><br>
+            <button  onclick="close_from_to_div ()" class="view-btns-children entries_page_fonts">Close</button><br><br>
+        </div>
+    <!-- =================================================================== -->
+        <button  onclick="show_yesterday_agency_div ()" class="view-btns entries_page_fonts">Yesterday </button> <br><br>
+        <div id="yesterday_div">
+        <button onclick="show_yesterday_child_details_div ()"    class="view-btns-children entries_page_fonts">Details</button> <br><br>
+            <div id="yesterday-child-details-div" ><br>
+                <button  onclick="fetch_agency_yesterday_details_data ()" class="agency-show-btn entries_page_fonts">Show</button>
+                 <div id="agency-loader-yesterday-details" class="loader"></div>
+                <div id="agency-view-yesterday-div">
+                    <table class=" w3-bordered agency-details-table">
+                        <tbody id="agency-view-yesterday-tbody"></tbody>
+                    </table>
+                </div>
+                <button onclick="  close_yesterday_child_details_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+            </div>
+                <button onclick="show_yesterday_child_summary_div ()   "  class="view-btns-children entries_page_fonts">Summary</button>
+                    <div id="yesterday-child-summary-div" ><br>
+                        <button  onclick="fetch_agency_yesterday_summary_data ()" class="agency-show-btn entries_page_fonts">Show</button> 
+                            <div id="agency-loader-yesterday-summary" class="loader"></div>
+                            <div id="yesterday-summary-tbody-div">
+                                <table class=" w3-bordered agency-details-table">
+                                    <tbody id="yesterday-summary-tbody"></tbody>
+                                </table>
+                            </div>
+                            <button onclick="close_yesterday_child_summary_div ()  "  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                    </div><br><br>
+                <button  onclick="close_yesterday_div ()" class="view-btns-children entries_page_fonts">Close</button> <br><br>
+            </div>
+        </div>
+    <!-- =================================================================== -->
+        <button onclick="show_last_week_agency_div ()"  class="view-btns entries_page_fonts">Last week</button> <br><br>
+        <div id="last_week_div">
+        <button  onclick="show_last_week_child_details_div ()"  class="view-btns-children entries_page_fonts">Details</button> <br><br>
+            <div id="last-week-child-details-div" ><br>
+                <button  onclick="fetch_agency_last_week_details_data ()" class="agency-show-btn entries_page_fonts">Show</button>
+                <div id="agency-loader-last-week-details" class="loader"></div>
+                <div id="agency-view-week-div">
+                    <table class=" w3-bordered agency-details-table">
+                        <tbody id="agency-last-week-tbody"></tbody>
+                    </table>
+                </div>
+                <button onclick="  close_last_week_child_details_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+            </div>
+
+            <button onclick="show_last_week_child_summary_div ()" class="view-btns-children entries_page_fonts">Summary</button>
+            <div id="last-week-child-summary-div" ><br>
+                <button  onclick="fetch_agency_last_week_summary_data ()" class="agency-show-btn entries_page_fonts">Show</button> 
+                <div id="agency-loader-last-week-summary" class="loader"></div>
+                    <div id="last-week-summary-tbody-div">
+                        <table class=" w3-bordered agency-details-table">
+                            <tbody id="last-week-summary-tbody"></tbody>
+                        </table>
+                    </div>
+                    <button onclick="close_last_week_child_summary_div ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                </div><br><br>
+            <button onclick="close_last_week_div ()" class="view-btns-children entries_page_fonts">Close</button> <br><br>
+        </div>
+    <!-- =================================================================== -->
+        <button onclick="show_this_month_agency_div ()" class="view-btns entries_page_fonts">This month</button> <br><br>
+        <div id="this_month_div">
+            <button onclick="show_this_month_child_details_div ()"   class="view-btns-children entries_page_fonts">Details</button> <br><br>
+                <div id="this-month-child-details-div" ><br>
+                    <button  onclick="fetch_agency_this_month_details_data ()" class="agency-show-btn entries_page_fonts">Show</button>
+                    <div id="agency-loader-this-month-details" class="loader"></div>
+                    <div id="this-month-report-div">
+                        <table class=" w3-bordered agency-details-table">
+                            <tbody id="this-month-report-tbody"></tbody>
+                        </table>
+                    </div>
+                    <button onclick="  close_this_month_child_details_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                </div>
+
+            <button   onclick="show_this_month_child_summary_div ()" class="view-btns-children entries_page_fonts">Summary</button> <br><br>
+                <div id="this-month-child-summary-div" ><br>
+                <button  onclick="fetch_agency_this_month_summary_data ()" class="agency-show-btn entries_page_fonts">Show</button> 
+                    <div id="agency-loader-this-month-summary" class="loader"></div>
+                    <div id="this-month-summary-tbody-div">
+                            <table class=" w3-bordered agency-details-table">
+                                <tbody id="this-month-summary-tbody"></tbody>
+                            </table>
+                        </div>
+                        <button onclick=" close_this_month_child_summary_div   ()"  class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                    </div>
+            <button onclick="close_this_month_div ()"class="view-btns-children entries_page_fonts" >Close</button><br><br>
+        </div>
+    <!-- =================================================================== -->
+        <button onclick="show_last_month_agency_div ()"  class="view-btns entries_page_fonts">Last  month</button> <br><br>
+        <div id="last_month_div">
+            <button onclick="show_last_month_child_details_div ()" class="view-btns-children entries_page_fonts">Details</button> <br><br>
+            <div id="last-month-child-details-div" ><br>
+            <button  onclick="fetch_agency_last_momth_details_data ()" class="agency-show-btn entries_page_fonts">Show</button>
+                <div id="agency-loader-last-month-details" class="loader"></div>
+                <div id="last-month-report-div">
+                    <table class=" w3-bordered agency-details-table">
+                    <tbody id="last-month-report-tbody"></tbody>
+                    </table>
+                </div>
+                <button  onclick="  close_last_month_child_details_div ()" class="close-child-btn entries_page_fonts" >Close</button><br><br>
+            </div>
+                
+            <button onclick="show_last_month_child_summary_div ()   "  class="view-btns-children entries_page_fonts">Summary</button>
+                <div id="last-month-child-summary-div" ><br>
+                <button  onclick="fetch_agency_last_month_summary_data ()" class="agency-show-btn entries_page_fonts">Show</button> 
+                    <div id="agency-loader-last-month-summary" class="loader"></div>
+                    <div id="last-month-summary-tbody-div">
+                        <table class=" w3-bordered agency-details-table">
+                            <tbody id="last-month-summary-tbody"></tbody>
+                        </table>
+                    </div>
+                    <button onclick="close_last_month_child_summary_div ()"   class="close-child-btn entries_page_fonts" >Close</button><br><br>
+                    </div><br><br>
+                <button onclick="close_last_month_div ()" class="view-btns-children entries_page_fonts">Close</button> <br><br>
+        </div>
+		
+    <!-- ========================================== -->
+    
+        <button class="home-btn" onclick="Load_home_page ()">Home</button>
+        </center>
+    <!-- <script>
+        let all_data = document.getElementById ("show-all-tbody-div");
+        all_data.addEventListener("click", Save_show_all_data ())
+    </script> -->
+    </body>
+    </html>
+    
+    

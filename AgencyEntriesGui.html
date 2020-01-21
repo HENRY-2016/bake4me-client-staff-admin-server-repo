@@ -1,0 +1,193 @@
+
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>kan kan | Agency</title>
+
+<script src="static/js/names.js"></script>
+<script src="static/js/main.js"></script>
+
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<script>
+function Do_Logic (){check_agency_staffs_status (); fatch_agency_yesterday_float();
+}
+</script>
+</head>
+<body class="main_body" onload="Do_Logic ()">
+	<center>
+		<img src="static/imgs/mapei/agent.png" class="type-img">
+			<div id="airtel_money_id">
+				<!-- <form class="agency_form" method="POST" action="http://127.0.0.1:3000/agency_record_new_day"  onsubmit="write_zeros ()" > -->
+				<form class="agency_form" method="POST" action="http://172.105.158.108:3000/agency_record_new_day" onsubmit="write_zeros  ()" name="agency-form" >
+					<label class="agency-form-label-titles entries_page_fonts"> Details </label><br>
+					<table>
+						<tr>
+							<td>
+								<label class="agency-form-labels ">Name</label><br><br>
+								<select id="agency-staff-names" autocomplete="off" class="agency-form-input-name" type="text" name="uname"> 
+									<option>...Balanced by ...</option>
+								</select>
+							</td>
+						</tr>
+						<tr>	
+							<td>
+							
+								<label class="agency-form-labels">Date</label><br><br>
+								<input id="my_day" class="agency-form-input-date" type="date" name="date"> <br>
+							</td>
+						</tr>
+					</table>
+					<label class="agency-form-label-titles entries_page_fonts   ">Terminals</label><br>
+					<table>
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">Airtel </label><br><br>
+								<input id="input1" autocomplete="off" required onblur="find_terminal_total()" name="airtel" class="terminal_inputs agency_input_left_float" type="text" placeholder="Float..."> <br>
+							</td>
+							<td>
+								<label  class="agency-form-labels agency_input_right_float">MTN</label><br><br>
+								<input id="input2" autocomplete="off" required onblur="find_terminal_total()" name="mtn" class="terminal_inputs agency_input_right_float" type="text" placeholder="Float..."> <br>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">Centenary </label><br><br>
+								<input id="input3" autocomplete="off" required onblur="find_terminal_total()" name="centenary" class="terminal_inputs agency_input_left_float " type="text" placeholder="Float..."> <br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float">Equity</label><br><br>
+								<input id="input4" autocomplete="off" required onblur="find_terminal_total()" name="equity" class="terminal_inputs agency_input_right_float" type="text" placeholder="Float..."> <br>
+							</td>
+						</tr>
+						
+						<tr>
+							<td><br>
+								<label class=" agency-total-label agency_input_left_float entries_page_fonts">Total => </label>
+							</td>
+							<td><br>
+								<input  id="terminal-total" class="agency_form_input_cash_total agency_input_right_float " type="text" placeholder="Amount"> <br>
+							</td>
+						</tr>
+					</table>
+					
+					<label class="agency-form-label-titles entries_page_fonts">Cash At Hand</label><br><br>
+					
+					<table>
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float"><u>Paper</u> </label><br><br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float"> <u>Coins </u></label><br><br>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">50,000 /=</label><br><br>
+								<input id="input11" autocomplete="off" onblur="findTotal()"  name="50k" class="agency_form_input_cash agency_input_left_float " type="text" placeholder="shs..."> <br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float">1,000 /=</label><br><br>
+								<input id="input12" autocomplete="off" onblur="findTotal()" name="_1000" class="agency_form_input_cash agency_input_right_float" type="text" placeholder="shs..."> <br>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">20,000 /=</label><br><br>
+								<input id="input13" autocomplete="off" onblur="findTotal()" name="20k" class="agency_form_input_cash agency_input_left_float " type="text" placeholder="shs..."> <br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float">500 /=</label><br><br>
+								<input id="input14" autocomplete="off" onblur="findTotal()" name="_500" class="agency_form_input_cash agency_input_right_float" type="text" placeholder="shs..."> <br>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">10,000 /=</label><br><br>
+								<input id="input15" autocomplete="off" onblur="findTotal()" name="10k" class="agency_form_input_cash agency_input_left_float " type="text" placeholder="shs..."> <br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float">200 /=</label><br><br>
+								<input id="input16" autocomplete="off" onblur="findTotal()" name="_200" class="agency_form_input_cash agency_input_right_float" type="text" placeholder="shs..."> <br>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">5,000 /=</label><br><br>
+								<input id="input17" autocomplete="off" onblur="findTotal()" name="5k" class="agency_form_input_cash agency_input_left_float " type="text" placeholder="shs..."> <br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float">100 /=</label><br><br>
+								<input id="input18" autocomplete="off"  onblur="findTotal()" name="_100" class="agency_form_input_cash agency_input_right_float" type="text" placeholder="shs..."> <br>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<label class="agency-form-labels agency_input_left_float">2,000 /=</label><br><br>
+								<input id="input19" autocomplete="off" onblur="findTotal()" name="2k" class="agency_form_input_cash agency_input_left_float " type="text" placeholder="shs..."> <br>
+							</td>
+							<td>
+								<label class="agency-form-labels agency_input_right_float">50 /=</label><br><br>
+								<input id="input20" autocomplete="off" onblur="findTotal()" name="_50" class="agency_form_input_cash agency_input_right_float" type="text" placeholder="shs..."> <br>
+							</td>
+
+							<tr>
+								<td>
+									<label class="agency-form-labels agency_input_left_float">1,000 /=</label><br><br>
+									<input id="input21" autocomplete="off"  onblur="findTotal()" name="1k" class="agency_form_input_cash agency_input_left_float " type="text" placeholder="shs..."> <br>
+								</td>
+								<td>
+									<label class="agency-form-labels agency_input_right_float">Drawings</label><br><br>
+									<!-- <button type="reset" class="agency-clear-btn agency_input_right_float entries_page_fonts">Clear</button> -->
+									<input id="input22" autocomplete="off" onblur="findTotal()" name="drawings"   class="agency_form_input_cash agency_input_right_float " type="text" placeholder="shs..."> <br>
+								</td>
+							</tr>
+						</tr>
+						<tr>
+							<td><br>
+								<label type="submit" class=" agency-total-label agency_input_left_float entries_page_fonts">Total => </label>
+							</td>
+							<td><br>
+								<input  id="total_input" class="sub_total_input_cash agency_form_input_cash_total agency_input_right_float " type="text" placeholder="Amount"> <br>
+							</td>
+						</tr>
+						<tr>
+							<td><br>
+								<label onclick="find_grand_total ()" class=" agency-total-label agency_input_left_float entries_page_fonts">..Today.. </label>
+							</td>
+							<td><br>
+								<input  id="todays_total_input" class="agency_form_input_cash_total agency_input_right_float " type="text" placeholder="Amount"> <br>
+							</td>
+						</tr>
+						<tr>
+							<td><br>
+								<label class=" agency-total-label agency_input_left_float entries_page_fonts">..Prev.. </label>
+							</td>
+							<td><br>
+								<label id="prev_float_input" class="agency_form_input_cash_total agency_prev_lable agency_input_right_float"></label>
+							</td>
+						</tr>
+						
+					</table>
+					<br>
+					<label class="agency-form-labels" >User Id :: </label><br>
+						<input required class="sadolin_form_input" type="password" name="user_id"><br><br>
+					<button  type="clear" class="agency-clear-btn entries_page_fonts">Clear all</button><br><br>
+
+					<button  type="submit" class="agency-submit-btn entries_page_fonts">Submit</button>
+				</form>
+				
+			</div>
+
+<!-- ========================================== -->
+
+	<button class="home-btn" onclick="Load_home_page ()">Home</button>
+	</center>
+</body>
+</html>
