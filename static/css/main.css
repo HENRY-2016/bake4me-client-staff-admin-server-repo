@@ -1,0 +1,232 @@
+
+
+.main_body {background-color:#4ef576;}
+.navigetion-font-styles {font-size: 20px;font-family:Times New Roman Times, serif;}
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   Menus Pages              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+
+.menu-iframe
+{
+    width:100%;
+    height: 100%;
+    margin-top: -2px;
+    align-content: center;
+}
+
+
+/*=======================================================================================================*/
+                                        /*
+                                            +++++++++++++++++++++++++ ++
+                                            +                          +
+                                            +         MAIN NAVIGETION  +
+                                            +                          +
+                                            ++++++++++++++++++++++++++++
+                                        */
+
+
+.close-navi-span
+{
+    background-color:#3de96b;
+    border-radius: 60px;
+    color:white;
+    font-style: bold;
+}
+.our-label-menu
+{
+    color:blue;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:10px 10px;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.header
+{
+    position: fixed;
+    height: 100%;
+    width: 0;
+    padding-top: 60px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color:#00b83e;
+}
+
+.header .closebtn
+{
+    position:absolute;
+    right: 2px;
+    margin-left:50px;
+    top:0;
+    font-size:30px;
+}
+#menu-items-div
+{
+    background-color:#a21369;
+    border-radius: 10px;
+}
+
+#NaviDiv
+{
+    background-color:#00ac32;
+    height:50px;
+}
+
+#our-avenues-menu-label-div
+{
+    /* background-color: white; */
+    border-radius: 10px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    text-align: center;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+
+.open-side-navi-label
+{
+    font-size:35px;
+    cursor:pointer;
+    margin-left: 8px;
+    color:#006400;
+}
+.kone-label
+{
+    font-size: 20px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: -300px;
+    margin-left: 10px;
+    font-family:Times New Roman Times, serif;
+}
+.navigetion-content-labels-child
+{
+    color:blue;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+.navigetion-content-labels
+{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+.navigetion-icone-flower
+{
+    color:#00d054;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 25px;
+    font-family:Times New Roman Times, serif; 
+}
+ul, #UList {list-style-type: none;}
+  
+#UList {margin: 0;padding: 0;}
+  
+.caret 
+{
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+  }
+  
+.caret::before 
+  {
+    content: "\25B6";
+    color: #008000;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+.caret-down::before 
+  {
+    -ms-transform: rotate(90deg); 
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);  
+  }
+  
+.nested {display: none;}  
+.active {display: block;}
+  
+    
+/* ==================================== Alerts ================= */
+
+#alert-box-display-area{
+    display: none;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    /* border-radius: 50px; */
+}
+#alert-box{
+    display: none;
+    position: fixed;
+    /* background: beige; */
+    /* border-radius:50px;  */
+    width:550px;
+    height: 100%;
+    z-index: 10;
+}
+#alert-box > div{margin:8px; }
+#alert-box > div > #alert-box-header
+{ 
+    background:#6495ED;  font-size:19px; padding:10px; color:white; 
+    border-top-left-radius: 30px; border-top-right-radius: 30px; align-content: center;
+    font-family:Times New Roman Times, serif; font-weight: bold; font-style: italic;
+}
+.ok-alert-btn
+{
+    background:  #F5F5F5;
+    border-radius: 30px;
+    width: 50%; height: 35px; color: #0000CD; font-size: 18px;
+    font-family:Times New Roman Times, serif; font-weight: bold; font-style: italic;
+}
+#alert-box > div > #alert-box-body
+{ 
+    background:#E6E6FA; padding:20px; 
+    height: 95px; color:#0000CD ; font-size: 18px;
+    font-family:Times New Roman Times, serif; font-weight: bold; font-style: italic;
+}
+#alert-box > div > #alert-box-footer
+{ 
+    background:#6495ED; 
+    padding:10px; 
+    text-align:center; 
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 45px; 
+}
