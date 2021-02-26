@@ -1,0 +1,607 @@
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +        GLOBALS           +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                               */
+
+.main-body
+{
+    background-color: #B0A27B;
+}
+
+.main-navigation-btns-fontstyle
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+
+    color: white;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 0%;
+    border:none;
+    width:50%;
+    height:40px;
+    border-radius:18px;
+}
+.main-navigation-btns  {background-color:#B8860B;}
+
+/*=======================================================================================================*/
+                                            /*
+                                               ++++++++++++++++++++++++
+                                               +                       +
+                                               +     REGISTER PAGE     +
+                                               +                       +
+                                               +++++++++++++++++++++++++
+                                               */
+.registering-info-label
+{
+    color: blue;
+}
+.register-form
+{
+    background-color: whitesmoke;
+    width: 50%;
+}
+.regester-form-labels
+{
+    color:black;
+    padding-left: 5%;
+    font-size: 15px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+}
+.regester-form-inputs
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 200;
+	padding: 7px;
+    border: none;
+    border-bottom: 3px solid black;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+    height: 35px;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: blue;
+    
+}
+.regester-form-inputs:hover{border-bottom: 4px dotted green;}
+
+.logout-login-regester-btns-fontstyle
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+
+    color: white;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 0%;
+    border:none;
+    width:50%;
+    height:40px;
+    border-radius:18px;
+}
+.login-btn  {background-color:#B8860B;}
+.logout-btn {background-color:#B8860B;}
+.register-btn {background-color:#B8860B;}
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   SCHOOL NAVIGATION      +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                               */
+
+
+/* #school-login-div-id {} */
+.pay-svg
+{
+    /* color: blue; */
+    fill: red;
+}
+#school-register-div-id { display: none;}
+.login-form
+{
+    width: 20%;
+    background-color: white;
+}
+.regester-form-labels
+{
+    color:black;
+    padding-left: 5%;
+    font-size: 15px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+}
+.Browse-label
+{
+    cursor: pointer;
+    width:200px;
+    padding:3px;
+    font-weight : bold;
+    background:lightblue;
+    border:2px solid dodgerblue;
+}
+.img-to-be-displayed
+{
+    width: 200px;
+    height: 200px;
+    background:lightblue;
+}
+.register-display-grid-container
+{
+    display: grid; 
+    grid-template-columns: auto auto;
+    grid-gap: 0px;
+    padding: 8px;
+    /* margin-top: -55px;  */
+}
+
+/*=======================================================================================================*/
+                                            /*
+                                               ++++++++++++++++++++++++++
+                                               +                        +
+                                               +   STAFF GUI            +
+                                               +                        +
+                                               ++++++++++++++++++++++++++
+                                               */
+
+.status-table
+{
+    width: 85%;
+    background-color: #6666ff;
+}
+.table-headings-tr
+{
+    background-color:blue;
+    color: white;
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+}
+
+.orders-status-td{text-align: center;}
+.orders-avenue-td
+{
+    margin-left: 200px;
+    font-size: 15px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+.orders-table-tr:hover
+{
+    background-color: #6163de;
+    cursor: pointer;
+}
+.form_input
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 50%;
+	padding: 7px;
+	border: none;
+	border-bottom: 2px solid blue;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+    text-align: center;
+
+}
+.form_input:focus {border-bottom: 2px solid black;}
+.assign-btn
+{
+    background-color:#8366f4;
+    color: white;
+    font-weight: bold;
+    border:none;
+    width:25%;
+    height:40px;
+    border-radius:18px;
+}
+.submit-btn
+{
+    background-color:blue;
+    border:none;
+    width:40%;
+    height:40px;
+    border-radius:18px;
+    color: white;
+}
+.admin-btn
+{
+    background-color:#8a85ff;
+    color: white;
+    font-weight: bold;
+    border:none;
+    width:95%;
+    height:40px;
+    border-radius:18px;
+}
+.staff-popup-price-estiments
+{
+    background-color: rgb(209, 78, 30);
+}
+
+.staff-popup-price-confirm-estiments
+{
+    background-color: coral;
+}
+.order-inputs
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 200;
+	padding: 7px;
+	border: none;
+	border-bottom: 2px solid blue;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 35px;
+    /* text-align: center; */
+
+}
+.order-inputs:focus{border-bottom: 2px solid black;}
+.customer-feedback-div-left
+{
+    background-color: rgb(81, 81, 161);
+}
+.staff-feedback-div-right
+{
+    background-color: rgb(81, 81, 161);
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after 
+{
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel 
+{
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.view-btns-children
+{
+    background-color:#8a85ff;
+    border:none;
+    width:45%;
+    height:45px;
+    border-radius:10px;
+}
+.entries_page_fonts
+{
+    font-size: 20px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+.orders_from_to_form
+{
+    font-family: 'Open Sans Condensed', arial, sans;
+	width: 300px;
+	padding: 30px;
+	background: #FFFFFF;
+	/* margin: 50px auto; */
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+.agency-show-btn
+{
+
+    width: 95%;
+    background-color: #7b68ee;
+    height:35px;
+    border-radius:50px;
+}
+.close-child-btn
+{
+    background-color:#807cfc;
+    width:100%;
+    height:35px;
+    border-radius:18px;
+    color: white;
+}
+.form_input
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 50%;
+	padding: 7px;
+	border: none;
+	border-bottom: 2px solid blue;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+    text-align: center;
+
+}
+.form_input:focus {border-bottom: 2px solid black;}
+
+/*
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                        Styling Autocomplete
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+.autocomplete 
+    {
+        /*the container must be positioned relative:*/
+        position: relative;
+        display: inline-block;
+    }
+.autocomplete-items 
+    {
+        color: white;
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: black;
+    border-bottom: 1px solid #d4d4d4;
+    }
+.autocomplete-items div:hover { background-color: blue; }
+
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   NAVIGETION            +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                               */
+
+.log-icone
+{
+    margin-top: 10px;
+    width: 80%;
+
+}
+/* .sub-navigation-links-display-grid-container
+{
+    display: grid; 
+    grid-template-columns:  auto auto auto auto;
+    grid-gap: 0px;
+    padding: 8px;
+    margin-top: -55px; 
+} */
+#grid-container-div-one {margin-left: 30%;}
+/* #grid-container-div-two {margin-left: 5%;}
+#grid-container-div-three {margin-left: 3%;}
+#grid-container-div-four {margin-left: 1%;} */
+
+.navi-links-btns  {margin-top: -10px; height: 40px; text-decoration: none; display: block;}
+.navi-links-btns:hover {color:blue; border-bottom : 5px solid blue; }
+
+.Name-log-icone
+{
+    width: 50%;
+    margin-left: 20%;
+}
+.HomeIcon
+{
+    font-size:36px;
+    color:white;
+    font-weight:bold;
+}
+.header
+{
+    position: fixed;
+    height: 100%;
+    width: 0;
+    padding-top: 60px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: #D8C8A0;
+}
+.profile-side-bar
+{
+    position: fixed;
+    height: 100%;
+    width: 0;
+    padding-top: 60px;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: #D8C8A0;
+}
+
+.profile-side-bar .closebtn
+{
+    position:absolute;
+    left: 2px;
+    /* margin-left:50%; */
+    top:4px;
+    font-size:30px;
+    width: 20%;
+    height: 9%;
+    background-color: red;
+}
+.header .closebtn
+{
+
+    position:absolute;
+    right: 2px;
+    /* margin-left:50%; */
+    top:4px;
+    font-size:30px;
+    width: 20%;
+    height: 9%;
+    background-color: red;
+}
+.close-navi-span
+{
+font-size: 20px;
+color: white;
+width: 20%;
+height: 50px;
+cursor: pointer;
+padding: 12px 12px 12px 12px;
+}
+
+#navigetion-links-div
+{
+    text-align: center;
+}
+
+#NaviDivHeader {background-color: #D8C8A0;height:62px;}
+.open-navigation-label-div { margin-left: 20%; margin-top: -8px; }
+.open-navigation-label
+{
+    font-size:35px;
+    cursor:pointer;
+    margin-left: 8px;
+    color: white;
+}
+
+#open-navigation-label-profile-div {float:right; margin-top: -50px;}
+.open-navigation-profile-label
+{
+    font-size:35px;
+    cursor:pointer;
+    color: white;
+    margin-right: 50%;
+}
+
+.main-navigation-links-labels
+{
+    color:blue;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+}
+.main-sub-navigation-links-labels
+{
+    color:blue;
+    /* text-decoration:none; */
+    /* transition:0.3s; */
+    /* display:block; */
+    padding:5px 5px;
+    font-size: 16px;
+    font-family:Times New Roman Times, serif;
+}
+
+.main-sub-navigation-links-labels:hover {color:blue; border-bottom : 5px solid blue;}
+
+/* // profile side bar */
+.profile-php-profile-html-fontstyle
+{
+    padding:5px 5px;
+    font-size: 17px;
+    /* font-weight: bold; */
+    font-family:Times New Roman Times, serif;
+}
+.profile-html-labels {color:black;}
+.profile-php-labels {color:blue;}
+
+/* 
+    =====================>>>>>> SUB NAVIGATION
+*/
+.pay-webp-img,.feedback-webp-img,.arrival-webp-img
+{
+    width: 55px;
+    height: 55px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    margin-left: 5%;
+
+}
+.profile-svg-img 
+{
+    width: 65px;
+    height: 55px;
+    margin-top: -5px; 
+    margin-right: 5%;
+}
+
+.archive-webp-img
+{
+    width: 45px;
+    height: 45px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    margin-left: 5%;
+    
+}
+
+.admin-navigation-sublinks
+{
+    background-color: #C6B78F;
+    font-size: 17px;
+    font-family:Times New Roman Times, serif;
+    color:#993300;   
+    padding: 15px 15px 15px 15px;
+    height: 10%;
+    width: 100%;
+}

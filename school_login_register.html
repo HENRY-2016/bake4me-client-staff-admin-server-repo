@@ -1,0 +1,224 @@
+<!-- 13-01-2021 -->
+<!-- <?php 
+session_start();
+
+if (!isset($_SESSION['username'])) { 
+   // $_SESSION['msg'] = "You have to log in first"; 
+    //header('location: redirectologin.php'); 
+    // echo 'Please log in....';
+}
+
+?> -->
+
+<html>
+<head>
+<meta charset="utf-8" >
+<title>School | Login | Register</title>
+<script src="static/js/jquery.min.js" ></script>
+<script src="static/js/main.js" ></script>
+
+<link rel="stylesheet" href="static/css/main.css"/> 
+<link rel="stylesheet" href="static/css/w3.css"/> 
+</head>
+<body class="main-body">
+    <div id="main-header">
+        <div  id= "Navigetion" class="header">
+                <!-- ======= CLOSE ====== -->
+            <span href="javascript:void(0)" class="closebtn" onclick="CloseMainNavigetion()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+            <center>
+                <!-- <img scr="static/imgs/icone.png"> -->
+                <img src="static/imgs/main/icone.png" class="log-icone" >
+            <br><br>
+            <div id="navigetion-links-div">
+                <button class="navi-links-btns w3-button">
+                    <label onclick="Load_Cakes_Page ()" class="main-navigation-links-labels" >Cakes</label>
+                </button><br><br>
+                <button class="navi-links-btns w3-button">
+                    <label onclick="Load_Outlets_Page ()" class="main-navigation-links-labels" >Outlets</label>
+                </button><br><br>
+                <button class="navi-links-btns w3-button">
+                    <label onclick="Load_School_Index_Page ()" class="main-navigation-links-labels" >School</label>
+                </button><br><br>
+                <button class="navi-links-btns w3-button">
+                    <label onclick="Load_Baking_Machines_Page ()" class="main-navigation-links-labels" >Baking Machines</label>
+                </button><br><br>
+                <button class="navi-links-btns w3-button">
+                    <label onclick="Load_Party_Accessories_Page ()" class="main-navigation-links-labels" >Party Accessories </label>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="NaviDivHeader">
+            <label class="open-navigation-label" onclick="OpenMainNavigetion()">&#9776;</label>
+            <!-- Display client account benifits -->
+            <?php 
+                if (isset($_SESSION['username'])):
+            echo'
+                <label class="main-sub-navigation-links-labels"> 
+                    <!-- pay -->
+                    <img src="static/imgs/bakery/pay.webp" class="pay-webp-img" >
+                    <span class="w3-badge w3-blue">0</span>
+                </label>
+            <!-- </button> -->
+
+            <!-- <button class="navi-links-btns w3-button"> -->
+                <label class="main-sub-navigation-links-labels">  
+                    <!-- Feedback  -->
+                    <img src="static/imgs/bakery/feedback.webp" class="feedback-webp-img" >
+                    <span class="w3-badge w3-blue">0</span>
+                </label>
+            <!-- </button> -->
+            <!-- <button class="navi-links-btns w3-button"> -->
+                <label class="main-sub-navigation-links-labels">  
+                    <!-- Arrival  -->
+                <img src="static/imgs/bakery/arrival.webp" class="arrival-webp-img" >
+                    <span class="w3-badge w3-blue">0</span>
+                </label>
+            <!-- </button> -->
+            <!-- <button class="navi-links-btns w3-button"> -->
+                <label class="main-sub-navigation-links-labels">  
+                    <!-- Archive  -->
+                    <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
+                    <span class="w3-badge w3-blue">0</span>
+                </label>
+            ';
+            else:
+                echo "Thank You Our Vistor";
+            endif;
+            ?>
+    </div> <!--  End <<<< NaviDivHeader >>>>  -->
+
+        <div id="open-navigation-label-profile-div">
+        <label class="open-navigation-profile-label" onclick="OpenProfileNavigetion()">
+            <img src="static/imgs/bakery/profile.svg" class="profile-svg-img" >
+        </label>
+            <div id= "profile-side-bar" class="profile-side-bar">
+                <span href="javascript:void(0)" class="closebtn" onclick="CloseProfileNavigetion()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+                <div id="navigetion-links-div">
+                    <br><br>
+                    <?php 
+                        if (isset($_SESSION['username'])): 
+                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Name</label><br>';
+                            $name = sprintf('<br><label class="profile-php-labels profile-php-profile-html-fontstyle"> %s </label>',$_SESSION['username']);
+                            echo $name;
+                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Contacts</label><br>';
+                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle">Location</label><br>';
+                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Email</label><br>';
+                            echo '<br><br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Receipts</label>';
+                            echo '<br><br><button onclick="School_Logout ()" type="button"  class="logout-btn logout-login-regester-btns-fontstyle">Logout</button>';
+                        else:
+                            echo "Not Logged in";
+                            echo '<br><br><button onclick="Load_School_Login_Register_Page ()" type="button"  class="login-btn logout-login-regester-btns-fontstyle">Log in</button><br>Or<br>';
+                            echo '<br><button onclick="Load_School_Login_Register_Page ()" class="register-btn logout-login-regester-btns-fontstyle">Register</button>';
+                        endif; 
+                    ?>
+                </div>
+            </div>
+        </div>
+
+    <script>
+    function OpenMainNavigetion(){document.getElementById("Navigetion").style.width = "250px"}
+    function CloseMainNavigetion (){document.getElementById("Navigetion").style.width = "0"}
+    function OpenProfileNavigetion(){document.getElementById("profile-side-bar").style.width = "250px"}
+    function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
+    </script>
+
+
+    <center>
+        <br><br>
+        <br><br>
+        <div id="school-login-div-id" >
+            <form class = "login-form" action="http://localhost/bake4me-php/authenticate.php" method = "post">
+                <img src="static/imgs/school/login.png"><br><br>
+                <label class="regester-form-labels">Student ID </label>
+                <input type="text" name="school_userid" placeholder="User ID = b4m21"  autocomplete="off" class="regester-form-inputs">
+                
+                <label class="regester-form-labels">Password </label>
+                <input type="password" name="school_password" placeholder="Password = 2021" class="regester-form-inputs">
+
+                <button type="submit" name="school_login" class="main-navigation-btns main-navigation-btns-fontstyle" >Log In </button>
+                <br><br>
+            </form>
+        </div>
+        <!-- 
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+        -->
+        <button onclick="Display_Register_Form ()" class="main-navigation-btns main-navigation-btns-fontstyle" >Register </button>
+        <div id="school-register-div-id">
+                <div class="register-display-grid-container" >
+                    <div>
+                        <label class="regester-form-labels"> Register Using ::</label>
+                        <select class="paint-name order-inputs" id="method">
+                            <option value="National Id"> National Id </option>
+                            <option value="National Id"> Pass Port </option>
+                            <option value="Driving Permit"> Driving Permit</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="regester-form-labels">Pass Photo</label>
+                        <p><input type="file"  accept="image/*" name="passport_port_img" id="passport-photo-side-file"  onchange="DisplayUploadedImage(event,'passport-photo-display-pra-id')" style="display: none;"></p>
+                        <p><label class="Browse-label" for="passport-photo-side-file">Upload Image</label></p>
+                        <p><img id="passport-photo-display-pra-id" class="img-to-be-displayed" /></p>
+                    </div>
+
+                    <div>
+                        <label class="regester-form-labels">Front Side</label>
+                        <p><input type="file"  accept="image/*" name="front_side_img" id="front-side-file"  onchange="DisplayUploadedImage(event,'front-side-display-pra-id')" style="display: none;"></p>
+                        <p><label class="Browse-label" for="front-side-file">Upload Image</label></p>
+                        <p><img id="front-side-display-pra-id" class="img-to-be-displayed" /></p>
+                    </div>
+
+                    <div>
+                        <label class="regester-form-labels">Back Side</label>
+                        <p><input type="file"  accept="image/*" name="back_side_img" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+                        <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+                        <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+                    </div>
+                </div>
+                <label class="regester-form-labels">Name </label>
+                <input type="text" placeholder="Fisrt & second name" class="regester-form-inputs">
+                
+                <label class="regester-form-labels">Contacts </label>
+                <input type="text" placeholder="Phone Number" class="regester-form-inputs">
+
+                <label class="regester-form-labels">Email </label>
+                <input type="text" placeholder="Email Address" class="regester-form-inputs">
+
+                <label class="regester-form-labels">Next of Kin </label>
+                <input type="text" placeholder="Password" class="regester-form-inputs">
+
+                <label class="regester-form-labels">Contacts </label>
+                <input type="text" placeholder="Phone Number" class="regester-form-inputs">
+
+                <button onclick="document.getElementById('id01').style.display='block'" class="main-navigation-btns main-navigation-btns-fontstyle" >Next</button>
+        
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container first-pop-up-window">
+                        <center><br>
+                        <label class="regester-form-labels"> Register Using</label><br>
+                        <label class="regester-form-labels">Pass Photo</label><br>
+                        <label class="regester-form-labels">Front Side</label><br>
+                        <label class="regester-form-labels">Back Side</label><br>
+                        <label class="regester-form-labels">Name </label><br>
+                        <label class="regester-form-labels">Contacts </label><br>
+                        <label class="regester-form-labels">Email </label><br>
+                        <label class="regester-form-labels">Next of Kin </label><br>
+                        <label class="regester-form-labels">Contacts </label><br>
+                        <button onclick="Load_School_Notice_Bord ()" class="main-navigation-btns main-navigation-btns-fontstyle" >Register </button>
+						<button class="close-btn fontstyles" type="button" onclick="document.getElementById('id01').style.display='none'"> Close</button><br><br>
+                        </center>
+                    </div>
+                </div>		
+            </div>
+        </div> <!-- school-register-div-id -->
+    </center>
+
+</body>
+</html>
