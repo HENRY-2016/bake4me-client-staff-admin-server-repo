@@ -547,6 +547,7 @@ padding: 12px 12px 12px 12px;
     /* text-decoration:none; */
     /* transition:0.3s; */
     /* display:block; */
+	
     padding:5px 5px;
     font-size: 16px;
     font-family:Times New Roman Times, serif;
@@ -567,13 +568,32 @@ padding: 12px 12px 12px 12px;
 
 /* 
     =====================>>>>>> SUB NAVIGATION
+	 display: block;
 */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  background-color: #D8C8A0;
+}
+
+li {float: left;}
+
+li a {
+ 
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 .pay-webp-img,.feedback-webp-img,.arrival-webp-img
 {
-    width: 55px;
-    height: 55px;
+    width: 35px;
+    height: 35px;
     margin-bottom: 22px;
-    margin-top: 5px;
+    margin-top: 9px;
     margin-left: 5%;
 
 }
@@ -587,8 +607,8 @@ padding: 12px 12px 12px 12px;
 
 .archive-webp-img
 {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     margin-bottom: 22px;
     margin-top: 5px;
     margin-left: 5%;
