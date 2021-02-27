@@ -45,6 +45,15 @@ if (!isset($_SESSION['username'])) {
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Party_Accessories_Page ()" class="main-navigation-links-labels" >Party Accessories </label>
                 </button>
+                <?php 
+                if (isset($_SESSION['username'] && $_SESSION['usertype'])): 
+                <label onclick="Load_Customer_History_Page ()" class="main-sub-navigation-links-labels">  
+                    <!-- Archive  -->
+                    <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
+                    <span class="w3-badge w3-blue">0</span>
+                </label>
+                endif; 
+                ?>
             </div>
         </div>
     </div>
