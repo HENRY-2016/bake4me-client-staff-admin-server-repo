@@ -65,27 +65,27 @@
                 <label onclick="Load_Customer_Orders_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Feedback  -->
                     <img src="static/imgs/bakery/orders.webp" class="feedback-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
 
                 <label onclick="Load_Customer_Feedbacks_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Feedback  -->
                     <img src="static/imgs/bakery/feedback.webp" class="feedback-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
             <!-- </button> -->
             <!-- <button class="navi-links-btns w3-button"> -->
                 <label onclick="Load_Customer_Deliveries_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Arrival  -->
                 <img src="static/imgs/bakery/arrival.webp" class="arrival-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
             <!-- </button> -->
             <!-- <button class="navi-links-btns w3-button"> -->
                 <!-- <label onclick="Load_Customer_History_Page ()" class="main-sub-navigation-links-labels">   -->
                     <!-- Archive  -->
                     <!-- <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label> -->
             <!-- ';
             else:
@@ -139,8 +139,9 @@
             <!-- shoulb be dynamically created... -->
         </table>
     </center><br>
-    <center> <button class="admin-btn fontstyles">Assign for Delivery</button></center><br>
-    <div><!-- Begin New Estiments div -->
+    <center> 
+    <div class="staff-work-on-div" ><!-- Begin New Estiments div -->
+	<button class="admin-btn fontstyles">Assign for Delivery</button>
         <center>
             <form class="orders_from_to_form" id="price-edit-form">
                 <label>Staff Name</label><br>
@@ -150,14 +151,24 @@
                     <option value="Wedding" >Henry</option>
                 </select><br>
             </form>
-            <!-- 
+			
+	</div><!-- End New Estiments div -->
+	</center><br>
+			<center>
+			<div>
+		<p>results</p>
+		</div>
+		<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>
+            
+			</center>
+			<!-- 
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                                 POP UP PRICING
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             -->
-            <button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button>
+            
         </center> <br>
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -215,7 +226,8 @@
                     </div>
                 </div>
             </div>
-
-        </div><!-- End New Estiments div -->
+<script>
+autocomplete(document.getElementById("name-input-id"), customer_names)
+</script>
 </body>
 </html>

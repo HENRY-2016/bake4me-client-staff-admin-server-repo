@@ -129,11 +129,6 @@
     </script>
 
     <!-- Main Content Body  Begin-->
-    <!-- <div class="admin-navigation-sublinks">
-        <label>Estimates</label>
-        <label>Orders</label>
-        <label>History</label>
-    </div><br> -->
     <br>
     <center>
         <table class=" status-table">
@@ -143,17 +138,26 @@
             <!-- shoulb be dynamically created... -->
         </table>
     </center><br>
-    <center> <button class="admin-btn fontstyles"> Details</button></center><br>
-    <div><!-- Begin New Estiments div -->
+	<center>
+			<div class="staff-work-on-div" ><!-- Begin New Estiments div -->
+	<button class="admin-btn fontstyles">Mark Finished</button>
         <center>
             <form class="orders_from_to_form" id="price-edit-form">
-                <label>Cakes Order</label><br>
-                <select id="types_options" name="itemtype" class="form_input_select" onchange="FetchPricesFromServer ()" >
-                    <option>cake option</option>
-                    <option value="Birth Day" >Birth Day</option>
-                    <option value="Wedding" >Wedding</option>
-                </select><br>
+               <div class="autocomplete">
+								<label><b>Name</label><br>
+								<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
+						</div><br>
             </form>
+			
+	</div><!-- End New Estiments div -->
+	</center><br>
+			<center>
+			<div>
+		<p>results</p>
+		</div>
+		<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>
+            
+			</center>
             <!-- 
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -161,7 +165,7 @@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             -->
-            <button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button>
+
         </center> <br>
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -222,7 +226,8 @@
                     </div>
                 </div>
             </div>
-
-        </div><!-- End New Estiments div -->
+<script>
+autocomplete(document.getElementById("name-input-id"), customer_names)
+</script>
 </body>
 </html>

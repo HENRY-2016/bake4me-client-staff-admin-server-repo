@@ -22,14 +22,14 @@
     margin-left: 2%;
     
 }
-#NaviDivHeader {background-color: red;height:62px;}
+#NaviDivHeader {background-color: red;height:40px;}
 
 .profile-svg-img 
 {
     width: 33px;
     height: 33px;
     /* margin-bottom: 22px; */
-    margin-top: -5px; 
+    margin-top: 11px; 
     margin-right: 2%;
 }
 
@@ -46,6 +46,28 @@
     display: none;
     color: red;
 }
+.orders_from_to_form
+{
+
+	width: 80%;
+}
+.admin-btn
+{
+    width:80%;
+    height:50px;
+  }
+  
+  .assign-btn
+{
+  
+    width:35%;
+    height:50px;
+}
+  
+  
+  
+}
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

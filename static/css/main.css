@@ -11,6 +11,7 @@
 {
     background-color: #B0A27B;
     width: 100%;
+	height:00%;
 }
 
 .main-navigation-btns-fontstyle
@@ -170,7 +171,13 @@
     font-weight:bold;
     font-family:Times New Roman Times, serif;
 }
-
+.staff-work-on-div
+{
+	background-color:inherit;
+	width:50%;
+	border-bottom-left-radius:50px;
+	border-bottom-right-radius:50px;
+}
 .orders-status-td{text-align: center;}
 .orders-avenue-td
 {
@@ -229,9 +236,10 @@
     color: white;
     font-weight: bold;
     border:none;
-    width:95%;
+    width:70%;
     height:40px;
-    border-radius:18px;
+    border-radius:10px;
+	
 }
 .staff-popup-price-estiments
 {
@@ -245,11 +253,10 @@
 .order-inputs
 {
     box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	
 	outline: none;
 	display: block;
-	width: 200;
+	width: 70%;
 	padding: 7px;
 	border: none;
 	border-bottom: 2px solid blue;
@@ -327,14 +334,15 @@
 .orders_from_to_form
 {
     font-family: 'Open Sans Condensed', arial, sans;
-	width: 300px;
+	width: 40%;
 	padding: 30px;
 	background: #FFFFFF;
-	/* margin: 50px auto; */
-	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-	/* -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22); */
+	
+	border-bottom-left-radius:30px;
+	border-bottom-right-radius:30px;
+	
 }
+
 .agency-show-btn
 {
 
