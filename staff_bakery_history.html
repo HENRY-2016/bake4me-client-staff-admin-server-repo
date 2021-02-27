@@ -30,17 +30,16 @@ function Set_Up_Every_Thing ()
                 <img src="static/imgs/main/icone.png" class="log-icone" >
             <br><br>
             <div id="navigetion-links-div">
-			
-               <button class="navi-links-btns w3-button">
+                <button class="navi-links-btns w3-button">
                     <label onclick="Load_Crud_Page ()" class="main-navigation-links-labels" >Crud</label>
                 </button><br><br>
-               <button class="navi-links-btns w3-button">
+                <button class="navi-links-btns w3-button">
                     <label onclick="Load_Cakes_Page ()" class="main-navigation-links-labels" >Cakes</label>
-                </button>
+                </button><br><br>
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Outlets_Page ()" class="main-navigation-links-labels" >Outlets</label>
                 </button><br><br>
-               <button class="navi-links-btns w3-button">
+                <button class="navi-links-btns w3-button">
                     <label onclick="Load_School_Index_Page ()" class="main-navigation-links-labels" >School</label>
                 </button><br><br>
                 <button class="navi-links-btns w3-button">
@@ -49,82 +48,58 @@ function Set_Up_Every_Thing ()
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Party_Accessories_Page ()" class="main-navigation-links-labels" >Party Accessories </label>
                 </button>
-			
             </div>
         </div>
     </div>
-    <!-- <div id="NaviDivHeader"> </div>  -->
-	<!--  End <<<< NaviDivHeader >>>>  -->
-           
+    <div id="NaviDivHeader">
+            <label class="open-navigation-label" onclick="OpenMainNavigetion()">&#9776;</label>
             <!-- Display client account benifits -->
-		<!--
-			<?php 
+            <!-- <?php 
                 if (isset($_SESSION['username'])):
-            echo'-->
-		<ul>
+            echo' -->
+                <label onclick="Load_Customer_Estiments_Page ()" class="main-sub-navigation-links-labels"> 
+                    <!-- pay -->
+                    <img src="static/imgs/bakery/estiment.webp" class="pay-webp-img" >
+                    <span class="w3-badge w3-small w3-blue">0</span>
+                </label>
+            
 
-            <li style="float:left"><a>
-			  <label class="open-navigation-label" onclick="OpenMainNavigetion()">&#9776;</label>
-			  </a></li>
-			  
-			   <li><a>
-				   <label onclick="Load_Customer_Estiments_Page ()" class="main-sub-navigation-links-labels"> 
-						<!-- pay -->
-						
-						<img src="static/imgs/bakery/estiment.webp" class="pay-webp-img" >
-						<span class="w3-badge w3-small w3-blue ">0</span>
-						
-					</label>
-			  </a></li>
-			  
-			   <li><a>
-					<label onclick="Load_Customer_Orders_Page ()" class="main-sub-navigation-links-labels">  
+                <label onclick="Load_Customer_Orders_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Feedback  -->
                     <img src="static/imgs/bakery/orders.webp" class="feedback-webp-img" >
-                    <span class="w3-badge w3-small w3-blue">0</span>
+                    <span class="w3-badge w3-blue">0</span>
                 </label>
-			  </a></li>
-			  
-			   <li><a>
-				<label onclick="Load_Customer_Feedbacks_Page ()" class="main-sub-navigation-links-labels">  
+
+                <label onclick="Load_Customer_Feedbacks_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Feedback  -->
                     <img src="static/imgs/bakery/feedback.webp" class="feedback-webp-img" >
-                    <span class="w3-badge w3-small w3-blue">0</span>
+                    <span class="w3-badge w3-blue">0</span>
                 </label>
-			  </a></li>
-			  
-			   <li><a>
-					<label onclick="Load_Customer_Deliveries_Page ()" class="main-sub-navigation-links-labels">  
+            <!-- </button> -->
+            <!-- <button class="navi-links-btns w3-button"> -->
+                <label onclick="Load_Customer_Deliveries_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Arrival  -->
                 <img src="static/imgs/bakery/arrival.webp" class="arrival-webp-img" >
-                    <span class="w3-badge w3-small w3-blue">0</span>
+                    <span class="w3-badge w3-blue">0</span>
                 </label>
-				</a></li>
-			  
-			  
-			  <li><a>
-			  <label onclick="Load_Customer_History_Page ()" class="main-sub-navigation-links-labels">  
+            <!-- </button> -->
+            <!-- <button class="navi-links-btns w3-button"> -->
+                <label onclick="Load_Customer_History_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Archive  -->
-                    <img src="static/imgs/bakery/archive.webp" class="archive-webp-img">
-                    <span class="w3-badge w3-small w3-blue">0</span>
-                </label></a>
-			  </li>
-			 
-			  <li style="float:right"><a>
-			  <label class="open-navigation-profile-label" onclick="OpenProfileNavigetion()">
-				<img src="static/imgs/bakery/profile.svg" class="profile-svg-img" >
-				</label>
-			  </a></li>
-			</ul>
-			 
-			
-			<!--  ';
+                    <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
+                    <span class="w3-badge w3-blue">0</span>
+                </label>
+            <!-- ';
             else:
                 echo "Thank You Our Vistor";
             endif;
-            ?>-->
+            ?> -->
+    </div> <!--  End <<<< NaviDivHeader >>>>  -->
 
-        <div id="open-navigation-label-profile-div"> &nbsp
+        <div id="open-navigation-label-profile-div">
+        <label class="open-navigation-profile-label" onclick="OpenProfileNavigetion()">
+            <img src="static/imgs/bakery/profile.svg" class="profile-svg-img" >
+        </label>
             <div id= "profile-side-bar" class="profile-side-bar">
                 <span href="javascript:void(0)" class="closebtn" onclick="CloseProfileNavigetion()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
                 <div id="navigetion-links-div">
@@ -156,6 +131,7 @@ function Set_Up_Every_Thing ()
     function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
     </script>
 
+
     <!-- Main Content Body  Begin-->
     <!-- <div class="admin-navigation-sublinks">
         <label>Estimates</label>
@@ -164,7 +140,6 @@ function Set_Up_Every_Thing ()
     </div><br> -->
     <br>
 	
-			  
 			
     <center>
     <div id="chips-orders-received-root-div"> <!-- Begin Root Div -->

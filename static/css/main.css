@@ -512,7 +512,7 @@ padding: 12px 12px 12px 12px;
     text-align: center;
 }
 
-#NaviDivHeader {background-color: #D8C8A0;height:62px;}
+#NaviDivHeader {background-color: #D8C8A0;height:62px; width: 100%;}
 .open-navigation-label-div { margin-left: 20%; margin-top: -8px; }
 .open-navigation-label
 {
@@ -544,13 +544,12 @@ padding: 12px 12px 12px 12px;
 .main-sub-navigation-links-labels
 {
     color:blue;
-    /* text-decoration:none; */
-    /* transition:0.3s; */
-    /* display:block; */
+    
+    display:inline-flexbox;
 	
     padding:5px 5px;
-    font-size: 16px;
-    font-family:Times New Roman Times, serif;
+    /* font-size: 16px;
+    font-family:Times New Roman Times, serif; */
 }
 
 .main-sub-navigation-links-labels:hover {color:blue; border-bottom : 5px solid blue;}
@@ -568,26 +567,7 @@ padding: 12px 12px 12px 12px;
 
 /* 
     =====================>>>>>> SUB NAVIGATION
-	 display: block;
 */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  background-color: #D8C8A0;
-}
-
-li {float: left;}
-
-li a {
- 
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
 .pay-webp-img,.feedback-webp-img,.arrival-webp-img
 {
     width: 35px;
@@ -597,14 +577,6 @@ li a {
     margin-left: 5%;
 
 }
-.profile-svg-img 
-{
-    width: 65px;
-    height: 55px;
-    margin-top: -5px; 
-    margin-right: 5%;
-}
-
 .archive-webp-img
 {
     width: 35px;
@@ -614,6 +586,14 @@ li a {
     margin-left: 5%;
     
 }
+.profile-svg-img 
+{
+    width: 65px;
+    height: 55px;
+    margin-top: -5px; 
+    /* margin-right: 5%; */
+}
+
 
 .admin-navigation-sublinks
 {

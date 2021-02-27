@@ -18,8 +18,8 @@
 
     .profile-svg-img 
     {
-        width: 65px;
-        height: 55px;
+        width: 33px;
+        height: 33px;
         /* margin-bottom: 22px; */
         margin-top: -5px; 
         margin-right: 5px;
@@ -27,17 +27,30 @@
 
     .archive-webp-img
     {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 2px;
         margin-bottom: 22px;
         margin-top: 5px;
         margin-left: 5%;
         
     }
+/* .open-navigation-label-div { margin-left: 20%; margin-top: -8px; } */
+.open-navigation-label
+{
+    font-size:20px;
+    cursor:pointer;
+    margin-left: 8px;
+    color: white;
+}
 
-    body {
-    background-color: lightblue;
-    }
+/* #open-navigation-label-profile-div {float:right; margin-top: -50px;} */
+.open-navigation-profile-label
+{
+    font-size:20px;
+    cursor:pointer;
+    color: white;
+    margin-right: 50%;
+}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -77,15 +90,7 @@
         padding-right: 5%;
     }
 
-    .archive-webp-img
-    {
-        width: 45px;
-        height: 45px;
-        margin-bottom: 22px;
-        margin-top: 5px;
-        margin-left: 20%;
-        
-    }
+
 }
 @media only screen and (orientation: landscape) 
 {
