@@ -41,7 +41,11 @@
     margin-left: 4px;
     color: white;
 }
-
+.icone-count-spans
+{
+    display: none;
+    color: red;
+}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
