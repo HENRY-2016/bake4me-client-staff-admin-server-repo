@@ -513,7 +513,6 @@ padding: 12px 12px 12px 12px;
 }
 
 #NaviDivHeader {background-color: #D8C8A0;height:62px; width: 100%;}
-.open-navigation-label-div { margin-left: 20%; margin-top: -8px; }
 .open-navigation-label
 {
     font-size:35px;
@@ -591,7 +590,7 @@ padding: 12px 12px 12px 12px;
     width: 65px;
     height: 55px;
     margin-top: -5px; 
-    /* margin-right: 5%; */
+    margin-right: 5%;
 }
 
 

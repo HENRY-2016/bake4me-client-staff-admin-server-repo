@@ -5,52 +5,43 @@
 /* Extra small devices (phones, 600px and down) */
 @media only  screen and (max-width: 600px) 
 {
-    .pay-webp-img,.feedback-webp-img,.arrival-webp-img
-    {
-        width: 20px;
-        height: 20px;
-        margin-bottom: 22px;
-        margin-top: 5px;
-        margin-left: 5%;
-    }
+.pay-webp-img,.feedback-webp-img,.arrival-webp-img
+{
+    width: 20px;
+    height: 20px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    margin-left: 3%;
+}
+.archive-webp-img
+{
+    width: 20px;
+    height: 2px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    margin-left: 3%;
+    
+}
+#NaviDivHeader {background-color: red;height:62px;}
 
-    #NaviDivHeader {background-color: red;height:62px;}
+.profile-svg-img 
+{
+    width: 33px;
+    height: 33px;
+    /* margin-bottom: 22px; */
+    margin-top: -5px; 
+    margin-right: 3%;
+}
 
-    .profile-svg-img 
-    {
-        width: 33px;
-        height: 33px;
-        /* margin-bottom: 22px; */
-        margin-top: -5px; 
-        margin-right: 5px;
-    }
-
-    .archive-webp-img
-    {
-        width: 20px;
-        height: 2px;
-        margin-bottom: 22px;
-        margin-top: 5px;
-        margin-left: 5%;
-        
-    }
-/* .open-navigation-label-div { margin-left: 20%; margin-top: -8px; } */
+    
 .open-navigation-label
 {
-    font-size:20px;
+    font-size:10px;
     cursor:pointer;
-    margin-left: 8px;
+    margin-left: 4px;
     color: white;
 }
 
-/* #open-navigation-label-profile-div {float:right; margin-top: -50px;} */
-.open-navigation-profile-label
-{
-    font-size:20px;
-    cursor:pointer;
-    color: white;
-    margin-right: 50%;
-}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -74,21 +65,6 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) 
 {
-    .pay-webp-img,.feedback-webp-img,.arrival-webp-img
-    {
-        width: 55px;
-        height: 55px;
-        margin-bottom: 22px;
-        margin-top: 5px;
-    }
-    .profile-svg-img 
-    {
-        width: 65px;
-        height: 55px;
-        /* margin-bottom: 22px; */
-        margin-top: -5px; 
-        padding-right: 5%;
-    }
 
 
 }
