@@ -93,22 +93,30 @@
                 <span href="javascript:void(0)" class="closebtn" onclick="CloseProfileNavigetion()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
                 <div id="navigetion-links-div">
                     <br><br>
-                    <?php 
-                        if (isset($_SESSION['username'])): 
-                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Name</label><br>';
-                            $name = sprintf('<br><label class="profile-php-labels profile-php-profile-html-fontstyle"> %s </label>',$_SESSION['username']);
-                            echo $name;
-                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Contacts</label><br>';
-                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle">Location</label><br>';
-                            echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Email</label><br>';
-                            echo '<br><br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Receipts</label>';
-                            echo '<br><br><form action="http://localhost/bake4me-php/logout.php" method="POST" ><button type="submit"  class="logout-btn logout-login-regester-btns-fontstyle">Logout</button> </form>';
-                        else:
-                            echo "Not Logged in";
-                            echo '<br><br><form action="http://localhost/bake4me-php/index.php" method="POST" ><button type="submit"  class="login-btn logout-login-regester-btns-fontstyle">Log in</button></form> <br>Or<br>';
-                            echo '<br><button onclick="Load_Client_Register_Page ()" class="register-btn logout-login-regester-btns-fontstyle">Register</button>';
-                        endif; 
-                    ?>
+                    <!-- <?php 
+                        if (isset($_SESSION['username'])):  -->
+                            <!-- echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Name</label><br>'; -->
+                            <br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Name</label><br>
+                            <!-- $name = sprintf('<br><label class="profile-php-labels profile-php-profile-html-fontstyle"> %s </label>',$_SESSION['username']); -->
+                            <br><label class="profile-php-labels profile-php-profile-html-fontstyle"> </label>
+                            <!-- echo $name; -->
+                            <!-- echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Contacts</label><br>'; -->
+                            <br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Contacts</label><br>
+                            <!-- echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle">Location</label><br>'; -->
+                            <br><label class="profile-html-labels profile-php-profile-html-fontstyle">Location</label><br>
+                            <!-- echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Email</label><br>'; -->
+                            <br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Email</label><br>
+                            <!-- echo '<br><br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Receipts</label>'; -->
+                            <br><br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Receipts</label>
+                            <!-- echo '<br><br><form action="http://localhost/bake4me-php/logout.php" method="POST" ><button type="submit"  class="logout-btn logout-login-regester-btns-fontstyle">Logout</button> </form>'; -->
+                            <br><br><button onclick="Staff_Bakery_LogOut ()" type="button"  class="logout-btn logout-login-regester-btns-fontstyle">Logout</button>
+                        <!-- else: -->
+                            <!-- echo "Not Logged in"; -->
+                            <!-- echo '<br><br><form action="http://localhost/bake4me-php/index.php" method="POST" ><button type="submit"  class="login-btn logout-login-regester-btns-fontstyle">Log in</button></form> <br>Or<br>'; -->
+                            <br><br><button onclick="Staff_Bakery_LogIn ()" type="button"  class="login-btn logout-login-regester-btns-fontstyle">Log in</button> <br>
+                            <!-- echo '<br><button onclick="Load_Client_Register_Page ()" class="register-btn logout-login-regester-btns-fontstyle">Register</button>'; -->
+                        <!-- endif;  
+                    ?>-->
                 </div>
             </div>
         </div>
