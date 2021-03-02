@@ -8,10 +8,10 @@ let php_pages_source_dir = 'bake4me-php/';
 
 
 // MAIN LINKS NAVIGATION ...........
-function Load_Cakes_Page () {window.location='bakery_cakes.html'}
+function Load_Cakes_Page () {window.location='bakery_cakes.html';}
 function Load_Outlets_Page () {window.location='bakery_outlets.html';}
-function Load_Baking_Machines_Page () {}
-function Load_Party_Accessories_Page () {}
+function Load_Baking_Machines_Page () {window.location='bakery_machines.html';}
+function Load_Party_Accessories_Page () {window.location='bakery_accessories.html';}
 
 // SUB LINKS NAVIGATION  CLIENTS ......
 function Load_Payment_Page () {window.location='bakery_payment.html';}
@@ -86,11 +86,11 @@ let customer_names =
                     'John'
                 ]
 let students_names = 
-[
-    'Peter',
-    'John',
-    'henry'
-]
+                [
+                    'Peter',
+                    'John',
+                    'henry'
+                ]
 
 let cake_names =
 				[

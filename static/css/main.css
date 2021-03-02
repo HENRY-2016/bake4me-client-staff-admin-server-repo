@@ -32,14 +32,14 @@
 
 .menu-iframe
 {
-    width:50%;
-    height: 500px;
+    width:60%;
+    height: 800px;
     /* margin-top: -2px; */
-    /* align-content: center; */
+    align-content: center;
 }
 .amount-pay-label
 {
-	 font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 18px;
 
     color: white;
