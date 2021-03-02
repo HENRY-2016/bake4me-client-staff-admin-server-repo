@@ -44,7 +44,7 @@
 
     color: white;
 }
-.small-span{display:none;}
+
 /*=======================================================================================================*/
                                             /*
                                                ++++++++++++++++++++++++
@@ -250,6 +250,36 @@
 	
 }
 
+.down-load-btn
+{
+	 background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 12px 12px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  height:35px;
+}
+.calender-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+  background-color:white;
+  border-bottom-left-radius:50px;
+  border-bottom-right-radius:50px;
+}
+
+.calender-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.calender-container {
+  padding: 2px 16px;
+}
+.calender-card-hr {
+  border: 2px solid blue;
+}
 /*=======================================================================================================*/
                                             /*
                                                ++++++++++++++++++++++++++

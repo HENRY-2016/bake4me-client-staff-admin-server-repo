@@ -23,7 +23,7 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="static/css/w3.css"/> 
 </head>
 <body class="main-body">
-    <div id="main-header">
+     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
             <span href="javascript:void(0)" class="closebtn" onclick="CloseMainNavigetion()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
@@ -32,6 +32,7 @@ if (!isset($_SESSION['username'])) {
                 <img src="static/imgs/main/icone.png" class="log-icone" >
             <br><br>
             <div id="navigetion-links-div">
+            
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Cakes_Page ()" class="main-navigation-links-labels" >Cakes</label>
                 </button><br><br>
@@ -47,51 +48,49 @@ if (!isset($_SESSION['username'])) {
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Party_Accessories_Page ()" class="main-navigation-links-labels" >Party Accessories </label>
                 </button>
-                <?php 
-                if (isset($_SESSION['username'] && $_SESSION['usertype'])): 
+                <br><br>
                 <label onclick="Load_Customer_History_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Archive  -->
                     <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
                     <span class="w3-badge w3-blue">0</span>
                 </label>
-                endif; 
-                ?>
             </div>
         </div>
     </div>
     <div id="NaviDivHeader">
             <label class="open-navigation-label" onclick="OpenMainNavigetion()">&#9776;</label>
             <!-- Display client account benifits -->
-            <?php 
+            <!-- <?php 
                 if (isset($_SESSION['username'])):
-            echo'
-                <label class="main-sub-navigation-links-labels"> 
+            echo' -->
+                <label onclick="Load_Payment_Page ()" class="main-sub-navigation-links-labels"> 
                     <!-- pay -->
                     <img src="static/imgs/bakery/pay.webp" class="pay-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
-            <!-- </button> -->
+            
 
-            <!-- <button class="navi-links-btns w3-button"> -->
-                <label class="main-sub-navigation-links-labels">  
+                <label onclick="Load_FeedBacks_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Feedback  -->
                     <img src="static/imgs/bakery/feedback.webp" class="feedback-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
-            <!-- </button> -->
+
+               
             <!-- <button class="navi-links-btns w3-button"> -->
-                <label class="main-sub-navigation-links-labels">  
+                <label onclick="Load_Deliveries_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Arrival  -->
                 <img src="static/imgs/bakery/arrival.webp" class="arrival-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
             <!-- </button> -->
-            <!-- <button class="navi-links-btns w3-button"> -->
-                <label class="main-sub-navigation-links-labels">  
+				
+				    <label onclick="Load_History_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Archive  -->
                     <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
-                    <span class="w3-badge w3-blue">0</span>
+                    <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
+            
             <!-- ';
             else:
                 echo "Thank You Our Vistor";
@@ -107,7 +106,7 @@ if (!isset($_SESSION['username'])) {
                 <span href="javascript:void(0)" class="closebtn" onclick="CloseProfileNavigetion()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
                 <div id="navigetion-links-div">
                     <br><br>
-                     <!-- <?php 
+                <!-- <?php 
                         if (isset($_SESSION['username'])):  -->
                             <!-- echo '<br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Name</label><br>'; -->
                             <br><label class="profile-html-labels profile-php-profile-html-fontstyle"> Name</label><br>
@@ -142,15 +141,35 @@ if (!isset($_SESSION['username'])) {
     function OpenProfileNavigetion(){document.getElementById("profile-side-bar").style.width = "250px"}
     function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
     </script>
-    <center>
-        <p>
-            Bake4me outlets<br><br>
-            Nanlya <br>
-            Kololo <br>
-            Kajjansi <br>
-            Nakulyabe <br>
-            Bunga<br>
-        </p>
-    </center>
+    
+	    <center>
+
+		<div class="calender-card">
+			<div class="calender-container">
+				<hr class="calender-card-hr">
+			
+					Nanlya <br>
+					Contacts Details<br>
+					<hr class="calender-card-hr">
+			
+					Kololo <br>
+					Contacts Details<br>
+					<hr class="calender-card-hr">
+			
+					Kajjansi <br>
+					Contacts Details<br>
+					<hr class="calender-card-hr">
+			
+					Nakulyabe <br>
+					Contacts Details<br>
+					<hr class="calender-card-hr">
+			
+					  Bunga <br>
+					Contacts Details<br>
+			<hr class="calender-card-hr">
+			</div>
+		  
+		</div>
+		</center>
 </body>
 </html>

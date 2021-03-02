@@ -1,6 +1,9 @@
 
 var data_src_url = "http://127.0.0.1:6060/";
 // var data_src_url = "http://192.168.43.140:6060/";
+//<script>
+//autocomplete(document.getElementById("name-input-id"), customer_names)
+//</script>
 
 let url = 'http://localhost/';
 let html_pages_source_dir = 'bake4me-client-staff-admin-server-repo/';
@@ -98,6 +101,25 @@ let cake_names =
 					'Queen Cake2',
 					'Queen Cake3'
 				]
+let school_description =
+				
+				[
+					'Fees',
+					'Theory',
+					'Practical'
+				]
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 function autocomplete(inp, arr) 
 {
     /*the autocomplete function takes two arguments,
