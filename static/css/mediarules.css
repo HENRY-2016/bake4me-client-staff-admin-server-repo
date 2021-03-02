@@ -5,6 +5,8 @@
 /* Extra small devices (phones, 600px and down) */
 @media only  screen and (max-width: 600px) 
 {
+.small-span{display:block;}
+.large-span {display:none;}
 .pay-webp-img,.feedback-webp-img,.arrival-webp-img
 {
     width: 20px;
@@ -16,13 +18,13 @@
 .archive-webp-img
 {
     width: 20px;
-    height: 2px;
+    height: 20px;
     margin-bottom: 22px;
     margin-top: 5px;
     margin-left: 2%;
     
 }
-#NaviDivHeader {background-color: red;height:40px;}
+#NaviDivHeader {background-color: red;height:43px;}
 
 .profile-svg-img 
 {
