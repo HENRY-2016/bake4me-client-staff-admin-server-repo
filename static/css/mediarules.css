@@ -29,7 +29,7 @@
     margin-left: 2%;
     
 }
-#NaviDivHeader {background-color: red;height:50px;}
+#NaviDivHeader {background-color: red;height:62px;}
 
 .profile-svg-img 
 {
@@ -52,11 +52,6 @@
 {
     display: none;
     color: red;
-}
-.orders_from_to_form
-{
-
-	width: 80%;
 }
 
 #bottom-btn-div-id
