@@ -23,13 +23,13 @@
 .archive-webp-img
 {
     width: 20px;
-    height: 30px;
+    height: 20px;
     margin-bottom: 22px;
     margin-top: 5px;
     margin-left: 2%;
     
 }
-#NaviDivHeader {background-color: red;height:48px;}
+#NaviDivHeader {background-color: red;height:50px;}
 
 .profile-svg-img 
 {
@@ -58,16 +58,19 @@
 
 	width: 80%;
 }
-.admin-btn
+
+#bottom-btn-div-id
 {
-    width:80%;
-    height:50px;
+	top: 95%;
+	  left: 15%;
+	  right:50%;
+	  width:80%;
 }
 
 .assign-btn
 {
     width:35%;
-    height:50px;
+    height:45px;
 }
 
 
