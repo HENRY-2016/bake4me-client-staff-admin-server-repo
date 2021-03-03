@@ -241,8 +241,10 @@
 .client-view-feedbacks
 {
     font-family: 'Open Sans Condensed', arial, sans;
-	width: 50%;
+	width: 85%;
 	padding: 30px;
+    margin-left: 50%;
+    margin-right: 50%;
 	background: #FFFFFF;
 	
 	border-bottom-left-radius:30px;
@@ -280,7 +282,7 @@
   padding: 2px 16px;
 }
 .calender-card-hr {
-  border: 2px solid blue;
+    border: 2px solid blue;
 }
 /*=======================================================================================================*/
                                             /*
@@ -293,7 +295,7 @@
 
 .status-table
 {
-    width: 85%;
+    width: 100%;
     background-color: #6666ff;
 }
 .table-headings-tr
@@ -304,12 +306,15 @@
     font-weight:bold;
     font-family:Times New Roman Times, serif;
 }
+
 .staff-work-on-div
 {
 	background-color:inherit;
 	width:50%;
+    
 	border-bottom-left-radius:50px;
 	border-bottom-right-radius:50px;
+    /* background-color: yellowgreen; */
 }
 .orders-status-td{text-align: center;}
 .orders-avenue-td
@@ -350,6 +355,7 @@
     color: white;
     font-weight: bold;
     border:none;
+    margin-left: -6%;
     width:25%;
     height:40px;
     border-radius:18px;
@@ -369,7 +375,9 @@
     color: white;
     font-weight: bold;
     border:none;
-    width:70%;
+    margin-left: 50%;
+    margin-right: 50%;
+    width:85%;
     height:40px;
     border-radius:10px;
 	

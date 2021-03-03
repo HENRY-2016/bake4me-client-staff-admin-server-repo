@@ -31,7 +31,7 @@ if (!isset($_SESSION['username'])) {
                 <img src="static/imgs/main/icone.png" class="log-icone" >
             <br><br>
             <div id="navigetion-links-div">
-               
+            
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Cakes_Page ()" class="main-navigation-links-labels" >Cakes</label>
                 </button><br><br>
@@ -75,7 +75,7 @@ if (!isset($_SESSION['username'])) {
                     <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
 
-               
+            
             <!-- <button class="navi-links-btns w3-button"> -->
                 <label onclick="Load_Deliveries_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Arrival  -->
@@ -84,7 +84,7 @@ if (!isset($_SESSION['username'])) {
                 </label>
             <!-- </button> -->
 				
-				    <label onclick="Load_History_Page ()" class="main-sub-navigation-links-labels">  
+				<label onclick="Load_History_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Archive  -->
                     <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
                     <span class="w3-badge w3-small w3-blue">0</span>
@@ -142,10 +142,10 @@ if (!isset($_SESSION['username'])) {
     </script>
     <br>
     <div><!-- Begin New Estiments div -->
-        <center>
-             <div class="staff-work-on-div" ><!-- Begin New Estiments div -->
+        
+    <div  class="staff-work-on-div" ><!-- Begin New Estiments div -->
 	<button class="admin-btn fontstyles"> Feedback Details</button>
-        <center>
+        
 		<div class="client-view-feedbacks">
           <label>Driver Name</label><br><br>
 		<label>Alex</label><br>
@@ -154,7 +154,7 @@ if (!isset($_SESSION['username'])) {
 		 </div><br><br>
 			
 	</div><!-- End New Estiments div -->
-	<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Approve  </button><br><br>
+<center><button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Approve  </button></center><br><br>
             
             <!-- 
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -163,8 +163,8 @@ if (!isset($_SESSION['username'])) {
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             -->
-       
-        </center> <br>
+    
+         <br>
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4">
                     <header class="w3-container w3-teal">
@@ -182,8 +182,8 @@ if (!isset($_SESSION['username'])) {
 							 
 									<label>Click to tick</label><br><br>
 									<label class="container">Recieved well
-									  <input type="checkbox" checked="checked">
-									  <span class="checkmark"></span>
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
 									</label>
 									<label class="container">On Time
 									  <input type="checkbox">
