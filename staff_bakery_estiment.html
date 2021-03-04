@@ -131,15 +131,19 @@
     <!-- Main Content Body  Begin-->
 
     <br>
-    <center>
+    <!-- <center>
         <table class=" status-table">
             <tr class="table-headings-tr"> <th>Cake Type</th><th>Estiments </th> </tr>
             <tr class="orders-table-tr"><td class="orders-avenue-td">Birth Day</td> <td class="orders-status-td"><span id="chips-status-id" class="w3-badge w3-blue w3-padding-small">0</span></td></tr>
             <tr class="orders-table-tr"><td class="orders-avenue-td">Wedding </td> <td class="orders-status-td"><span  id="piloa-status-id" class="w3-badge w3-blue w3-padding-small" >0</span></td></tr>
-            <!-- shoulb be dynamically created... -->
         </table>
-    </center><br>
-			
+    </center><br> -->
+    <table class="status-table" id="myTableData"   cellpadding="2">
+        <tr class="table-headings-tr"> <th>Cake Type</th><th>Estiments </th> </tr>
+    </table><br><br>
+
+
+    <button onclick="CreateDynamicStatusTable ()">Table</button> <br>
 			 <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
 			<button class="admin-btn fontstyles"> Details</button>
 				
@@ -154,11 +158,21 @@
 					
 			</div><!-- End New Estiments div -->
 			<br>
-					<center>
-					<div>
-				<p>results</p>
+					<!-- <center> -->
+				<div id="chips-view-new-oders-div">
+                    <p>results</p>
+                    
 				</div>
-				</center>
+                <button onclick="Fetch_Chips_Orders_All ()" >Do it</button>
+                    <table class="user-scrolling-table">
+                        <tbody id="chips-tbody"></tbody>
+                    </table>
+				<!-- </center> -->
+                <br>
+                
+                
+                
+                
 				<center>
 				<div id="bottom-btn-div-id">
 				<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>

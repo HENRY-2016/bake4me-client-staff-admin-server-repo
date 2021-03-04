@@ -95,6 +95,58 @@
     border-radius:10px;
 	
 }
+/* begin  table css */
+.user-scrolling-table
+{
+    display:block;
+    overflow: auto;
+    height: 350px;
+    width: 100%;
+}
+.js_table_headers
+{
+    background-color: blue;
+}
+.js_table_row
+{
+    background-color:#2196F3;
+    /* color: white; */
+    border-bottom:1px solid #ddd;
+    font-size: 18px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+
+}
+.js_table_row:hover
+{
+    background-color: black;
+    cursor: pointer;
+}
+/* End table css */
+
+/* Begin status table */
+
+.status-table
+{
+    width: 100%;
+    background-color: #6666ff;
+}
+.status-table-tr:hover
+{
+    background-color: #6163de;
+    cursor: pointer;
+}
+.status-table-td
+{
+    margin-left: 200px;
+    font-size: 15px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+/* Begin status table */
+
 /*=======================================================================================================*/
                                             /*
                                                ++++++++++++++++++++++++
@@ -335,6 +387,7 @@
     width: 100%;
     background-color: #6666ff;
 }
+
 .table-headings-tr
 {
     background-color:blue;
