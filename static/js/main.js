@@ -140,15 +140,20 @@ function Fetch_Chips_Orders_All ()
     function CreateDynamicStatusTable () {
         // var myName = document.getElementById("name");
         // var age = document.getElementById("age");
-        let table = document.getElementById("myTableData");
-        let rowCount = table.rows.length;
-        let row = table.insertRow(rowCount);
-        let name = "Wedding Cake";
-        let spannum = 5;
-        row.className='status-table-tr'; 
+		let results = 6
+		for (i=0;i<results;i++)
+		{
+		let table = document.getElementById("status-able-data-id");
+		let rowCount = table.rows.length;
+		let row = table.insertRow(rowCount);
+		let name = "Wedding Cake";
+		let spannum = 5;
+		row.className='status-table-tr'; 
 
-        row.insertCell(0).innerHTML= '<label class="status-table-td"> '+ name +'</label>';
-        row.insertCell(1).innerHTML= '<span class=" status-table-td w3-badge w3-blue w3-padding-small"> '+ spannum +'</span>';
+	
+			row.insertCell(0).innerHTML= '<label class="status-table-td"> '+ name +'</label>';
+			row.insertCell(1).innerHTML= '<span class=" status-table-td w3-badge w3-blue w3-padding-small"> '+ spannum +'</span>';
+		}
     }
 
 
