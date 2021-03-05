@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 </head>
-<body class="main-body">
+<body class="main-body" onload="IntializeSetUp ()" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -131,15 +131,10 @@
     </script>
 
 
-    <br>
-    <center>
-        <table class=" status-table">
-            <tr class="table-headings-tr"> <th>Customer</th><th>Queries</th> </tr>
-            <tr class="orders-table-tr"><td class="orders-avenue-td">John</td> <td class="orders-status-td"><span id="chips-status-id" class="w3-badge w3-blue w3-padding-small">5</span></td></tr>
-            <tr class="orders-table-tr"><td class="orders-avenue-td">Peter</td> <td class="orders-status-td"><span  id="piloa-status-id" class="w3-badge w3-blue w3-padding-small" >2</span></td></tr>
-            <!-- shoulb be dynamically created... -->
-        </table>
-    </center><br>
+     <table class="status-table" id="status-able-data-id"   >
+        <tr class="table-headings-tr"> <th>Customer</th><th>Queries </th> </tr>
+    </table><br>
+	
     <div><!-- Begin New Estiments div -->
         <center>
              <div id="staff-work-on-div" ><!-- Begin New Estiments div -->

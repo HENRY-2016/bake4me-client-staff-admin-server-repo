@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 </head>
-<body class="main-body">
+<body class="main-body" onload="IntializeSetUp ()">
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -140,10 +140,9 @@
     </center><br> -->
     <table class="status-table" id="status-able-data-id"   >
         <tr class="table-headings-tr"> <th>Cake Type</th><th>Estiments </th> </tr>
-    </table><br><br>
+    </table><br>
 
 
-    <button onclick="CreateDynamicStatusTable ()">Table</button> <br>
 			 <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
 			<button class="admin-btn fontstyles"> Details</button>
 				
@@ -161,13 +160,14 @@
 					<!-- <center> -->
 				<div id="chips-view-new-oders-div">
                     <p>results</p>
+					<table  class="user-scrolling-table">
+                        <tbody id="chips-tbody"></tbody>
+                    </table>
                     
 				</div>
                 <button onclick="Fetch_Chips_Orders_All ()" >Do it</button>
 			
-                    <table  class="user-scrolling-table">
-                        <tbody id="chips-tbody"></tbody>
-                    </table>
+                    
 				
                 <br>
                 

@@ -9,7 +9,10 @@ let url = 'http://localhost/';
 let html_pages_source_dir = 'bake4me-client-staff-admin-server-repo/';
 let php_pages_source_dir = 'bake4me-php/';
 
-
+function IntializeSetUp ()
+{
+	CreateDynamicStatusTable ();
+}
 // MAIN LINKS NAVIGATION ...........
 function Load_Cakes_Page () {window.location='bakery_cakes.html';}
 function Load_Outlets_Page () {window.location='bakery_outlets.html';}

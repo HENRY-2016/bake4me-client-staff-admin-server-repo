@@ -103,14 +103,9 @@
 /* begin  table css */
 .user-scrolling-table
 {
-	/*
-  display:block;
-    overflow: auto;
-    height: 350px;
-    width: 100%;
-	*/
-	 width: 100%;
-	height:50px;
+	display:;
+	width: 100%;
+	
     background-color: #6666ff;
 	overflow: auto;
 }
