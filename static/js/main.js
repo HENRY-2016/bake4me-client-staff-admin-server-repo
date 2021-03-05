@@ -213,7 +213,7 @@ function CreateDynamicStatusTable1 ()
 
 	
 			row.insertCell(0).innerHTML= '<label class="status-table-td"> '+ name +'</label>';
-			row.insertCell(1).innerHTML= '<span class=" status-table-td w3-badge w3-blue w3-padding-small"> '+ spannum +'</span>';
+			row.insertCell(1).innerHTML= '<center><span class=" status-table-td w3-badge w3-blue w3-padding-small"> '+ spannum +'</span></center>';
 		}
     }
 

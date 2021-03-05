@@ -5,8 +5,6 @@
 /* Extra small devices (phones, 600px and down) */
 @media only  screen and (max-width: 600px) 
 {
-#small-span{display:block;}
-#large-span {display:none;}
 
 .client-view-feedbacks
 {
@@ -14,8 +12,8 @@
 }
 .pay-webp-img,.feedback-webp-img,.arrival-webp-img
 {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 22px;
     margin-bottom: 22px;
     margin-top: 5px;
     margin-left: 3%;
@@ -29,14 +27,14 @@
     margin-left: 2%;
     
 }
-#NaviDivHeader {background-color: red;height:62px;}
+#NaviDivHeader {background-color: red;height:50px;}
 
 .profile-svg-img 
 {
     width: 33px;
     height: 33px;
     /* margin-bottom: 22px; */
-    margin-top: 11px; 
+    margin-top: 3px; 
     margin-right: 2%;
 }
 

@@ -37,6 +37,10 @@
     /* margin-top: -2px; */
     align-content: center;
 }
+#active-link-page
+{
+	border-bottom: 2px solid red;
+}
 .amount-pay-label
 {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -112,6 +116,9 @@
 .js_table_headers
 {
     background-color: blue;
+	color:white;
+	 font-size: 18px;
+    font-family:Times New Roman Times, serif;
 }
 .js_table_row
 {
@@ -143,7 +150,7 @@
 }
 .status-table-tr:hover
 {
-    background-color: #6163de;
+    background-color: black;
     cursor: pointer;
 }
 .status-table-td
@@ -647,7 +654,7 @@
     padding: 8px;
     margin-top: -55px; 
 } */
-#grid-container-div-one {margin-left: 30%;}
+
 
 .navi-links-btns  {margin-top: -10px; height: 40px; text-decoration: none; display: block;}
 .navi-links-btns:hover {color:blue; border-bottom : 5px solid blue; }
@@ -728,7 +735,7 @@ padding: 12px 12px 12px 12px;
     text-align: center;
 }
 
-#NaviDivHeader {background-color: #D8C8A0;height:60px; width: 100%;}
+#NaviDivHeader {background-color: #D8C8A0;height:57px; width: 100%;}
 .open-navigation-label
 {
     font-size:35px;
