@@ -141,17 +141,18 @@
             <form class="orders_from_to_form" id="price-edit-form">
                <div class="autocomplete">
 								<label><b>Name</label><br>
-								<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
+								<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_Selected_Data ()" class="paint-name order-inputs">
 						</div><br>
             </form>
 			
 	</div><!-- End New Estiments div -->
 	</center><br>
-			<center>
-			<div>
-		<p>results</p>
-		</div>
-		</center>
+	
+		<div id="chips-view-new-oders-div">
+					<table  class="user-scrolling-table">
+                        <tbody id="results-table-tbody"></tbody>
+                    </table>
+		</div><br>
 		<center>
 		<div id="bottom-btn-div-id">
 		<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>

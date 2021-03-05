@@ -137,10 +137,18 @@
             <tr class="orders-table-tr"><td class="orders-avenue-td">Birth Day</td> <td class="orders-status-td"><span id="chips-status-id" class="w3-badge w3-blue w3-padding-small">0</span></td></tr>
             <tr class="orders-table-tr"><td class="orders-avenue-td">Wedding </td> <td class="orders-status-td"><span  id="piloa-status-id" class="w3-badge w3-blue w3-padding-small" >0</span></td></tr>
         </table>
-    </center><br> -->
+		-->
+    </center><br>
     <table class="status-table" id="status-able-data-id"   >
         <tr class="table-headings-tr"> <th>Cake Type</th><th>Estiments </th> </tr>
     </table><br>
+	 
+	 <!--
+		<div id="chips-view-new-oders-div">
+					<table  class="user-scrolling-table">
+                        <tbody id="status-table-tbody"></tbody>
+                    </table>
+				</div>-->
 
 
 			 <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
@@ -150,31 +158,21 @@
 					<center>
 						<div class="autocomplete">
 								<label><b>Name</label><br>
-								<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
+								<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_Selected_Data ()" class="paint-name order-inputs">
 						</div><br>
 						</center>
 					</form>
 					
 			</div><!-- End New Estiments div -->
-			<br>
+			
 					<!-- <center> -->
 				<div id="chips-view-new-oders-div">
-                    <p>results</p>
 					<table  class="user-scrolling-table">
-                        <tbody id="chips-tbody"></tbody>
+                        <tbody id="results-table-tbody"></tbody>
                     </table>
-                    
 				</div>
-                <button onclick="Fetch_Chips_Orders_All ()" >Do it</button>
-			
-                    
-				
-                <br>
                 
-                
-                
-                
-				<center>
+				<center><br>
 				<div id="bottom-btn-div-id">
 				<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>
 				</div>

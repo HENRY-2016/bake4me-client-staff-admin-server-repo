@@ -82,7 +82,7 @@ function Add_Gallery_Iframe (endpoint)
 
 
 
-function Fetch_Chips_Orders_All ()
+function Fetch_Selected_Data  ()
     {
         // let req = new XMLHttpRequest();
         // req.open('post', data_src_url+'chips_view_temporary_orders',true)
@@ -102,7 +102,7 @@ function Fetch_Chips_Orders_All ()
                         // let orders = results.length;
                         // document.getElementById("chips-status-id").innerText = orders;
 
-                        let tbody = document.getElementById('chips-tbody');
+                        let tbody = document.getElementById('results-table-tbody');
                         tbody.innerHTML = ' ';
 
                         // draw table
@@ -139,7 +139,65 @@ function Fetch_Chips_Orders_All ()
             // req.send(div_tag);
     }
 
+function CreateDynamicStatusTable1 () 
+{
+	{
+        // let req = new XMLHttpRequest();
+        // req.open('post', data_src_url+'chips_view_temporary_orders',true)
+        // req.onload = function ()
+        //     {
+        //         let results = JSON.parse(this.responseText);
+        //         if (! results || !results.length)
+        //             {
+        //                 alert("No results found")
+        //                 console.log(results)
+        //             }
+        //         else
+        //             {
+                        results = [["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "b05:53:01"], ["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "05:50:42"]]
 
+                        console.log(results)
+                        // let orders = results.length;
+                        // document.getElementById("chips-status-id").innerText = orders;
+
+                        let tbody = document.getElementById('status-table-tbody');
+                        tbody.innerHTML = ' ';
+
+                        // draw table
+                        let td,tr;
+                        // add table headings
+                        let th_names = new Array ();
+                        th_names.push(["Name","Cake Type","Estiments"]);
+                        let columns_to_count = th_names[0].length;
+                        row = tbody.insertRow(-1);
+                        for (let looper =0; looper<columns_to_count; ++looper)
+                            {
+                                let headerNames = document.createElement("th");
+                                headerNames.className='js_table_headers'
+                                headerNames.innerHTML = th_names[0][looper];
+                                row.appendChild(headerNames)
+                            }
+
+                        for (let table_row = 0; table_row < results.length; ++table_row)
+                            {
+                                tr = document.createElement('tr');
+                                tr.className='js_table_row';
+                                for (let table_data = 0; table_data< (results[table_row].length);++table_data)
+                                    {
+                                        td = document.createElement('td');
+                                        td.setAttribute("align", "center");
+                                        td.innerHTML = results[table_row][table_data];
+                                        tr.appendChild(td)
+                                    }
+                                    tbody.appendChild(tr)
+                            }
+            //         }
+            // }
+            // let div_tag = document.getElementById('chips-view-new-oders-div');
+            // req.send(div_tag);
+    }
+	
+}
     function CreateDynamicStatusTable () {
         // var myName = document.getElementById("name");
         // var age = document.getElementById("age");
