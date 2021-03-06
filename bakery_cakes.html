@@ -21,13 +21,19 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 <script>
-    function Fatch_Cakes_Data ()
+function SetupAutocompleteNames () {autocomplete(document.getElementById("cake-name-input-id"), items_names);}
+
+
+function IntializeSetUp ()
 {
-	Add_Gallery_Iframe ("renderitems_cakes_endpoint");
+    LoadNamesFromServer ("utilities_cakes_names");
+    Add_Gallery_Iframe ("renderitems_cakes_endpoint");
+    // CreateDynamicStatusTable2 ()
+	setTimeout(SetupAutocompleteNames,1000)
 }
 </script>
 </head>
-<body class="main-body" onload="Fatch_Cakes_Data ()" >
+<body class="main-body" onload="IntializeSetUp ()" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -250,8 +256,5 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div><br>
-<script>
-autocomplete(document.getElementById("cake-name-input-id"), cake_names)
-</script>
 </body>
 </html>
