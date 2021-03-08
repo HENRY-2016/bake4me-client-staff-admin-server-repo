@@ -160,53 +160,53 @@ if (!isset($_SESSION['username'])) {
         -->
         <button onclick="Display_Register_Form ()" class="main-navigation-btns main-navigation-btns-fontstyle" >Register </button>
         <div id="school-register-div-id">
-                <div class="register-display-grid-container" >
-                    <div>
+                <div id="staff-work-on-div" >
+                    <div class="client-view-feedbacks">
                         <label class="regester-form-labels"> Register Using ::</label>
                         <select class="paint-name order-inputs" id="method">
                             <option value="National Id"> National Id </option>
                             <option value="National Id"> Pass Port </option>
                             <option value="Driving Permit"> Driving Permit</option>
                         </select>
-                    </div>
+                    
 
-                    <div>
+                   
                         <label class="regester-form-labels">Pass Photo</label>
                         <p><input type="file"  accept="image/*" name="passport_port_img" id="passport-photo-side-file"  onchange="DisplayUploadedImage(event,'passport-photo-display-pra-id')" style="display: none;"></p>
                         <p><label class="Browse-label" for="passport-photo-side-file">Upload Image</label></p>
                         <p><img id="passport-photo-display-pra-id" class="img-to-be-displayed" /></p>
-                    </div>
+                    
 
-                    <div>
+                    
                         <label class="regester-form-labels">Front Side</label>
                         <p><input type="file"  accept="image/*" name="front_side_img" id="front-side-file"  onchange="DisplayUploadedImage(event,'front-side-display-pra-id')" style="display: none;"></p>
                         <p><label class="Browse-label" for="front-side-file">Upload Image</label></p>
                         <p><img id="front-side-display-pra-id" class="img-to-be-displayed" /></p>
-                    </div>
-
-                    <div>
+                    
                         <label class="regester-form-labels">Back Side</label>
                         <p><input type="file"  accept="image/*" name="back_side_img" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
                         <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
                         <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
-                    </div>
-                </div>
-                <label class="regester-form-labels">Name </label>
-                <input type="text" placeholder="Fisrt & second name" class="regester-form-inputs">
-                
-                <label class="regester-form-labels">Contacts </label>
-                <input type="text" placeholder="Phone Number" class="regester-form-inputs">
+						
+						<label class="regester-form-labels">Name </label>
+						<input type="text" placeholder="Fisrt & second name" class="regester-form-inputs">
+						
+						<label class="regester-form-labels">Contacts </label>
+						<input type="text" placeholder="Phone Number" class="regester-form-inputs">
 
-                <label class="regester-form-labels">Email </label>
-                <input type="text" placeholder="Email Address" class="regester-form-inputs">
+						<label class="regester-form-labels">Email </label>
+						<input type="text" placeholder="Email Address" class="regester-form-inputs">
 
-                <label class="regester-form-labels">Next of Kin </label>
-                <input type="text" placeholder="Password" class="regester-form-inputs">
+						<label class="regester-form-labels">Next of Kin </label>
+						<input type="text" placeholder="Password" class="regester-form-inputs">
 
-                <label class="regester-form-labels">Contacts </label>
-                <input type="text" placeholder="Phone Number" class="regester-form-inputs">
+						<label class="regester-form-labels">Contacts </label>
+						<input type="text" placeholder="Phone Number" class="regester-form-inputs">
+							</div>
+						</div>
+						
 
-                <button onclick="document.getElementById('id01').style.display='block'" class="main-navigation-btns main-navigation-btns-fontstyle" >Next</button>
+                <button onclick="document.getElementById('id01').style.display='block'" class="main-navigation-btns main-navigation-btns-fontstyle" >Next</button><br>
         
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -221,14 +221,163 @@ if (!isset($_SESSION['username'])) {
                         <label class="regester-form-labels">Email </label><br>
                         <label class="regester-form-labels">Next of Kin </label><br>
                         <label class="regester-form-labels">Contacts </label><br>
-                        <button onclick="Load_School_Notice_Bord ()" class="main-navigation-btns main-navigation-btns-fontstyle" >Register </button>
-						<button class="close-btn fontstyles" type="button" onclick="document.getElementById('id01').style.display='none'"> Close</button><br><br>
+                        <button onclick="Load_School_Notice_Bord ()" class="main-navigation-btns main-navigation-btns-fontstyle" >Register </button><br>
+						<button class="login-btn fontstyles" type="button" onclick="document.getElementById('id01').style.display='none'"> Close</button><br><br>
                         </center>
                     </div>
                 </div>		
             </div>
         </div> <!-- school-register-div-id -->
     </center>
+<script>
+function show_image ()
+{
+var img = document.getElementById("passport-photo-display-pra-id");
+var modalImg = document.getElementById("passport-photo-popup-id");
+
+  modalImg.src = this.src;
+ 
+
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Image Modal</h2>
+<p>In this example, we use CSS to create a modal (dialog box) that is hidden by default.</p>
+<p>We use JavaScript to trigger the modal and to display the current image inside the modal when it is clicked on. Also note that we use the value from the image's "alt" attribute as an image caption text inside the modal.</p>
+
+<img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
 
 </body>
 </html>

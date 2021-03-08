@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 </head>
-<body class="main-body">
+<body class="main-body" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -119,33 +119,48 @@
     function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
     </script>
 
-
+		<table class=" status-table">
+            <tr class="table-headings-tr"> <th>Status</th><th>Total</th> </tr>
+            <tr class="orders-table-tr"><td class="orders-avenue-td">Registered</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">10</span></td> <td class="orders-status-td"></td></tr>
+            <tr class="orders-table-tr"><td class="orders-avenue-td">Active</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">6</span></td> <td class="orders-status-td"></td></tr>
+            <tr class="orders-table-tr"><td class="orders-avenue-td">Not Active</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">4</span></td> <td class="orders-status-td"></td></tr>
+        </table>
+        
     <br>
-    <center><br>
-        <p>Student View</p>
-        <label>Active</label> <span class="w3-badge w3-blue">5</span><br>
-        <label>Not Active</label> <span class="w3-badge w3-blue">5</span><br>
-        <label>Registered</label> <span class="w3-badge w3-blue">10</span><br>
+    
+    <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+		<button class="admin-btn fontstyles">Status Details</button>
+			<center>
+				<form class="orders_from_to_form" id="price-edit-form">
+				   
+					<label><b>Select</label><br>
+					<select id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_School_View_Status_Selected_Data ()" class="paint-name order-inputs">
+						<option value="Active" >Active</option>
+						<option value="Not Active" >Not Active</option>
+						<option value="Registered" >Registered</option>
+					</select>
+			
+				</form>
+				
+				<hr class="calender-card-hr">
+				<div id="student-view-status-div-id">
+				</div>
+		</div><br>
 
-        <form action="http://192.168.43.140:6060/chips_assign_staff_name" method="POST" id="chips-assign-form">
-            <label>Status</label>
-            <select>
-                <option value="Active" >Active</option>
-                <option value="Not Active" >Not Active</option>
-                <option value="Registered" >Registered</option>
-            </select><br>
-            <p>Use a filter</p>
-            <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
-            <div class="autocomplete">
-                <label>Name</label><br>
-                <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
-            </div><br>
-        </form><br>
-        <p>Name:Start:End:Status:Days Left</p>
-        <p>Annet::3/5/21::3/6/21::Active :: 20</p>
-        <p>John::4/5/21::4/6/21 :: Not Active</p>
-
-
+		<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+		<button class="admin-btn fontstyles">View Student Details</button>
+			<center>
+				<form class="orders_from_to_form" id="price-edit-form">
+				   <div class="autocomplete">
+									<label><b>Name</label><br>
+									<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_School_View_Student_Selected_Data ()" class="paint-name order-inputs">
+							</div><br>
+				</form>
+				
+				<hr class="calender-card-hr">
+				<div id="student-view-details-div-id">
+				</div>
+				</div><br>
         <!-- 
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -154,12 +169,7 @@
         -->
         
    
-    </center>
-	<center>
-	<div id="bottom-btn-div-id">
-		<button class="assign-btn fontstyles"   type="button" class="submit-btn">Make Active</button>
-		</div>
-	</center><br>
+ 
 
 
 <script>

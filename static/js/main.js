@@ -1,13 +1,14 @@
 
 var data_src_url = "http://127.0.0.1:6060/";
 // var data_src_url = "http://192.168.43.140:6060/";
-//<script>
-//autocomplete(document.getElementById("name-input-id"), customer_names)
-//</script>
 
 let url = 'http://localhost/';
 let html_pages_source_dir = 'bake4me-client-staff-admin-server-repo/';
 let php_pages_source_dir = 'bake4me-php/';
+
+
+
+
 
 function IntializeSetUp ()
 {
@@ -63,7 +64,10 @@ function Display_Register_Form ()
     document.getElementById("school-register-div-id").style.display="block";
 }
 
-
+function SubmitAjaxCustomerPayment ()
+{
+    document.forms["customer-payment-form"].submit();
+}
 
 // Menu Gallery
 function Add_Gallery_Iframe (endpoint)
@@ -81,11 +85,10 @@ function Add_Gallery_Iframe (endpoint)
 
 
 
-
-function Fetch_Selected_Data  ()
+function Fetch_Selected_Payment_Data  ( endpoint)
     {
         let req = new XMLHttpRequest();
-        req.open('post', data_src_url+'chips_view_temporary_orders',true)
+        req.open('post', data_src_url+endpoint,true)
         req.onload = function ()
             {
                 let results = JSON.parse(this.responseText);
@@ -98,7 +101,7 @@ function Fetch_Selected_Data  ()
                     {
                         // results = [["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "b05:53:01"], ["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "05:50:42"]]
 
-                        console.log(results)
+                        // console.log(results)
                         // let orders = results.length;
                         // document.getElementById("chips-status-id").innerText = orders;
 
@@ -109,7 +112,7 @@ function Fetch_Selected_Data  ()
                         let td,tr;
                         // add table headings
                         let th_names = new Array ();
-                        th_names.push(["Customername","Cakename", "Quantity","Flavours","Design","Delivery","Orderno"]);
+                        th_names.push(["Name","Order No","Amount","Date"]);
                         let columns_to_count = th_names[0].length;
                         row = tbody.insertRow(-1);
                         for (let looper =0; looper<columns_to_count; ++looper)
@@ -135,9 +138,129 @@ function Fetch_Selected_Data  ()
                             }
                     }
             }
-            let div_tag = document.getElementById('chips-view-new-oders-div');
-            req.send(div_tag);
+            let myform = new FormData (document.getElementById('details-form'));
+            req.send(myform);
     }
+
+function Fetch_Selected_Data  ( endpoint)
+    {
+        let req = new XMLHttpRequest();
+        req.open('post', data_src_url+endpoint,true)
+        req.onload = function ()
+            {
+                let results = JSON.parse(this.responseText);
+                if (! results || !results.length)
+                    {
+                        alert("No results found")
+                        console.log(results)
+                    }
+                else
+                    {
+                        // results = [["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "b05:53:01"], ["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "05:50:42"]]
+
+                        // console.log(results)
+                        // let orders = results.length;
+                        // document.getElementById("chips-status-id").innerText = orders;
+
+                        let tbody = document.getElementById('results-table-tbody');
+                        tbody.innerHTML = ' ';
+
+                        // draw table
+                        let td,tr;
+                        // add table headings
+                        let th_names = new Array ();
+                        th_names.push(["Id","Customername","Cakename", "Quantity","Flavours","Design","Delivery","Orderno"]);
+                        let columns_to_count = th_names[0].length;
+                        row = tbody.insertRow(-1);
+                        for (let looper =0; looper<columns_to_count; ++looper)
+                            {
+                                let headerNames = document.createElement("th");
+                                headerNames.className='js_table_headers'
+                                headerNames.innerHTML = th_names[0][looper];
+                                row.appendChild(headerNames)
+                            }
+
+                        for (let table_row = 0; table_row < results.length; ++table_row)
+                            {
+                                tr = document.createElement('tr');
+                                tr.className='js_table_row';
+                                for (let table_data = 0; table_data< (results[table_row].length);++table_data)
+                                    {
+                                        td = document.createElement('td');
+                                        td.setAttribute("align", "center");
+                                        td.innerHTML = results[table_row][table_data];
+                                        tr.appendChild(td)
+                                    }
+                                    tbody.appendChild(tr)
+                            }
+                    }
+            }
+            let myform = new FormData (document.getElementById('details-form'));
+            req.send(myform);
+    }
+
+function Fetch_Customer_Selected_Data ( endpoint)
+{
+    let req = new XMLHttpRequest();
+        req.open('post', data_src_url+endpoint,true)
+        req.onload = function ()
+            {
+                let results = JSON.parse(this.responseText);
+                if (! results || !results.length)
+                    {
+                        alert("No results found")
+                        // console.log(results)
+                    }
+                else
+                    {
+                        console.log("results")
+                        console.log(results)
+                        document.getElementById("selected-name").innerHTML = results[0][0]
+                        // document.getElementById("selected-id").innerHTML = results[0][2]
+                        document.getElementById("selected-cake-name").innerHTML = results[0][1]
+                        document.getElementById("selected-quantity").innerHTML = results[0][2]
+                        document.getElementById("selected-flavours").innerHTML = results[0][3]
+                        document.getElementById("selected-design").innerHTML = results[0][4]
+                        document.getElementById("selected-delivery").innerHTML = results[0][5]
+                        document.getElementById("selected-oderno").innerHTML = results[0][6]
+                    }
+            }
+        let myform = new FormData (document.getElementById('customer-details-form'));
+        req.send(myform);
+        document.getElementById("customer-selected-details-div-id").style.display='block';
+}
+
+function Fetch_Customer_Payment_Selected_Data ( endpoint)
+{
+    let req = new XMLHttpRequest();
+        req.open('post', data_src_url+endpoint,true)
+        req.onload = function ()
+            {
+                let results = JSON.parse(this.responseText);
+                if (! results || !results.length)
+                    {
+                        alert("No results found")
+                        // console.log(results)
+                    }
+                else
+                    {
+                        console.log("results")
+                        console.log(results)
+                        document.getElementById("selected-name").innerHTML = results[0][0]
+                        // document.getElementById("selected-id").innerHTML = results[0][2]
+                        document.getElementById("selected-cake-name").innerHTML = results[0][1]
+                        document.getElementById("selected-quantity").innerHTML = results[0][2]
+                        document.getElementById("selected-flavours").innerHTML = results[0][3]
+                        document.getElementById("selected-design").innerHTML = results[0][4]
+                        document.getElementById("selected-order-date").innerHTML = results[0][7]
+                        document.getElementById("selected-delivery").innerHTML = results[0][5]
+                        document.getElementById("selected-oderno").innerHTML = results[0][6]
+                    }
+            }
+        let myform = new FormData (document.getElementById('customer-details-form'));
+        req.send(myform);
+        document.getElementById("customer-selected-details-div-id").style.display='block';
+}
 
 
     function CreateDynamicStatusTable () {
@@ -159,12 +282,11 @@ function Fetch_Selected_Data  ()
 		}
     }
 
-function CreateDynamicStatusTable2 () 
+function CreateDynamicStatusTable2 (endpoint) 
 {
-    // let results = [["Henry1", "4"], ["Henry2", "5"], ["Henry3", "6"]]
-    // console.log(results)
+    
     let req = new XMLHttpRequest();
-    req.open('post', data_src_url+'estimatesorders_view_cakes_status',true)
+    req.open('post', data_src_url+endpoint,true)
     req.onload = function ()
         {
             let results = JSON.parse(this.responseText);
@@ -191,10 +313,42 @@ function CreateDynamicStatusTable2 ()
         let div_tag = document.getElementById('status-table-div-request-id');
         req.send(div_tag);
 }
+function CreateBakeryPaymentDynamicStatusTable (endpoint) 
+{
+    
+    let req = new XMLHttpRequest();
+    req.open('post', data_src_url+endpoint,true)
+    req.onload = function ()
+        {
+            let results = JSON.parse(this.responseText);
+            if (! results || !results.length)
+                {
+                    alert("No results found")
+                    console.log(results)
+                }
+            else
+                {
+                    let table = document.getElementById("status-table-data-id");
+                    let rowCount = table.rows.length;
+
+                    for (i=0;i<results.length;i++)
+                        {
+                            let row = table.insertRow(rowCount);
+                            row.className='status-table-tr';
+                            row.insertCell(0).innerHTML= '<label class="status-table-td"> '+ results[i][0] +'</label>';
+                            row.insertCell(1).innerHTML= '<label class="status-table-td">'+ results[i][1] +'</label>';
+                            row.insertCell(2).innerHTML= '<label class="status-table-td"> '+ results[i][2] +'</label>';
+
+                        }
+                }
+                
+        }
+        let div_tag = document.getElementById('status-table-div-request-id');
+        req.send(div_tag);
+}
 
 
-var items_names;
-function LoadNamesFromServer (names_endpoint)
+function LoadImageFromServer ()
 {
     let namesrequest = new XMLHttpRequest ();
     namesrequest.onreadystatechange = function ()
@@ -202,21 +356,165 @@ function LoadNamesFromServer (names_endpoint)
             if ( namesrequest.readyState == 4 && namesrequest.status == 200)
                 {
                     items_names = JSON.parse(namesrequest.responseText)
+                    console.log(items_names)
                 }
         }
-    namesrequest.open("GET", data_src_url + names_endpoint );    
+    namesrequest.open("GET", data_src_url + 'get_image');    
+    namesrequest.send();
+}
+
+var items_names;
+function LoadNamesFromServer (endpoint)
+{
+    let namesrequest = new XMLHttpRequest ();
+    namesrequest.onreadystatechange = function ()
+        {
+            if ( namesrequest.readyState == 4 && namesrequest.status == 200)
+                {
+                    items_names = JSON.parse(namesrequest.responseText)
+                    console.log(items_names)
+                }
+        }
+    namesrequest.open("GET", data_src_url + endpoint );    
+    namesrequest.send();
+}
+
+var customer_names;
+function LoadCustomerNamesFromServer (endpoint)
+{
+    let namesrequest = new XMLHttpRequest ();
+    namesrequest.onreadystatechange = function ()
+        {
+            if ( namesrequest.readyState == 4 && namesrequest.status == 200)
+                {
+                    customer_names = JSON.parse(namesrequest.responseText)
+                }
+        }
+    namesrequest.open("GET", data_src_url + endpoint );    
+    namesrequest.send();
+}
+var machines_names;
+function LoadMachineNamesFromServer (endpoint)
+{
+    let namesrequest = new XMLHttpRequest ();
+    namesrequest.onreadystatechange = function ()
+        {
+            if ( namesrequest.readyState == 4 && namesrequest.status == 200)
+                {
+                    machines_names = JSON.parse(namesrequest.responseText)
+                }
+        }
+    namesrequest.open("GET", data_src_url + endpoint );    
+    namesrequest.send();
+}
+var payment_order_numbers;
+function LoadCustomerPaymentOrderNumbersFromServer (endpoint)
+{
+    let namesrequest = new XMLHttpRequest ();
+    namesrequest.onreadystatechange = function ()
+        {
+            if ( namesrequest.readyState == 4 && namesrequest.status == 200)
+                {
+                    payment_order_numbers = JSON.parse(namesrequest.responseText)
+                }
+        }
+    namesrequest.open("GET", data_src_url + endpoint );    
+    namesrequest.send();
+}
+var customer_order_numeber;
+function LoadCustomerOrderNumbersFromServer (endpoint)
+{
+    let namesrequest = new XMLHttpRequest ();
+    namesrequest.onreadystatechange = function ()
+        {
+            if ( namesrequest.readyState == 4 && namesrequest.status == 200)
+                {
+                    customer_order_numeber = JSON.parse(namesrequest.responseText)
+                }
+        }
+    namesrequest.open("GET", data_src_url + endpoint );    
     namesrequest.send();
 }
 
 
+/**
+ *  =====================================================================
+ *  
+ *  SCHOOL 
+ * 
+ * =======================================================================
+ */
+function Fetch_School_Selected_Data () 
+{
+	let htmldiv = document.getElementById("student-display-details-div-id");
+	
+	/*
+	National Id <br>
+	Names<br>
+	Contacts<br>
+	Email<br>
+	Next of Kin <br>
+	Contacts<br>
+	Pasport Photo <br>
+	Front Side<br>
+	Back Side <br>
+	*/
+	htmldiv.innerHTML = "Student info";
+	
+}
+
+function Fetch_School_Approval_Selected_Data () 
+{
+	document.getElementById("student-credentials-setup-div-id").style.display="block";
+	
+}
 
 
+function CreateSchoolDynamicStatusTable () {
+        // var myName = document.getElementById("name");
+        // var age = document.getElementById("age");
+		let results = 6
+		for (i=0;i<results;i++)
+		{
+		let table = document.getElementById("status-table-data-id");
+		let rowCount = table.rows.length;
+		let row = table.insertRow(rowCount);
+		let name = "Wedding Cake";
+		let spannum = 5;
+		let mydate = "06/3/2021"
+		row.className='status-table-tr'; 
 
-let customer_names = 
-				[
-                    'Peter',
-                    'John'
-                ]
+	
+			row.insertCell(0).innerHTML= '<label class="status-table-td"> '+ name +'</label>';
+			row.insertCell(1).innerHTML= '<label class="status-table-td"> '+ mydate +'</label>';
+			row.insertCell(2).innerHTML= '<center><span class=" status-table-td w3-badge w3-blue w3-padding-small"> '+ spannum +'</span></center>';
+		}
+    }
+
+function Fetch_School_Make_Active_Selected_Data () 
+{
+	document.getElementById("student-display-details-div-id").style.display='block';
+	document.getElementById("student-make-active-details-div-id").innerHTML = "Student"
+}
+
+
+function Fetch_School_View_Student_Selected_Data () 
+{
+document.getElementById("student-view-details-div-id").innerHTML = "Student details"	
+}
+
+
+function Fetch_School_View_Status_Selected_Data () 
+{
+document.getElementById("student-view-status-div-id").innerHTML = "Student status"	
+}
+
+
+// let customer_names = 
+// 				[
+//                     'Peter',
+//                     'John'
+//                 ]
 let students_names = 
                 [
                     'Peter',

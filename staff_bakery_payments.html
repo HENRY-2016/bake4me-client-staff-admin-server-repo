@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8" >
-<title>Staff|Bakery|Estimates</title>
+<title>Staff|Bakery|Payments</title>
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/main.js"></script>
 <script src="static/js/staff.js"></script>
@@ -11,27 +11,26 @@
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 <script>
-
-// function SetUpColourNames () {ShowPaintColoursOptions("colour-input-id")	}
 function SetupAutocompleteNames () 
 {
-    autocomplete(document.getElementById("cake-name-input-id"), items_names);
-    autocomplete(document.getElementById("customer-name-input-id"),customer_names);
-
+    autocomplete(document.getElementById("order-number-input-id"),payment_order_numbers);
 }
 
 
 function IntializeSetUp ()
 {
-    LoadNamesFromServer ("utilities_cakes_names");
-    LoadCustomerNamesFromServer ("utilities_customer_names");
-    CreateDynamicStatusTable2 ('estimatesorders_view_cakes_status')
+    LoadCustomerPaymentOrderNumbersFromServer ('estimatesorders_view_payments_order_numbers')
+    // LoadNamesFromServer ("utilities_cakes_names");
+
+    // LoadCustomerNamesFromServer ("utilities_customer_names");
+    // CreateDynamicStatusTable2 ('estimatesorders_view_cakes_status')
 	setTimeout(SetupAutocompleteNames,1000)
 }
 
+
 </script>
 </head>
-<body class="main-body" onload="IntializeSetUp ()">
+<body class="main-body" onload="IntializeSetUp ()" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -60,7 +59,7 @@ function IntializeSetUp ()
                     <label onclick="Load_Party_Accessories_Page ()" class="main-navigation-links-labels" >Party Accessories </label>
                 </button>
             </div>
-            <br>
+            <br><br>
             <label onclick="Load_Customer_History_Page ()" class="main-sub-navigation-links-labels">  
                 <!-- Archive  -->
                 <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
@@ -146,6 +145,7 @@ function IntializeSetUp ()
             </div>
         </div>
 
+
     <script>
     function OpenMainNavigetion(){document.getElementById("Navigetion").style.width = "250px"}
     function CloseMainNavigetion (){document.getElementById("Navigetion").style.width = "0"}
@@ -153,155 +153,78 @@ function IntializeSetUp ()
     function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
     </script>
 
-    <!-- Main Content Body  Begin-->
+    <br>
+    <table class=" status-table">
+        <tr class="table-headings-tr"> <th>Item</th><th>Payments</th> </tr>
+        <tr class="orders-table-tr"><td class="orders-avenue-td">Cakes</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">10</span></td> <td class="orders-status-td"></td></tr>
+        <tr class="orders-table-tr"><td class="orders-avenue-td">Baking Machines</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">0</span></td> <td class="orders-status-td"></td></tr>
+        <tr class="orders-table-tr"><td class="orders-avenue-td">Party Accessories</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">0</span></td> <td class="orders-status-td"></td></tr>
+    </table><br>
+    
+    
 
-    <div id="status-table-div-request-id">
-        <table class="status-table" id="status-table-data-id"   >
-            <tr class="table-headings-tr"> <th>Cake Type</th><th>Estiments </th> </tr>
-        </table>
-    </div><br>
-
-			<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
-                <button class="admin-btn fontstyles">Cakes Details</button>
-                    
-                        <form class="orders_from_to_form" id="details-form">
-                        <center>
-                            <div class="autocomplete">
-                                    <label><b>Name</label><br>
-                                    <input id="cake-name-input-id" type="text" name="name" placeholder="Type first letter" onchange="Fetch_Selected_Data ('estimateorders_view_estimate')" class="paint-name order-inputs">
-                            </div><br>
-                            </center>
-                        </form>
-                <br>
+		<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+		<button class="admin-btn fontstyles">View Payments Details</button>
+			<center>
+				<form class="orders_from_to_form" id="details-form">
+                    <label><b>Name</label><br>
+                    <select id="name-input-id" type="text" name="name" placeholder="Type first letter" onchange="Fetch_Selected_Payment_Data  ('estimatesorders_staff_view_selected_payments')" class="paint-name order-inputs">
+                        <option value="Cakes">Cakes</option>
+                        <option value="Baking Machines">Baking Machines</option>
+                        <option value="Party Accessories">Party Accessories</option>
+                        
+                    </select>
+				</form><br>
+				
                 <div id="chips-view-new-oders-div">
                     <table  class="user-scrolling-table">
                         <tbody id="results-table-tbody"></tbody>
                     </table>
                 </div>
-			</div><!-- End New Estiments div -->
-	
-            
-            <br>
-			<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
-                <button class="admin-btn fontstyles">Customer Details</button>
-                    
-                        <form class="orders_from_to_form" id="customer-details-form">
-                        <center>
-                            <div class="autocomplete">
-                                    <label><b>Customer Id</label><br>
-                                    <input id="customer-name-input-id" type="text" name="customer_key" placeholder="numeber" onchange="Fetch_Customer_Selected_Data ('get_selected_customer_data')" class="paint-name order-inputs">
-                            </div><br>
-                            </center>
-                        </form>
+        </div>
+
+
                 <br>
-                <div id="customer-selected-details-div-id">
-                    <center>
-                        <label>Name</label><br>
-                        <label id="selected-name"></label><br>
-                        <!-- <label>Id</label></br> -->
-                        <label id="selected-id"></label><br>
-                        <label>Cake Name</label><br>
-                        <label id="selected-cake-name"></label><br><br>
-                        <label>Quantity</label><br>
-                        <label id="selected-quantity"></label><br><br>
-                        <label>Flavours</label><br>
-                        <label id="selected-flavours"></label><br><br>
-                        <label>Design</label></br>
-                        <label id="selected-design"></label><br><br>
-                        <label>Delivery Date</label><br>
-                        <label id="selected-delivery"></label><br><br>
-                        <label>Orderno</label><br>
-                        <label id="selected-oderno"></label><br><br>
+                <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+                    <button class="admin-btn fontstyles">Customer Order Details</button>
                         
-                        <div>
-                            <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
-                            <p><label class="Browse-label" for="back-side-file">Image</label></p>
-                            <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
-                        </div><br>
-                    </center>
-                </div><br>
-
-				<!-- <button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br> -->
-			</div><!-- End New Estiments div -->
-	
-                
-				<center><br>
-				<div id="bottom-btn-div-id">
-				<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>
-				</div>
-				</center>
-            <!-- 
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                                POP UP PRICING
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-            -->
-        <br>
-            <div id="id01" class="w3-modal">
-                <div class="w3-modal-content w3-animate-top w3-card-4">
-                    <header class="w3-container w3-teal">
-                        <span onclick="document.getElementById('id01').style.display='none'"
-                        class="w3-button w3-display-topright">&times;</span>
-                        <label class="assign-staff-label">Assigning Price</label>
-                    </header>
-                    <div class="w3-container">
-                        <center><br>
-                            <form action="http://127.0.0.1:6060/estimateorders_set_price" method="POST" id="customer-estimate-form">
-                                <label for="uname"><b>Number</label><br>
-                                <input type="text" placeholder="Order No" name="key_num" class="form_input" autocomplete="off" required>
-
-                                <label for="uname"><b>Price</label><br>
-                                <input type="text" placeholder="/=" name="price" class="form_input" autocomplete="off" required>
-
-                                <label for="uname"><b>Password</label><br>
-                                <input type="password" placeholder="your pin" name="pwd" class="form_input" autocomplete="off" required>
-                            </form><br>
-                            <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" > Done</button><br>
+                            <form class="orders_from_to_form" id="customer-details-form">
+                            <center>
+                                <div class="autocomplete">
+                                    <label><b>Oder Number</label><br>
+                                    <input id="order-number-input-id" type="text" name="ordernumber" placeholder="numeber" onchange="Fetch_Customer_Payment_Selected_Data ('get_selected_payment_data')" class="paint-name order-inputs">
+                                </div><br>
+                                </center>
+                            </form>
+                    <br>
+                    <div id="customer-selected-details-div-id">
+                        <center>
+                            <label>Name</label><br>
+                            <label id="selected-name"></label><br>
+                            <!-- <label>Id</label></br> -->
+                            <label id="selected-id"></label><br>
+                            <label>Cake Name</label><br>
+                            <label id="selected-cake-name"></label><br><br>
+                            <label>Quantity</label><br>
+                            <label id="selected-quantity"></label><br><br>
+                            <label>Flavours</label><br>
+                            <label id="selected-flavours"></label><br><br>
+                            <label>Design</label></br>
+                            <label id="selected-design"></label><br><br>
+                            <label>Order Date</label><br>
+                            <label id="selected-order-date"></label><br><br>
+                            <label>Delivery</label><br>
+                            <label id="selected-delivery"></label><br><br>
+                            <label>Orderno</label><br>
+                            <label id="selected-oderno"></label><br><br>
+                            
+                            <div>
+                                <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+                                <p><label class="Browse-label" for="back-side-file">Image</label></p>
+                                <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+                            </div><br>
                         </center>
-                    </div>
-                </div>
-            </div>
-            <!-- 
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                                POP UP CONFIRMATION
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-            -->
-            <div id="id02" class="w3-modal">
-                <div class="w3-modal-content w3-animate-top w3-card-4">
-                    <header class="w3-container w3-teal">
-                        <span onclick="document.getElementById('id02').style.display='none'"
-                        class="w3-button w3-display-topright">&times;</span>
-                        <label class="assign-staff-label">Confirm Details</label>
-                    </header>
-                    <div class="w3-container">
-                        <center><br>
-                            <div class="staff-popup-price-estiments">
-                                <label>Customer Estimates Details</label><br>
-                                <label>Name</label><br>
-                                <label>Order No</label><br>
-                                <label>Cakes</label><br>
-                                <label>Quantity</label><br>
-                                <label>Price</label><br>
-                            </div><br><br>
+                    </div><br>
 
-                            <div class="staff-popup-price-confirm-estiments">
-                                <label>Staff Details</label><br>
-                                <label>Name</label><br>
-                                <label>Date</label><br>
-                            </div><br><br>
-        
-                            <button onclick="SubmitPricedCustomerEstimate ()" type="button"  class="submit-btn" > Done</button><br>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <!-- <button onclick="LoadImageFromServer ()">Image</button><br><br> -->
-<script>
-// console.log("names==="+items_names_array)
-// autocomplete(document.getElementById("name-input-id"), items_names_array);
-</script>
 </body>
 </html>

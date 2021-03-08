@@ -19,9 +19,25 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="static/css/main.css"/> 
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
+<script>
+function SetupAutocompleteNames () 
+{
+    autocomplete(document.getElementById("number-input-id"), customer_order_numeber);
 
+}
+function IntializeSetUp ()
+{
+    CreateBakeryPaymentDynamicStatusTable ('estimatesorders_customer_view_orders_status')
+    LoadCustomerOrderNumbersFromServer('estimatesorders_customer_view_orders_number')
+    // LoadNamesFromServer ("utilities_cakes_names");
+    // CreateDynamicStatusTable2 ('estimatesorders_view_cakes_status')
+	setTimeout(SetupAutocompleteNames,1000)
+}
+
+
+</script>
 </head>
-<body class="main-body"  >
+<body class="main-body" onload="IntializeSetUp ()" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -31,7 +47,7 @@ if (!isset($_SESSION['username'])) {
                 <img src="static/imgs/main/icone.png" class="log-icone" >
             <br><br>
             <div id="navigetion-links-div">
-               
+            
                 <button class="navi-links-btns w3-button">
                     <label onclick="Load_Cakes_Page ()" class="main-navigation-links-labels" >Cakes</label>
                 </button><br><br>
@@ -141,14 +157,17 @@ if (!isset($_SESSION['username'])) {
     function OpenProfileNavigetion(){document.getElementById("profile-side-bar").style.width = "250px"}
     function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
     </script>
-		<br><br>
-	
-        <table class=" status-table">
-            <tr class="table-headings-tr"> <th>Date</th><th>Order No </th><th>Amount </th </tr>
+		<br>
+        <div id="status-table-div-request-id">
+            <table class="status-table" id="status-table-data-id"   >
+                <tr class="table-headings-tr"> <th>Date</th><th>Order No </th><th>Amount </th> </tr>
+            </table>
+        </div><br>
+        <!-- <table class=" status-table">
+            <tr class="table-headings-tr"> <th>Date</th><th>Order No </th><th>Amount </th> </tr>
             <tr class="orders-table-tr"><td class="orders-avenue-td">01/2/2021</td><td class="orders-avenue-td">1111</td> <td class="orders-status-td"><span  id="piloa-status-id" class="amount-pay-label" >150,000</span></td></tr>
             <tr class="orders-table-tr"><td class="orders-avenue-td">02/2/2021</td><td class="orders-avenue-td">2222</td> <td class="orders-status-td"><span  id="piloa-status-id" class="amount-pay-label" >220,000</span></td></tr>
-            <!-- shoulb be dynamically created... -->
-        </table>
+        </table> -->
     <br>
     <center>
 	<div id="bottom-btn-div-id">
@@ -173,12 +192,13 @@ if (!isset($_SESSION['username'])) {
                     </header>
                     <div class="w3-container">
                         <center><br>
-                            <form  method="POST" id="chips-assign-form">
+                            <form  method="POST" action="http://127.0.0.1:6060/estimateorders_process_payment" id="customer-payment-form">
                                 <label for="uname"><b>Number</label><br>
-                                <input type="text" placeholder="Order No" name="key_num" class="form_input" autocomplete="off" required>
-
+                                <div class="autocomplete">
+                                    <input id="number-input-id" type="text" placeholder="Order No" name="ordernumber" class="form_input" autocomplete="off" required>
+                                </div><br>
                                 <label for="uname"><b>Amount</label><br>
-                                <input type="text" placeholder="Amount to pay" name="pwd" class="form_input" autocomplete="off" required>
+                                <input  type="text" placeholder="Amount to pay" name="amount" class="form_input" autocomplete="off" required>
                             </form><br>
                             <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" >Next</button><br><br>
 							<button type="button" class="submit-btn" onclick="document.getElementById('id01').style.display='none'">Cancel</button><br><br>
@@ -206,14 +226,13 @@ if (!isset($_SESSION['username'])) {
                                 <label>Customer Payment Details</label><br>
                                 <label>Order Number</label><br>
                                 <label>1111</label><br>
-								 <label>Amount</label><br>
+								<label>Amount</label><br>
                                 <label>150,000/=</label><br>
-                               
                             </div><br><br>
 
         
-                            <button type="button" class="submit-btn">By Mobile Money</button><br><br>
-							<button type="button" class="submit-btn">By Visacard</button><br><br>
+                            <button onclick="SubmitAjaxCustomerPayment ()" type="button" class="submit-btn">By Mobile Money</button><br><br>
+							<button onclick="SubmitAjaxCustomerPayment ()" type="button" class="submit-btn">By Visacard</button><br><br>
 							<button type="button" class="submit-btn" onclick="document.getElementById('id02').style.display='none'">Cancel</button><br><br>
                         </center>
                     </div>

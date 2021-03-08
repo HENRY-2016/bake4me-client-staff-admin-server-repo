@@ -10,6 +10,25 @@
 <link rel="stylesheet" href="static/css/main.css"/> 
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
+<script>
+
+function SetupAutocompleteNames () 
+{
+    // autocomplete(document.getElementById("cake-name-input-id"), items_names);
+    autocomplete(document.getElementById("customer-name-input-id"),customer_names);
+
+}
+
+
+function IntializeSetUp ()
+{
+    // LoadNamesFromServer ("utilities_cakes_names");
+    LoadCustomerNamesFromServer ("utilities_customer_names");
+    // CreateDynamicStatusTable2 ('estimatesorders_view_cakes_orders')
+	setTimeout(SetupAutocompleteNames,1000)
+}
+
+</script>
 </head>
 <body class="main-body" onload="IntializeSetUp ()">
     <div id="main-header">
@@ -131,22 +150,43 @@
     </script>
 
     <!-- Main Content Body  Begin-->
-    <table class="status-table" id="status-table-data-id"   >
-        <tr class="table-headings-tr"> <th>Cake Type</th><th>Orders </th> </tr>
+    <!-- <div id="status-table-div-request-id">
+        <table class="status-table" id="status-table-data-id"   >
+            <tr class="table-headings-tr"> <th>Cake Type</th><th>Oders </th> </tr>
+        </table>
+    </div><br>
+    -->
+    <table class=" status-table">
+        <tr class="table-headings-tr"> <th>Status</th><th>Total</th> </tr>
+        <tr class="orders-table-tr"><td class="orders-avenue-td">Cakes</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">0</span></td> <td class="orders-status-td"></td></tr>
+        <tr class="orders-table-tr"><td class="orders-avenue-td">Baking Machines</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">0</span></td> <td class="orders-status-td"></td></tr>
+        <tr class="orders-table-tr"><td class="orders-avenue-td">Party Accessories</td><td class="orders-avenue-td"><span class="w3-badge w3-blue">0</span></td> <td class="orders-status-td"></td></tr>
     </table><br>
+    
 	<center>
-			<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
-	<button class="admin-btn fontstyles">Mark Finished</button>
-        <center>
-            <form class="orders_from_to_form" id="price-edit-form">
-               <div class="autocomplete">
-								<label><b>Name</label><br>
-								<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_Selected_Data ()" class="paint-name order-inputs">
-						</div><br>
+    
+    <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+        <button class="admin-btn fontstyles">View Details</button>
+            <form class="orders_from_to_form" id="details-form">
+            <center>
+                <label><b>Name</label><br>
+                <select id="customer-name-input-id" onchange="Fetch_Selected_Data ('estimateorders_view_orders')" class="paint-name order-inputs" name="name">
+                    <option value="Cakes">Cakes</option>
+                    <option value="Baking Machines">Baking Machines</option>
+                    <option value="Party Accessories">Party Accessories</option>
+                </select><br>
+            </center>
             </form>
+
+            <br>
+                <div id="chips-view-new-oders-div">
+                    <table  class="user-scrolling-table">
+                        <tbody id="results-table-tbody"></tbody>
+                    </table>
+                </div>
 			
 	</div><!-- End New Estiments div -->
-	</center><br>
+
 	
 		<div id="chips-view-new-oders-div">
 					<table  class="user-scrolling-table">
@@ -155,7 +195,7 @@
 		</div><br>
 		<center>
 		<div id="bottom-btn-div-id">
-		<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Price </button><br><br>
+		<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Mark Finished </button><br><br>
             
 			</center>
             <!-- 
@@ -226,8 +266,5 @@
                     </div>
                 </div>
             </div>
-<script>
-autocomplete(document.getElementById("name-input-id"), customer_names)
-</script>
 </body>
 </html>

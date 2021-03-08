@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 </head>
-<body class="main-body">
+<body class="main-body" onload=" CreateSchoolDynamicStatusTable ()" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -120,28 +120,29 @@
     </script>
 
     <br>
-    <center><br>
-        <p>Name :: National ID :: Contacts</p>
-        <p>Annet1 :: 3/5/2021 :: 200,000 /=</p>
-        <p>Annet2 :: 3/5/2021 :: 200,000 /=</p>
-        <p>Annet3 :: 3/5/2021 :: 200,000 /=</p>
-        <p>Annet4 :: 3/5/2021 :: 200,000 /=</p>
+ 	
+	<table class="status-table" id="status-table-data-id"   >
+			<tr class="table-headings-tr"> <th>Name</th><th>Date</th><th>Amount</th> </tr>
+		</table><br>
+		
+    
 
-
-        <form action="http://192.168.43.140:6060/chips_assign_staff_name" method="POST" id="chips-assign-form">
-            <div class="autocomplete">
-                <label>Search By Name</label><br>
-                <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
-            </div><br>
-        </form><br>
-      
-    </center>
-
-	<center>
-	<div id="bottom-btn-div-id">
-		<button class="assign-btn fontstyles"  type="button" class="submit-btn">Make Active</button>
-		</div>
-	</center>
+		<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+		<button class="admin-btn fontstyles">View Payments Details</button>
+			<center>
+				<form class="orders_from_to_form" id="price-edit-form">
+				   <div class="autocomplete">
+									<label><b>Name</label><br>
+									<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_School_Make_Active_Selected_Data ()" class="paint-name order-inputs">
+							</div><br>
+				</form>
+				
+				<hr class="calender-card-hr">
+				<div id="student-display-details-div-id"><br>
+				<div id="student-make-active-details-div-id"></div>
+					<button class="assign-btn fontstyles"  type="button" class="submit-btn">Make Active</button>
+				</div>
+				</div><br>
 <script>
 autocomplete(document.getElementById("name-input-id"), students_names)
 </script>

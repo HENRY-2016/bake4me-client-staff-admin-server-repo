@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 </head>
-<body class="main-body">
+<body class="main-body" onload="IntializeSetUp ()">
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -119,36 +119,41 @@
     function CloseProfileNavigetion (){document.getElementById("profile-side-bar").style.width = "0"}
     </script>
 
-    <br>
-    <center><br>
-        <p>Name :: National ID :: Contacts</p>
+		<table class="status-table" id="status-table-data-id"   >
+			<tr class="table-headings-tr"> <th>Name</th><th>Date</th> </tr>
+		</table><br>
+		
+    
 
-        <label>View Student Details</label><br>
-
-        <form action="http://192.168.43.140:6060/chips_assign_staff_name" method="POST" id="chips-assign-form">
-            <div class="autocomplete">
-                <label>Name</label><br>
-                <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
-            </div><br>
-        
-            
-        <p>Setting up Student credentials</p>
-        <label>
-            User Id <br>
-            Password<br>
-            Start Date<br>
-            End Date<br>
-            Course Fees <br>
-        </label>
-        </form><br>
-        
-    </center>
-
-		<center>
-			<div id="bottom-btn-div-id">
-				<button class="assign-btn fontstyles"  type="button" class="submit-btn">Done</button>
+		<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+		<button class="admin-btn fontstyles">View Student Details</button>
+			<center>
+				<form class="orders_from_to_form" id="price-edit-form">
+				   <div class="autocomplete">
+									<label><b>Name</label><br>
+									<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_School_Approval_Selected_Data ()" class="paint-name order-inputs">
+							</div><br>
+				</form>
+				
+				<hr class="calender-card-hr">
+				<div id="student-credentials-setup-div-id">
+					<p>Setting up Student credentials</p>
+					<form>
+						</label>
+						   <label>User Id </label><br>
+							<input id="flavours-input-id" type="text" name="paint_name" placeholder="Student Id" class="form_input"><br>
+							<label>Password</label><br>
+							<input id="design-name-input-id" type="text" name="paint_name" placeholder="Password" class="form_input"><br>
+							<label>Start Date</label><br>
+							<input id="quantity-input-id" type="date" name="paint_name" placeholder="Start Date" class="form_input"><br>
+							<label>End Date</label><br>
+							<input id="delivery-date-input-id" type="date" placeholder="End date" name="date" class="form_input" autocomplete="off" required>
+							<label>Course Fees </label><br>
+							<input id="flavours-input-id" type="text" name="paint_name" placeholder="Course Fees" class="form_input"><br><br>
+							<center><button class="assign-btn fontstyles"  type="button" class="submit-btn">Done</button></center>
+					</form>
 				</div>
-			</center>
+				</div><br>
 <script>
 autocomplete(document.getElementById("name-input-id"), students_names)
 </script>

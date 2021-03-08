@@ -185,20 +185,20 @@ function IntializeSetUp ()
                     </header>
                     <div class="w3-container">
                         <center><br>
-                            <form method="POST" id="chips-assign-form">
+                            <form method="POST" enctype="multipart/form-data" action="http://127.0.0.1:6060/estimateorders_process_request" id="customer-estimate-form">
                                 <div class="autocomplete">
                                     <label>Cake Name</label><br>
-                                    <input id="cake-name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
+                                    <input id="cake-name-input-id" type="text" name="cakename" placeholder="Type first letter" autocomplete="off" class="paint-name order-inputs">
                                 </div><br>
                                 <div id="customer-feedback-div-left">
                                     <label>Flavours</label><br>
-									<input id="flavours-input-id" type="text" name="paint_name" placeholder="Flavours to add " class="form_input"><br>
+									<input id="flavours-input-id" type="text" name="flavours" placeholder="Flavours to add " autocomplete="off" class="form_input"><br>
 									<label>Design Name</label><br>
-                                    <input id="design-name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="form_input"><br>
+                                    <input id="design-name-input-id" type="text" name="design" placeholder="Type first letter" autocomplete="off" class="form_input"><br>
 									<label>Quantity</label><br>
-                                    <input id="quantity-input-id" type="text" name="paint_name" placeholder="Quantities" class="form_input"><br>
+                                    <input id="quantity-input-id" type="text" name="quantity" placeholder="Quantities" autocomplete="off" class="form_input"><br>
 									<label>Date of Delivery</label><br>
-									<input id="delivery-date-input-id" type="date" placeholder="date" name="date" class="form_input" autocomplete="off" required>
+									<input id="delivery-date-input-id" type="date" placeholder="date" name="delivery_date" class="form_input" autocomplete="off" required>
 									<div>
 										<label class="regester-form-labels">Design Photo</label>
 										<p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
@@ -206,7 +206,7 @@ function IntializeSetUp ()
 										<p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
 									</div><br>
                             </form><br>
-                            <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" >Next</button><br><br>
+                            <button onclick="DisplayCLinetData ()" type="button" class="submit-btn" >Next</button><br><br>
                             <button onclick="document.getElementById('id01').style.display='none'" type="button" class="submit-btn">Cancel</button><br><br>
                         </center>
                     </div>
@@ -229,17 +229,18 @@ function IntializeSetUp ()
                     <div class="w3-container">
                         <center><br>
                             <div class="staff-popup-price-estiments">
+                                <br><br>
                                 <label>Cake Name</label><br>
-                                    
-                                
-                                    <label><b>Flavours</label><br>
-									
-									<label><b>Design Name</label><br>
-                                    
-									<label>Quantity</label><br>
-                                
-									<label>Date of Delivery</label><br>
-									<label> Design Photo</label>
+                                <label id="cakename-id-display"></label><br><br>
+                                <label>Flavours</label><br>
+                                <label id="flavours-id-display"></label><br><br>
+                                <label>Design Name</label><br>
+                                <label id="design-name-id-display"></label><br><br>
+                                <label>Quantity</label><br>
+                                <label id="qty-id-display"></label><br><br>
+                                <label>Date of Delivery</label><br>
+                                <label id="delivery-date-id-display"></label><br><br>
+                                <label> Design Photo</label>
 								</div>	<br><br>
 									
 										
@@ -256,5 +257,24 @@ function IntializeSetUp ()
                     </div>
                 </div>
             </div><br>
+<script>
+function DisplayCLinetData ()
+{
+
+	cakename = document.getElementById("cake-name-input-id").value;
+	flavours = document.getElementById("flavours-input-id").value;
+	designname = document.getElementById("design-name-input-id").value;
+	qty = document.getElementById("quantity-input-id").value;
+	deliverydata = document.getElementById("delivery-date-input-id").value;
+
+	document.getElementById("cakename-id-display").innerHTML = cakename;
+	document.getElementById("flavours-id-display").innerHTML = flavours;
+	document.getElementById("design-name-id-display").innerHTML = designname;
+	document.getElementById("qty-id-display").innerHTML = qty;
+	document.getElementById("delivery-date-id-display").innerHTML = deliverydata;
+	document.getElementById('id02').style.display='block';
+}
+
+</script>
 </body>
 </html>

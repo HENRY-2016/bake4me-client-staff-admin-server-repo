@@ -237,6 +237,89 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/*
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                        Styling Customer Order List
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+
+.list-class
+{
+    padding:15px 15px 15px 15px; font-size: 16px;
+    font-family:Times New Roman Times, serif;
+    color: blue;
+    /* float: left; */
+    margin-left: 3%;
+    margin-right: 3%;
+    text-align: left;
+
+}
+*{box-sizing: border-box;}
+
+/* Remove margins and padding from the list */
+ul {margin: 0; padding: 0;}
+
+/* Style the list items */
+ul li 
+{
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    transition: 0.2s;
+    height: 45px;
+    background:#C0C0C0;
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    /* padding: 12px; */
+    text-decoration: none;
+    display: block;
+}
+
+/* Set all odd list items to a different color  #f9f9f9 (zebra-stripes) */
+ul li:nth-child(odd) {background:#C0C0C0;}
+
+/* Darker background-color on hover */
+ul li:hover {background: #ddd;}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked 
+{ background: #888; color: #fff; text-decoration: line-through;}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+/* Style the close button */
+.close-x {
+    /* position: absolute; */
+    background-color: #f44336;
+    color: white;
+    /* top: 0; */
+    width: 20%;
+    height: 6%;
+    cursor: pointer;
+    /* align-content: center; */
+    padding: 12px 12px 12px 12px;
+}
+
+.close-x-on-lists 
+    {position: absolute; right: 0; top: 0; padding: 12px 12px 12px 12px;}
+
+.close-x-on-lists:hover {background-color: #f44336; color: white;}
+
 /*=======================================================================================================*/
                                             /*
                                                ++++++++++++++++++++++++
@@ -630,6 +713,7 @@
     }
 .autocomplete-items div:hover { background-color: blue; }
 
+#customer-selected-details-div-id{display: none;}
 
 /*=======================================================================================================*/
                                             /*

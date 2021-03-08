@@ -21,13 +21,43 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
 <script>
-    function Fatch_Cakes_Data ()
+function SetupAutocompleteNames () 
+{
+    // autocomplete(document.getElementById("cake-name-input-id"), items_names);
+    autocomplete(document.getElementById("name-input-id"),machines_names);
+}
+
+function SetUpColourNames () {ShowPaintColoursOptions("colour-input-id")	}
+function SetupAutocompleteTypes () {autocomplete(document.getElementById("type-input-id"), products_names)}
+
+function Onoline_Fatch_User_Online_Data ()
+{
+	// Add_Product_Gallery_Iframe ("plascon_emulsion_products_endpoint");
+	// Load_Movie_Names ("movie-name","a_names_endpoint");
+
+	// @ comment :: set up timing..
+	setTimeout( LoadPricesFromServer , 1000)
+	setTimeout(SetUpColourNames,2000)
+	setTimeout(SetupAutocompleteTypes,3000)
+}
+function StartBackGroundCalculation ()
+{if ($(window).focus()) {setInterval(CalculateSubtotalAutomatically,1000); setInterval(CalculateGrandtotalAutomatically,1000)};}
+
+
+function IntializeSetUp ()
 {
 	Add_Gallery_Iframe ("renderitems_machines_endpoint");
+    // LoadNamesFromServer ("utilities_cakes_names");
+    LoadMachineNamesFromServer ("utilities_machines_names");
+    GetProductsPrices("utilities_machines_prices")
+    // CreateDynamicStatusTable2 ('estimatesorders_view_cakes_status')
+	setTimeout(SetupAutocompleteNames,1000)
+    
 }
+
 </script>
 </head>
-<body class="main-body" onload="Fatch_Cakes_Data ()" >
+<body class="main-body" onload="IntializeSetUp ()" >
     <div id="main-header">
         <div  id= "Navigetion" class="header">
                 <!-- ======= CLOSE ====== -->
@@ -81,7 +111,7 @@ if (!isset($_SESSION['username'])) {
                     <span class="w3-badge w3-small w3-blue">0</span>
                 </label>
 
-               
+            
             <!-- <button class="navi-links-btns w3-button"> -->
                 <label onclick="Load_Deliveries_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Arrival  -->
@@ -90,7 +120,7 @@ if (!isset($_SESSION['username'])) {
                 </label>
             <!-- </button> -->
 				
-				    <label onclick="Load_History_Page ()" class="main-sub-navigation-links-labels">  
+				<label onclick="Load_History_Page ()" class="main-sub-navigation-links-labels">  
                     <!-- Archive  -->
                     <img src="static/imgs/bakery/archive.webp" class="archive-webp-img" >
                     <span class="w3-badge w3-small w3-blue">0</span>
@@ -159,7 +189,10 @@ if (!isset($_SESSION['username'])) {
 		<div id="menu-pics-div"></div>
 	</center>
 		<br><br>
-		<center><button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Order  </button> </center> <br>
+		<center><button class="assign-btn fontstyles" onclick="DoYourJob()"> Order  </button> </center> <br>
+        <script>
+            function DoYourJob (){document.getElementById('id01').style.display='block';StartBackGroundCalculation ();}
+        </script>
             
             <!-- 
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -175,31 +208,27 @@ if (!isset($_SESSION['username'])) {
                     <header class="w3-container w3-teal">
                         <span onclick="document.getElementById('id01').style.display='none'"
                         class="w3-button w3-display-topright">&times;</span>
-                        <label class="assign-staff-label">Post Estimate</label>
+                        <label class="assign-staff-label">Posting An Order</label>
                     </header>
                     <div class="w3-container">
                         <center><br>
-                            <form method="POST" id="chips-assign-form">
+                            <form method="POST" id="customer-estimate-form">
                                 <div class="autocomplete">
-                                    <label>Cake Name</label><br>
+                                    <label>Name</label><br>
                                     <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
                                 </div><br>
-                                <div id="customer-feedback-div-left">
-                                    <label>Flavours</label><br>
-									<input id="name-input-id" type="text" name="paint_name" placeholder="Flavours to add " class="form_input"><br>
-									<label>Design Name</label><br>
-                                    <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="form_input"><br>
 									<label>Quantity</label><br>
-                                    <input id="name-input-id" type="text" name="paint_name" placeholder="Quantities" class="form_input"><br>
+                                    <input id="qty-input-id" onchange="DisplayCostPrice ('name-input-id','qty-input-id','cost-price-id')" type="text"  name="paint_name" placeholder="Quantities" class="form_input"><br>
+                                    <input id="cost-price-id"  readonly class="form_input" type="text"  name="paint_name" placeholder="Cost" />
+                                    <input id="total-input-id" readonly class="form_input" name="paint_name" placeholder="Total" type="text"/>
 									<label>Date of Delivery</label><br>
-									<input type="date" placeholder="date" name="date" class="form_input" autocomplete="off" required>
-									<div>
-										<label class="regester-form-labels">Design Photo</label>
-										<p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
-										<p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
-										<p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
-									</div><br>
+									<input id="delivery-date-input-id" type="date" placeholder="date" name="date" class="form_input" autocomplete="off" required>
                             </form><br>
+                            <button class="submit-btn" onclick="CreatCustomerList('name-input-id','qty-input-id','cost-price-id','total-input-id','delivery-date-input-id','un-ordered-list-id')" class="add-btn-order-modal">Add</button><br><br>
+                            <center><label>Customer list</label></center>
+                                <ul id="un-ordered-list-id"></ul>
+                            <center><br><br>
+                            <input id="final-total-id" class="form_input" name="paint_name" placeholder="Final Total" type="text"/><br><br>
                             <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" >Next</button><br><br>
                             <button onclick="document.getElementById('id01').style.display='none'" type="button" class="submit-btn">Cancel</button><br><br>
                         </center>
@@ -243,15 +272,13 @@ if (!isset($_SESSION['username'])) {
                                 <label>Client Name</label><br>
                             </div><br><br>
         
-                            <button type="submit" class="submit-btn"> Done</button><br><br>
+                            <button onclick="SubmitAjaxCustomerEstimate ()" type="button" class="submit-btn"> Done</button><br><br>
                             <button onclick="document.getElementById('id02').style.display='none'" type="button" class="submit-btn">Cancel</button><br><br>
 
                         </center>
                     </div>
                 </div>
             </div><br>
-<script>
-autocomplete(document.getElementById("name-input-id"), cake_names)
-</script>
+
 </body>
 </html>
