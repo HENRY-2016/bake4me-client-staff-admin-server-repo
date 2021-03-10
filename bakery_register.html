@@ -22,7 +22,7 @@
     </div> -->
     
     
-        <form class="register-form" action="" method="POST" >
+        <form class="register-form" action="http://127.0.0.1:6060/utilities_register_bakery_customer" method="POST" >
             <label class="registering-info-label" >
                 Benefits of Creating Account<br>
             
@@ -32,30 +32,30 @@
             </label>
             <br><br>
             <label class="regester-form-labels">First Name </label>
-            <input type="text" placeholder="First Name" class="regester-form-inputs">
+            <input type="text" placeholder="First Name" name="fname" class="regester-form-inputs">
 
             <label class="regester-form-labels">Last Name </label>
-            <input type="text" placeholder="Last Name" class="regester-form-inputs">
+            <input type="text" placeholder="Last Name" name="lname" class="regester-form-inputs">
             
             <label class="regester-form-labels">Phone No </label>
-            <input type="text" placeholder="+256 " class="regester-form-inputs">
+            <input type="text" placeholder="+256 " name="contacts" class="regester-form-inputs">
             
             <label class="regester-form-labels">Email </label>
-            <input type="text" placeholder="email address" class="regester-form-inputs">
+            <input type="text" placeholder="email address" name="email" class="regester-form-inputs">
             
             <label class="regester-form-labels">Location </label>
-            <input type="text" placeholder="Location address" class="regester-form-inputs">
+            <input type="text" placeholder="Location address" name="location" class="regester-form-inputs">
             
             <label class="regester-form-labels">Password</label>
             <input type="password" placeholder="*******" class="regester-form-inputs">
             
             <label class="regester-form-labels">Confirm Password </label>
-            <input type="password" placeholder="*******" class="regester-form-inputs">
+            <input type="password" placeholder="*******" name="password" class="regester-form-inputs">
             
-            <!-- <button type="submit"  class="logout-label">Submit</button>  -->
+            <button type="submit"  class="submit-btn">Submit</button> 
             <br><br>
         </form>
-        <button onclick="Load_Client_Cakes_Page ()" class="logout-label">Create Account</button><bv><br>
+        <!-- <button onclick="Load_Client_Cakes_Page ()" class="logout-label">Create Account</button><bv><br> -->
     
     </center>
 

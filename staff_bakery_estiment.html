@@ -167,8 +167,8 @@ function IntializeSetUp ()
                         <form class="orders_from_to_form" id="details-form">
                         <center>
                             <div class="autocomplete">
-                                    <label><b>Name</label><br>
-                                    <input id="cake-name-input-id" type="text" name="name" placeholder="Type first letter" onchange="Fetch_Selected_Data ('estimateorders_view_estimate')" class="paint-name order-inputs">
+                                    <label>Name</label><br>
+                                    <input id="cake-name-input-id" type="text" name="name" placeholder="Type first letter" autocomplete="off" onchange="Fetch_Selected_Data ('estimateorders_view_estimate')" class="paint-name order-inputs">
                             </div><br>
                             </center>
                         </form>
@@ -188,8 +188,8 @@ function IntializeSetUp ()
                         <form class="orders_from_to_form" id="customer-details-form">
                         <center>
                             <div class="autocomplete">
-                                    <label><b>Customer Id</label><br>
-                                    <input id="customer-name-input-id" type="text" name="customer_key" placeholder="numeber" onchange="Fetch_Customer_Selected_Data ('get_selected_customer_data')" class="paint-name order-inputs">
+                                    <label>Customer Id</label><br>
+                                    <input id="customer-name-input-id" type="text" name="customer_key" placeholder="numeber" autocomplete="off" onchange="Fetch_Customer_Selected_Data ('get_selected_customer_data')" class="paint-name order-inputs">
                             </div><br>
                             </center>
                         </form>
@@ -212,12 +212,9 @@ function IntializeSetUp ()
                         <label id="selected-delivery"></label><br><br>
                         <label>Orderno</label><br>
                         <label id="selected-oderno"></label><br><br>
-                        
-                        <div>
-                            <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
-                            <p><label class="Browse-label" for="back-side-file">Image</label></p>
-                            <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
-                        </div><br>
+                        <label>Design Image</label><br>
+                        <div id="iframe-photo-div"></div>
+                        <label style="display: none;" id="selected-design-photo-name"></label><br><br>
                     </center>
                 </div><br>
 
@@ -248,13 +245,13 @@ function IntializeSetUp ()
                     <div class="w3-container">
                         <center><br>
                             <form action="http://127.0.0.1:6060/estimateorders_set_price" method="POST" id="customer-estimate-form">
-                                <label for="uname"><b>Number</label><br>
+                                <label for="uname">Number</label><br>
                                 <input type="text" placeholder="Order No" name="key_num" class="form_input" autocomplete="off" required>
 
-                                <label for="uname"><b>Price</label><br>
+                                <label for="uname">Price</label><br>
                                 <input type="text" placeholder="/=" name="price" class="form_input" autocomplete="off" required>
 
-                                <label for="uname"><b>Password</label><br>
+                                <label for="uname">Password</label><br>
                                 <input type="password" placeholder="your pin" name="pwd" class="form_input" autocomplete="off" required>
                             </form><br>
                             <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" > Done</button><br>
@@ -299,6 +296,7 @@ function IntializeSetUp ()
                 </div>
             </div>
             <!-- <button onclick="LoadImageFromServer ()">Image</button><br><br> -->
+            <!-- <iframe scrolling="no" id="order-pic-iframe" src="http://127.0.0.1:6060/get_image"></iframe> -->
 <script>
 // console.log("names==="+items_names_array)
 // autocomplete(document.getElementById("name-input-id"), items_names_array);

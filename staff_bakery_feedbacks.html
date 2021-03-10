@@ -10,6 +10,25 @@
 <link rel="stylesheet" href="static/css/main.css"/> 
 <link rel="stylesheet" href="static/css/mediarules.css"/> 
 <link rel="stylesheet" href="static/css/w3.css"/> 
+<script>
+// function SetUpColourNames () {ShowPaintColoursOptions("colour-input-id")	}
+function SetupAutocompleteNames () 
+{
+    // autocomplete(document.getElementById("cake-name-input-id"), items_names);
+    autocomplete(document.getElementById("name-input-id"),feedback_customer_names);
+
+}
+
+
+function IntializeSetUp ()
+{
+    // LoadNamesFromServer ("utilities_cakes_names");
+    LoadFeedBackCustomerNamesFromServer ("utilities_feedback_customer_names");
+    CreateDynamicStatusTable2 ('utilities_view_feedback_status')
+	setTimeout(SetupAutocompleteNames,1000)
+}
+
+</script>
 </head>
 <body class="main-body" onload="IntializeSetUp ()" >
     <div id="main-header">
@@ -131,34 +150,80 @@
     </script>
 
 
-     <table class="status-table" id="status-table-data-id">
-        <tr class="table-headings-tr"> <th>Customer</th><th>Queries </th> </tr>
-    </table><br>
-	
-    <div><!-- Begin New Estiments div -->
-        <center>
-             <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
-	<button class="admin-btn fontstyles"> Query Details</button>
-        <center>
-            <form class="orders_from_to_form" id="price-edit-form">
-               <div class="autocomplete">
-						<label><b>Name</label><br>
-						<input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" onchange="Fetch_Selected_Data ()" class="paint-name order-inputs">
-				</div><br>
+    <div id="status-table-div-request-id">
+        <table class="status-table" id="status-table-data-id">
+            <tr class="table-headings-tr"> <th>Name</th><th>Number </th> </tr>
+        </table>
+    </div><br>
+    
+
+	<div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+        <button class="admin-btn fontstyles">Feedback Details</button>
+            
+                <form class="orders_from_to_form" id="details-form">
+                <center>
+                    <div class="autocomplete">
+                            <label><b>Name</label><br>
+                            <input id="name-input-id" type="text" name="name" placeholder="Type first letter" autocomplete="off" onchange="Fetch_Selected_Feedback_Data ('utilities_view_feedbacks')" class="paint-name order-inputs">
+                    </div><br>
+                    </center>
+                </form>
+        <br>
+        <div id="chips-view-new-oders-div">
+            <table  class="user-scrolling-table">
+                <tbody id="results-table-tbody"></tbody>
+            </table>
+        </div>
+    </div><!-- End New Estiments div -->
+
+    
+    <br>
+    <div id="staff-work-on-div" ><!-- Begin New Estiments div -->
+        <button class="admin-btn fontstyles">Customer Feedback Details</button>
+            <form class="orders_from_to_form" id="customer-details-form">
+                <center>
+                    <div class="autocomplete">
+                        <label>Customer Id</label><br>
+                        <input id="customer-name-input-id" type="text" name="customer_key" placeholder="numeber" autocomplete="off" onchange="Fetch_Customer_Selected_Feedback_Data ('utilities_get_selected_customer_feedback_details')" class="paint-name order-inputs">
+                    </div><br>
+                </center>
             </form>
-			
-	</div><!-- End New Estiments div -->
-	</center><br>
-		<div id="chips-view-new-oders-div">
-					<table  class="user-scrolling-table">
-                        <tbody id="results-table-tbody"></tbody>
-                    </table>
-		</div><br>
-		<center>
-		<div id="bottom-btn-div-id">
-		<button class="assign-btn fontstyles" onclick="document.getElementById('id01').style.display='block'"> Feedback  </button><br><br>
-            </div>
-			</center>
+        <br>
+        <div id="customer-selected-details-div-id">
+            <center>
+                <label>Name</label><br>
+                <label id="selected-name"></label><br>
+                <label>Id</label></br>
+                <label id="selected-id"></label><br>
+                <label>Date</label><br>
+                <label id="selected-date"></label><br><br>
+                <label>Feedback</label><br>
+                <label id="selected-feedback"></label><br><br>
+                <label>Reference</label></br>
+                <label id="selected-reference"></label><br><br>
+                <label>Response</label></br>
+                <label id="selected-response"></label><br><br>
+            </center>
+        </div><br>
+    </div><!-- End New Estiments div -->
+
+    <center>
+    <div id="bottom-btn-div-id">
+    <button class="assign-btn fontstyles" onclick="DoLogic ()"> Feedback </button><br><br>
+    <script>
+        function DoLogic ()
+            {
+                customerid = document.getElementById('selected-id').innerText;
+                customername = document.getElementById('selected-name').innerText;
+                customerfeedback = document.getElementById('selected-feedback').innerText;
+                document.getElementById('key-input-id').value = customerid;
+                document.getElementById('customer-pop-up-name-label').innerHTML = customername;
+                document.getElementById('customer-pop-up-query-label').innerHTML = customerfeedback;
+                document.getElementById('id01').style.display='block';
+            }
+    </script>
+    </div>
+    </center>
             <!-- 
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -166,8 +231,7 @@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             -->
-       
-         <br>
+        <br>
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4">
                     <header class="w3-container w3-teal">
@@ -177,25 +241,21 @@
                     </header>
                     <div class="w3-container">
                         <center><br>
-                            <form action="http://192.168.43.140:6060/chips_assign_staff_name" method="POST" id="chips-assign-form">
-                                <div class="autocomplete">
-                                    <label><b>Name</label><br>
-                                    <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
-                                </div><br>
-                                <div id="customer-feedback-div-left">
-                                    <label><b>Query</label><br>
-                                    <label><b>eeeeeeeeeeeeeeeeee</label><br><br>
-                                </div>
+                            <form action="http://127.0.0.1:6060/utilities_process_feedback_response" method="POST" id="response-feedback-form">
+                                <br>
+                                <label>Key</label><br>
+                                <input id="key-input-id" type="text" name="key" placeholder="key.." class="paint-name order-inputs"><br>
+                                <label>Name</label><br>
+                                <label id="customer-pop-up-name-label"></label><br><br>
+                                <label>Customer Query</label><br>
+                                <label id="customer-pop-up-query-label" ></label><br><br>
+                                <label>Feedback</label><br>
+                                <input id="name-input-id" type="text" name="response" placeholder="Response.." class="paint-name order-inputs">
 
-                                <div id="staff-feedback-div-right">
-                                    <label><b>Query</label><br>
-                                    <input id="name-input-id" type="text" name="paint_name" placeholder="Type first letter" class="paint-name order-inputs">
-                                </div>
-
-                                <label><b>Password</label><br>
-                                <input type="text" placeholder="your pin" name="pwd" class="form_input" autocomplete="off" required>
+                                <label>Password</label><br>
+                                <input type="text" placeholder="your pin" name="password" class="form_input" autocomplete="off" required>
                             </form><br>
-                            <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" >Next</button><br>
+                            <button onclick="document.getElementById('id02').style.display='block'" type="button" class="submit-btn" >Next</button><br><br>
                         </center>
                     </div>
                 </div>
@@ -230,13 +290,11 @@
                                 <label>Name</label><br>
                             </div><br><br>
         
-                            <button type="submit" class="submit-btn"> Done</button><br>
+                            <button type="button" onclick="SubmitResponseOnFeedBackForm ()" class="submit-btn"> Done</button><br><br>
+                            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="submit-btn"> Cancel</button><br><br>
                         </center>
                     </div>
                 </div>
             </div>
-<script>
-autocomplete(document.getElementById("name-input-id"), customer_names)
-</script>
 </body>
 </html>

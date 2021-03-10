@@ -68,16 +68,23 @@ function SubmitAjaxCustomerPayment ()
 {
     document.forms["customer-payment-form"].submit();
 }
-
+function SubmitFeedBackForm ()
+{
+    document.forms["feedback-form"].submit();
+}
+function SubmitResponseOnFeedBackForm ()
+{
+    document.forms["response-feedback-form"].submit();
+}
 // Menu Gallery
 function Add_Gallery_Iframe (endpoint)
 {
     // document.getElementById("offline-label-div").style.display = "none";
     let MenuGalleryDiv = document.getElementById("menu-pics-div");
-    let MenuIframe = document.createElement("iframe");
-    MenuIframe.className = "menu-iframe";
-    MenuIframe.setAttribute("src",  data_src_url + endpoint);
-    MenuGalleryDiv.appendChild(MenuIframe); 
+    let photoiframe = document.createElement("iframe");
+    photoiframe.className = "menu-iframe";
+    photoiframe.setAttribute("src",  data_src_url + endpoint);
+    MenuGalleryDiv.appendChild(photoiframe); 
 }
 
 
@@ -199,6 +206,64 @@ function Fetch_Selected_Data  ( endpoint)
             req.send(myform);
     }
 
+
+    function Fetch_Selected_Feedback_Data  ( endpoint)
+    {
+        let req = new XMLHttpRequest();
+        req.open('post', data_src_url+endpoint,true)
+        req.onload = function ()
+            {
+                let results = JSON.parse(this.responseText);
+                if (! results || !results.length)
+                    {
+                        alert("No results found")
+                        console.log(results)
+                    }
+                else
+                    {
+                        // results = [["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "b05:53:01"], ["Henry", "Queen Cake1", "4", "add more sugar", "Car", "2021-03-05", "05:50:42"]]
+
+                        // console.log(results)
+                        // let orders = results.length;
+                        // document.getElementById("chips-status-id").innerText = orders;
+
+                        let tbody = document.getElementById('results-table-tbody');
+                        tbody.innerHTML = ' ';
+
+                        // draw table
+                        let td,tr;
+                        // add table headings
+                        let th_names = new Array ();
+                        th_names.push(["Id","Name", "Reference","Date","Response"]);
+                        let columns_to_count = th_names[0].length;
+                        row = tbody.insertRow(-1);
+                        for (let looper =0; looper<columns_to_count; ++looper)
+                            {
+                                let headerNames = document.createElement("th");
+                                headerNames.className='js_table_headers'
+                                headerNames.innerHTML = th_names[0][looper];
+                                row.appendChild(headerNames)
+                            }
+
+                        for (let table_row = 0; table_row < results.length; ++table_row)
+                            {
+                                tr = document.createElement('tr');
+                                tr.className='js_table_row';
+                                for (let table_data = 0; table_data< (results[table_row].length);++table_data)
+                                    {
+                                        td = document.createElement('td');
+                                        td.setAttribute("align", "center");
+                                        td.innerHTML = results[table_row][table_data];
+                                        tr.appendChild(td)
+                                    }
+                                    tbody.appendChild(tr)
+                            }
+                    }
+            }
+            let myform = new FormData (document.getElementById('details-form'));
+            req.send(myform);
+    }
+
 function Fetch_Customer_Selected_Data ( endpoint)
 {
     let req = new XMLHttpRequest();
@@ -223,13 +288,57 @@ function Fetch_Customer_Selected_Data ( endpoint)
                         document.getElementById("selected-design").innerHTML = results[0][4]
                         document.getElementById("selected-delivery").innerHTML = results[0][5]
                         document.getElementById("selected-oderno").innerHTML = results[0][6]
+                        document.getElementById("selected-design-photo-name").innerHTML = results[0][7]
+                    }
+            }
+        let myform = new FormData (document.getElementById('customer-details-form'));
+        req.send(myform);
+        document.getElementById("customer-selected-details-div-id").style.display='block';
+        setTimeout(Create_Estimate_Iframe_Photo,1000)
+}
+function Create_Estimate_Iframe_Photo ()
+{
+    document.getElementById("iframe-photo-div").innerHTML = '';
+
+    // let designphotoname = document.getElementById("selected-oderno").innerText
+    let designphotoname = document.getElementById("selected-design-photo-name").innerText
+    console.log(designphotoname)
+    let MenuGalleryDiv = document.getElementById("iframe-photo-div");
+    let photoiframe = document.createElement("iframe");
+    photoiframe.className = "order-pic-iframe";
+    photoiframe.setAttribute("src",  data_src_url + 'get_image/'+designphotoname);
+    photoiframe.setAttribute("scrolling","no");
+    MenuGalleryDiv.appendChild(photoiframe);
+}
+
+function Fetch_Customer_Selected_Feedback_Data ( endpoint)
+{
+    let req = new XMLHttpRequest();
+        req.open('post', data_src_url+endpoint,true)
+        req.onload = function ()
+            {
+                let results = JSON.parse(this.responseText);
+                if (! results || !results.length)
+                    {
+                        alert("No results found")
+                        // console.log(results)
+                    }
+                else
+                    {
+                        console.log("results")
+                        console.log(results)
+                        document.getElementById("selected-name").innerHTML = results[0][0]
+                        document.getElementById("selected-id").innerHTML = results[0][1]
+                        document.getElementById("selected-date").innerHTML = results[0][2]
+                        document.getElementById("selected-feedback").innerHTML = results[0][3]
+                        document.getElementById("selected-reference").innerHTML = results[0][4]
+                        document.getElementById("selected-response").innerHTML = results[0][5]
                     }
             }
         let myform = new FormData (document.getElementById('customer-details-form'));
         req.send(myform);
         document.getElementById("customer-selected-details-div-id").style.display='block';
 }
-
 function Fetch_Customer_Payment_Selected_Data ( endpoint)
 {
     let req = new XMLHttpRequest();
@@ -393,6 +502,20 @@ function LoadCustomerNamesFromServer (endpoint)
     namesrequest.open("GET", data_src_url + endpoint );    
     namesrequest.send();
 }
+var feedback_customer_names;
+function LoadFeedBackCustomerNamesFromServer (endpoint)
+{
+    let namesrequest = new XMLHttpRequest ();
+    namesrequest.onreadystatechange = function ()
+        {
+            if ( namesrequest.readyState == 4 && namesrequest.status == 200)
+                {
+                    feedback_customer_names = JSON.parse(namesrequest.responseText)
+                }
+        }
+    namesrequest.open("GET", data_src_url + endpoint );    
+    namesrequest.send();
+}
 var machines_names;
 function LoadMachineNamesFromServer (endpoint)
 {
@@ -508,6 +631,8 @@ function Fetch_School_View_Status_Selected_Data ()
 {
 document.getElementById("student-view-status-div-id").innerHTML = "Student status"	
 }
+
+
 
 
 // let customer_names = 

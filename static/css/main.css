@@ -34,7 +34,7 @@
 {
     width:60%;
     height: 800px;
-    /* margin-top: -2px; */
+    border: none;
     align-content: center;
 }
 #active-link-page
@@ -160,6 +160,11 @@
     font-weight:bold;
     color:#E6E6FA;
     font-family:Times New Roman Times, serif;
+}
+.order-pic-iframe
+{
+    border: none;
+    /* overflow: hidden; */
 }
 /* Begin status table */
 
